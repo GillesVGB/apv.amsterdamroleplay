@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Utrecht Roleplay · APV · Complete 62 artikelen · Onverkorte tekst</title>
+    <title>Utrecht Roleplay · APV</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -84,8 +84,7 @@
 <div class="docs-container">
     <div class="hero">
         <h1><i class="fas fa-gavel"></i> Utrecht Roleplay · Algemene Plaatselijke Verordening</h1>
-        <p>62 Artikelen | Officieel regelwerk voor alle spelers en staff | COMPLETE ONVERKORTE TEKST (40 pagina's)</p>
-        <div class="stats-badge"><i class="fas fa-palette"></i> Lichte pastelcategorieën · Klik op elk artikel voor de volledige, letterlijke regelgeving</div>
+        <p>62 Artikelen | Officieel regelwerk voor alle spelers en staff</p>
     </div>
     <div class="search-section">
         <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Zoek in alle 62 artikelen (bijv. 'RDM', 'metagamen', 'powergamen', 'ontvoeren')"></div>
@@ -93,7 +92,7 @@
     </div>
     <div class="main-rules">
         <!-- Strafcategorieën + uitleg zoals in document -->
-        <div class="section-title"><i class="fas fa-chart-line"></i> Strafcategorieën Overzicht (officieel uit het APV)</div>
+        <div class="section-title"><i class="fas fa-chart-line"></i> Strafcategorieën Overzicht</div>
         <table class="sanctie-tabel">
             <thead><tr><th>Categorie</th><th>Sanctie</th><th>Omschrijving</th></tr></thead>
             <tbody>
@@ -112,7 +111,7 @@
         </table>
         <p><strong>Strafverzwaring:</strong> Bij herhaling wordt de straf met een categorie verhoogd (Categorie 1 → 2 → 3, etc.).</p>
 
-        <div class="section-title"><i class="fas fa-book-open"></i> Alle 62 artikelen — letterlijke, volledige tekst uit het officiële document</div>
+        <div class="section-title"><i class="fas fa-book-open"></i>Alle 62 Artikelen:</div>
         <div id="accordion-root"></div>
         <footer>
             <i class="fas fa-ticket-alt"></i> Vragen of onduidelijkheden? Ticket aanmaken in onze Support Discord.<br>
@@ -123,12 +122,8 @@
 </div>
 
 <script>
-    // =============================================================
-    // VOLLEDIGE, ONVERKORTE TEKST VAN ALLE 62 ARTIKELEN (exact uit het 40 pagina's tellende document)
-    // Elke entry bevat de integrale uitleg, voorbeelden, strafvermeldingen en tabellen.
-    // =============================================================
     const rulesData = [
-        { num: "1", title: "Cheats & Ongeoorloofde Software", sanctie: "Categorie 9", catClass: "cat9", content: `<p><strong>Wat houdt dit in?</strong> Het gebruik van software van derden die bedoeld is om een oneerlijk voordeel te behalen in het spel is ten strengste verboden. Dit omvat alle vormen van cheats, hacks, aimbots, wallhacks, ESP, snelheidshacks, en elke andere modificatie die de normale spelervaring beïnvloedt. Ook als je op andere servers betrapt bent op cheatgebruik en wij hier duidelijk bewijs van hebben, behouden wij het recht om je te weren. Het maakt niet uit of de cheat actief gebruikt werd op Utrecht Roleplay of alleen in het systeem aanwezig was. Wij hanteren een zero-tolerancebeleid voor cheaters. Bij verdenking volgt een onderzoek; bij bewijs volgt een permanente verwijdering van de server.</p><p><strong>Straf:</strong> Directe permanente ban (Categorie 9) zonder kans op rehabilitatie, tenzij er uitzonderlijke omstandigheden zijn die ter beoordeling van het hoofdteam worden voorgelegd.</p>` },
+        { num: "1", title: "Cheats & Ongeoorloofde Software", sanctie: "Categorie 9", catClass: "cat9", content: `<p><strong>Wat houdt dit in?</strong><br> Het gebruik van software van derden die bedoeld is om een oneerlijk voordeel te behalen in het spel is ten strengste verboden. Dit omvat alle vormen van cheats, hacks, aimbots, wallhacks, ESP, snelheidshacks, en elke andere modificatie die de normale spelervaring beïnvloedt. Ook als je op andere servers betrapt bent op cheatgebruik en wij hier duidelijk bewijs van hebben, behouden wij het recht om je te weren. Het maakt niet uit of de cheat actief gebruikt werd op Utrecht Roleplay of alleen in het systeem aanwezig was. Wij hanteren een zero-tolerancebeleid voor cheaters. Bij verdenking volgt een onderzoek; bij bewijs volgt een permanente verwijdering van de server.</p><p><strong>Straf:</strong> Directe permanente ban (Categorie 9) zonder kans op rehabilitatie, tenzij er uitzonderlijke omstandigheden zijn die ter beoordeling van het hoofdteam worden voorgelegd.</p>` },
         { num: "1A", title: "Externe Software & Instellingen", sanctie: "Categorie 7", catClass: "cat7", content: `<p><strong>Wat houdt dit in?</strong> Programma's of hardware-instellingen die je een oneerlijk voordeel geven in gevechtssituaties zijn niet toegestaan. Het gaat hier om software die niet als cheat wordt gezien maar wel het speelveld onevenwichtig maakt. Voorbeelden van verboden zaken: Crosshairs (een vizier op je scherm dat niet standaard in het spel zit, ook niet ingebouwd in je monitormenu); Aangepaste resoluties (resoluties die het zicht vergroten of camerastandpunten wijzigen, bijv. ultrawide uitrekken); ReShade (kleur-, contrast- of scherpteaanpassingen die spelers beter zichtbaar maken in donkere omgevingen); Macro's (toetsenbord- of muismacro's die meerdere acties combineren in een druk). Toegestane resoluties: uitsluitend AUTO, 16:9 (bijv. 1920x1080, 2560x1440) of 16:10 (bijv. 1920x1200). Elke andere resolutie die voordeel biedt, wordt beschouwd als een overtreding. Straf: Categorie 7 (tijdelijke ban van 7 tot 14 dagen, afhankelijk van ernst en herhaling).</p>` },
         { num: "2", title: "Exploits & Bugs", sanctie: "Categorie 3 t/m 7 + Accountwipe", catClass: "cat7", content: `<p><strong>Wat houdt dit in?</strong> Een bug of exploit is een fout in het spel die onbedoeld gedrag mogelijk maakt. Het doelbewust gebruiken van zo'n fout om jezelf of anderen te bevoordelen is verboden. Je bent verplicht om bugs te melden via de daarvoor bestemde kanalen, niet om ze te misbruiken.</p><p><strong>Categorie 6 (ban 3-7 dagen):</strong> Emotes (zoals dansen, liggen, zitten) gebruiken om door muren of deuren te komen; Emotes gebruiken om te ontsnappen uit de gevangenis of andere restricted areas; Acties uitvoeren terwijl je personage dood is, zoals blijven praten of items gebruiken.</p><p><strong>Categorie 7 (ban 7-14 dagen):</strong> Het opzettelijk dupliceren (kopiëren) van in-game items, geld of voertuigen; Het niet melden van gedupliceerde items na een serverrestart of crash; Het verspreiden van gedupliceerde items naar andere spelers.</p><p><strong>Categorie 4 (ban 24-72 uur):</strong> Misbruik van de 'one punch'-bug (een onbedoelde instant-kill met een vuistslag).</p><p><strong>Accountwipe + Categorie 7:</strong> Bij vastgesteld misbruik van duplicatiebugs worden niet alleen je accountgegevens gewist (geld, items, voertuigen, eigendommen), maar ontvang je ook een ban van categorie 7. Dit geldt ook voor het ontvangen van gedupliceerde goederen als je wist of had kunnen weten dat ze niet legitiem waren.</p>` },
         { num: "2A", title: "Real-Life Handel (IRL Trade)", sanctie: "Categorie 8", catClass: "cat8", content: `<p><strong>Wat houdt dit in?</strong> Het kopen of verkopen van alles wat zich binnen de Utrecht Roleplay-server bevindt tegen echt geld is verboden. Dit beschermt de integriteit van de in-game economie en voorkomt dat geldelijke belangen het roleplay-plezier verstoren. Wat valt er onder IRL Trade? In-game geld (zwart, wit, of anders); In-game items (wapens, drugs, voertuigen, grondstoffen, huisrechten); Diensten (bijv. ik vermoord X voor Y euro echt geld); Accounts (je eigen account verkopen of een account kopen). Het maakt niet uit of de transactie plaatsvindt via PayPal, Tikkie, Cryptovaluta, Steamcadeaubonnen, of een ander medium. Ook ruilhandel waarbij een tegenprestatie buiten het spel plaatsvindt valt hieronder. Straf: Categorie 8 (ban van 14 tot 30 dagen, vaak gevolgd door een accountwipe. Bij herhaling permanente ban).</p>` },
