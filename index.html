@@ -487,7 +487,6 @@
 </script>
 </body>
 </html> -->
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -497,12 +496,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #070b10;
@@ -510,326 +504,55 @@
             line-height: 1.55;
             scroll-behavior: smooth;
         }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #121a24;
-            border-radius: 12px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2c5a74;
-            border-radius: 12px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3e7fa0;
-        }
-
-        .docs-container {
-            max-width: 1440px;
-            margin: 0 auto;
-            background: #0d131b;
-            border-radius: 0 0 32px 32px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-        }
-
-        .hero {
-            background: radial-gradient(ellipse at 80% 30%, #11212e, #070c12);
-            padding: 3rem 2.8rem 2.5rem 2.8rem;
-            border-bottom: 1px solid rgba(37,150,190,0.35);
-            position: relative;
-            text-align: center;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #2596be, transparent);
-        }
-        .hero h1 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            background: linear-gradient(125deg, #ffffff, #8ac4e0);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-        }
-        .hero-sub {
-            color: #8fbbd9;
-            margin-top: 0.8rem;
-            font-weight: 400;
-            font-size: 0.95rem;
-            text-align: center;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .badge-panel {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            justify-content: center;
-        }
-        .stat-chip {
-            background: rgba(30, 50, 70, 0.6);
-            backdrop-filter: blur(8px);
-            border-radius: 100px;
-            padding: 0.4rem 1.2rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            border: 1px solid #2e5775;
-            letter-spacing: 0.2px;
-        }
-        .stat-chip i {
-            margin-right: 6px;
-            color: #2596be;
-        }
-
-        .search-section {
-            padding: 1rem 2.2rem;
-            background: #0a1017;
-            border-bottom: 1px solid #1e2b36;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-        .search-box {
-            flex: 2;
-            min-width: 280px;
-            background: #111a24;
-            border-radius: 60px;
-            padding: 0.65rem 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border: 1px solid #284353;
-            transition: all 0.25s ease;
-        }
-        .search-box:focus-within {
-            border-color: #2596be;
-            box-shadow: 0 0 0 3px rgba(37,150,190,0.2);
-        }
-        .search-box i {
-            color: #2596be;
-            font-size: 1rem;
-        }
-        .search-box input {
-            background: transparent;
-            border: none;
-            width: 100%;
-            outline: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: #ecf9ff;
-        }
-        .search-box input::placeholder {
-            color: #5a7f9a;
-            font-weight: 400;
-        }
-        .reset-btn {
-            background: #1a2a36;
-            padding: 0.55rem 1.3rem;
-            border-radius: 60px;
-            text-decoration: none;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #cce9ff;
-            transition: 0.2s;
-            border: 1px solid #2f556b;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .reset-btn:hover {
-            background: #2a4050;
-            color: white;
-            border-color: #2596be;
-        }
-
-        .main-rules {
-            padding: 2rem 2.2rem 3rem 2.2rem;
-        }
-
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin: 1.8rem 0 1.2rem 0;
-            border-left: 4px solid #2596be;
-            padding-left: 1rem;
-            letter-spacing: -0.3px;
-            color: #f0f6fe;
-        }
-
-        .sanctie-tabel {
-            width: 100%;
-            border-collapse: collapse;
-            background: #0f1822;
-            margin: 1.5rem 0 2rem 0;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid #253f4f;
-            font-size: 0.85rem;
-        }
-        .sanctie-tabel th {
-            background: #0f1a24;
-            padding: 1rem 1.2rem;
-            text-align: left;
-            font-weight: 600;
-            color: #bbdef5;
-            border-bottom: 1px solid #1f3948;
-        }
-        .sanctie-tabel td {
-            padding: 0.85rem 1.2rem;
-            border-bottom: 1px solid #1a2e3c;
-            color: #cde4f5;
-        }
-
-        .cat-badge {
-            display: inline-block;
-            padding: 0.2rem 0.9rem;
-            border-radius: 40px;
-            font-weight: 700;
-            font-size: 0.7rem;
-            letter-spacing: 0.2px;
-        }
-        .bg-cat0 { background: #2e4b66; color: white; }
-        .bg-cat1 { background: #1e7e6b; color: white; }
-        .bg-cat2 { background: #2f6e9e; color: white; }
-        .bg-cat3 { background: #cf7c2c; color: white; }
-        .bg-cat4 { background: #c95151; color: white; }
-        .bg-cat5 { background: #8a5eb0; color: white; }
-        .bg-cat6 { background: #3e7fb0; color: white; }
-        .bg-cat7 { background: #468c7a; color: white; }
-        .bg-cat8 { background: #d4922b; color: white; }
-        .bg-cat9 { background: #b3475c; color: white; }
-        .bg-var { background: #4f6f8c; color: white; }
-
-        .rule-card {
-            background: #0f1822;
-            border-radius: 20px;
-            margin-bottom: 1rem;
-            border: 1px solid #253f50;
-            transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
-        }
-        .rule-card:hover {
-            border-color: #3b6f8a;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-            transform: translateY(-1px);
-        }
-        .rule-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 1.8rem;
-            cursor: pointer;
-            background: #0f1822;
-            border-radius: 20px;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            transition: background 0.2s;
-        }
-        .rule-header:hover {
-            background: #14212e;
-        }
-        .rule-title {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .rule-nummer {
-            background: #1f364a;
-            padding: 0.25rem 0.9rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.7rem;
-            color: #a3d4f0;
-        }
-        .rule-naam {
-            font-weight: 600;
-            font-size: 1rem;
-            color: #eaf3fd;
-            letter-spacing: -0.2px;
-        }
-        .sanction-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0.35rem 1.2rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.7rem;
-            backdrop-filter: blur(4px);
-        }
-        .cat0 { background: #2e4b66; color: white; }
-        .cat1 { background: #1e7e6b; color: white; }
-        .cat2 { background: #2f6e9e; color: white; }
-        .cat3 { background: #cf7c2c; color: white; }
-        .cat4 { background: #c95151; color: white; }
-        .cat5 { background: #8a5eb0; color: white; }
-        .cat6 { background: #3e7fb0; color: white; }
-        .cat7 { background: #468c7a; color: white; }
-        .cat8 { background: #d4922b; color: white; }
-        .cat9 { background: #b3475c; color: white; }
-        .cat-var { background: #4f6f8c; color: white; }
-
-        .rule-content {
-            display: none;
-            padding: 0.2rem 1.8rem 1.8rem 1.8rem;
-            border-top: 1px solid #1e3a4a;
-            background: #0b131d;
-            font-size: 0.9rem;
-            color: #d2e5f5;
-            line-height: 1.55;
-            border-radius: 0 0 20px 20px;
-        }
-        .rule-content.open {
-            display: block;
-        }
-        .rule-content p, .rule-content ul {
-            margin: 0.8rem 0;
-        }
-        .rule-content li {
-            margin-left: 1.5rem;
-            margin-bottom: 0.3rem;
-        }
-        .rule-content strong {
-            color: #7fc9e8;
-            font-weight: 600;
-        }
-
-        footer {
-            background: #080e14;
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.7rem;
-            border-top: 1px solid #1f2f3c;
-            color: #7a9bbb;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 750px) {
-            .hero { padding: 1.5rem; }
-            .main-rules { padding: 1rem; }
-            .rule-header { flex-direction: column; align-items: flex-start; }
-            .section-title { font-size: 1.3rem; }
-        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #121a24; border-radius: 12px; }
+        ::-webkit-scrollbar-thumb { background: #2c5a74; border-radius: 12px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3e7fa0; }
+        .docs-container { max-width: 1440px; margin: 0 auto; background: #0d131b; border-radius: 0 0 32px 32px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        .hero { background: radial-gradient(ellipse at 80% 30%, #11212e, #070c12); padding: 3rem 2.8rem 2.5rem 2.8rem; border-bottom: 1px solid rgba(37,150,190,0.35); position: relative; text-align: center; }
+        .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, #2596be, transparent); }
+        .hero h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; background: linear-gradient(125deg, #ffffff, #8ac4e0); background-clip: text; -webkit-background-clip: text; color: transparent; display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%; }
+        .hero-sub { color: #8fbbd9; margin-top: 0.8rem; font-weight: 400; font-size: 0.95rem; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .badge-panel { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; justify-content: center; }
+        .stat-chip { background: rgba(30, 50, 70, 0.6); backdrop-filter: blur(8px); border-radius: 100px; padding: 0.4rem 1.2rem; font-size: 0.75rem; font-weight: 500; border: 1px solid #2e5775; }
+        .stat-chip i { margin-right: 6px; color: #2596be; }
+        .search-section { padding: 1rem 2.2rem; background: #0a1017; border-bottom: 1px solid #1e2b36; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+        .search-box { flex: 2; min-width: 280px; background: #111a24; border-radius: 60px; padding: 0.65rem 1.4rem; display: flex; align-items: center; gap: 12px; border: 1px solid #284353; transition: all 0.25s ease; }
+        .search-box:focus-within { border-color: #2596be; box-shadow: 0 0 0 3px rgba(37,150,190,0.2); }
+        .search-box i { color: #2596be; font-size: 1rem; }
+        .search-box input { background: transparent; border: none; width: 100%; outline: none; font-size: 0.9rem; font-weight: 400; color: #ecf9ff; }
+        .search-box input::placeholder { color: #5a7f9a; }
+        .reset-btn { background: #1a2a36; padding: 0.55rem 1.3rem; border-radius: 60px; text-decoration: none; font-size: 0.7rem; font-weight: 600; color: #cce9ff; transition: 0.2s; border: 1px solid #2f556b; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .reset-btn:hover { background: #2a4050; color: white; border-color: #2596be; }
+        .main-rules { padding: 2rem 2.2rem 3rem 2.2rem; }
+        .section-title { font-size: 1.6rem; font-weight: 600; margin: 1.8rem 0 1.2rem 0; border-left: 4px solid #2596be; padding-left: 1rem; letter-spacing: -0.3px; color: #f0f6fe; }
+        .sanctie-tabel { width: 100%; border-collapse: collapse; background: #0f1822; margin: 1.5rem 0 2rem 0; border-radius: 24px; overflow: hidden; border: 1px solid #253f4f; font-size: 0.85rem; }
+        .sanctie-tabel th { background: #0f1a24; padding: 1rem 1.2rem; text-align: left; font-weight: 600; color: #bbdef5; border-bottom: 1px solid #1f3948; }
+        .sanctie-tabel td { padding: 0.85rem 1.2rem; border-bottom: 1px solid #1a2e3c; color: #cde4f5; }
+        .cat-badge { display: inline-block; padding: 0.2rem 0.9rem; border-radius: 40px; font-weight: 700; font-size: 0.7rem; }
+        .bg-cat0 { background: #2e4b66; color: white; } .bg-cat1 { background: #1e7e6b; color: white; } .bg-cat2 { background: #2f6e9e; color: white; }
+        .bg-cat3 { background: #cf7c2c; color: white; } .bg-cat4 { background: #c95151; color: white; } .bg-cat5 { background: #8a5eb0; color: white; }
+        .bg-cat6 { background: #3e7fb0; color: white; } .bg-cat7 { background: #468c7a; color: white; } .bg-cat8 { background: #d4922b; color: white; }
+        .bg-cat9 { background: #b3475c; color: white; } .bg-var { background: #4f6f8c; color: white; }
+        .rule-card { background: #0f1822; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #253f50; transition: all 0.2s cubic-bezier(0.2, 0, 0, 1); }
+        .rule-card:hover { border-color: #3b6f8a; box-shadow: 0 8px 24px rgba(0,0,0,0.3); transform: translateY(-1px); }
+        .rule-header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.8rem; cursor: pointer; background: #0f1822; border-radius: 20px; flex-wrap: wrap; gap: 0.8rem; transition: background 0.2s; }
+        .rule-header:hover { background: #14212e; }
+        .rule-title { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+        .rule-nummer { background: #1f364a; padding: 0.25rem 0.9rem; border-radius: 50px; font-weight: 700; font-size: 0.7rem; color: #a3d4f0; }
+        .rule-naam { font-weight: 600; font-size: 1rem; color: #eaf3fd; letter-spacing: -0.2px; }
+        .sanction-badge { display: inline-flex; align-items: center; gap: 8px; padding: 0.35rem 1.2rem; border-radius: 60px; font-weight: 600; font-size: 0.7rem; backdrop-filter: blur(4px); }
+        .cat0 { background: #2e4b66; color: white; } .cat1 { background: #1e7e6b; color: white; } .cat2 { background: #2f6e9e; color: white; }
+        .cat3 { background: #cf7c2c; color: white; } .cat4 { background: #c95151; color: white; } .cat5 { background: #8a5eb0; color: white; }
+        .cat6 { background: #3e7fb0; color: white; } .cat7 { background: #468c7a; color: white; } .cat8 { background: #d4922b; color: white; }
+        .cat9 { background: #b3475c; color: white; } .cat-var { background: #4f6f8c; color: white; }
+        .rule-content { display: none; padding: 0.2rem 1.8rem 1.8rem 1.8rem; border-top: 1px solid #1e3a4a; background: #0b131d; font-size: 0.9rem; color: #d2e5f5; line-height: 1.55; border-radius: 0 0 20px 20px; }
+        .rule-content.open { display: block; }
+        .rule-content p, .rule-content ul { margin: 0.8rem 0; }
+        .rule-content li { margin-left: 1.5rem; margin-bottom: 0.3rem; }
+        .rule-content strong { color: #7fc9e8; font-weight: 600; }
+        footer { background: #080e14; text-align: center; padding: 1.5rem; font-size: 0.7rem; border-top: 1px solid #1f2f3c; color: #7a9bbb; margin-top: 2rem; }
+        @media (max-width: 750px) { .hero { padding: 1.5rem; } .main-rules { padding: 1rem; } .rule-header { flex-direction: column; align-items: flex-start; } .section-title { font-size: 1.3rem; } }
     </style>
 </head>
 <body>
@@ -844,10 +567,7 @@
         </div>
     </div>
     <div class="search-section">
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Zoek in alle 62 artikelen (bijv. 'RDM', 'metagamen', 'powergamen', 'ontvoeren')">
-        </div>
+        <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Zoek in alle 62 artikelen (bijv. 'RDM', 'metagamen', 'powergamen')"></div>
         <div class="reset-btn" id="resetFilterBtn">Wis filter</div>
     </div>
     <div class="main-rules">
@@ -858,126 +578,124 @@
                 <tr><td><span class="cat-badge bg-cat0">Categorie 0</span></td><td>Mondelinge waarschuwing</td><td>Informeel / eerste lichte fout, geen ban.</td></tr>
                 <tr><td><span class="cat-badge bg-cat1">Categorie 1</span></td><td>Waarschuwing + taken</td><td>Kleine overtredingen: karakter breken, earrape, taal, lichte failRP.</td></tr>
                 <tr><td><span class="cat-badge bg-cat2">Categorie 2</span></td><td>30 taken taakstraf</td><td>Middelgroot: NLR, criminele basisregels, rippen zonder indicatie, gangwar basis.</td></tr>
-                <tr><td><span class="cat-badge bg-cat3">Categorie 3</span></td><td>50 taken taakstraf</td><td>Ernstig: powergamen, metagamen, stream sniping, AFK omzeilen, onder dreiging houden.</td></tr>
-                <tr><td><span class="cat-badge bg-cat4">Categorie 4</span></td><td>1 dag ban</td><td>Zeer ernstig: RDM, failRP (structureel), NVOL, combatloggen, VDM meerdere slachtoffers.</td></tr>
-                <tr><td><span class="cat-badge bg-cat5">Categorie 5</span></td><td>2 dagen ban</td><td>Zwaar: schelden ziektes, toxiciteit, erotische RP, gang-warns, wraak op whitelisted jobs.</td></tr>
-                <tr><td><span class="cat-badge bg-cat6">Categorie 6</span></td><td>3 dagen ban</td><td>Structureel: streamers in kwaad daglicht, corruptie hulpdiensten, racisme, haatzaaien.</td></tr>
-                <tr><td><span class="cat-badge bg-cat7">Categorie 7</span></td><td>1 week ban</td><td>Extreem: combatgedrag (alleen vechten), externe software, duplicatie-exploits.</td></tr>
-                <tr><td><span class="cat-badge bg-cat8">Categorie 8</span></td><td>Permanente verbanning</td><td>Economische fraude: IRL trade, startersgeld misbruik, alt-fraude, goederen weggeven.</td></tr>
+                <tr><td><span class="cat-badge bg-cat3">Categorie 3</span></td><td>50 taken taakstraf</td><td>Ernstig: powergamen, metagamen, stream sniping, AFK omzeilen.</td></tr>
+                <tr><td><span class="cat-badge bg-cat4">Categorie 4</span></td><td>1 dag ban</td><td>Zeer ernstig: RDM, failRP (structureel), NVOL, combatloggen, VDM.</td></tr>
+                <tr><td><span class="cat-badge bg-cat5">Categorie 5</span></td><td>2 dagen ban</td><td>Zwaar: schelden ziektes, toxiciteit, erotische RP, gang-warns.</td></tr>
+                <tr><td><span class="cat-badge bg-cat6">Categorie 6</span></td><td>3 dagen ban</td><td>Structureel: streamers in kwaad daglicht, corruptie, racisme.</td></tr>
+                <tr><td><span class="cat-badge bg-cat7">Categorie 7</span></td><td>1 week ban</td><td>Extreem: combatgedrag, externe software, duplicatie-exploits.</td></tr>
+                <tr><td><span class="cat-badge bg-cat8">Categorie 8</span></td><td>Permanente verbanning</td><td>Economische fraude: IRL trade, startersgeld misbruik, alt-fraude.</td></tr>
                 <tr><td><span class="cat-badge bg-cat9">Categorie 9</span></td><td>Permanente ban + account wipe</td><td>Cheats, hacks, alt misbruik, bedreiging/doxing.</td></tr>
-                <tr><td><span class="cat-badge bg-var">Variabel</span></td><td>Afhankelijk van context</td><td>Hoogte van de straf, /report gebruik, staff limiet, situationeel.</td></tr>
+                <tr><td><span class="cat-badge bg-var">Variabel</span></td><td>Afhankelijk van context</td><td>Hoogte van de straf, /report gebruik, staff limiet.</td></tr>
             </tbody>
         </table>
         <p><strong>Strafverzwaring:</strong> Bij herhaling wordt de straf met een categorie verhoogd (Categorie 1 → 2 → 3, etc.).</p>
-
         <div class="section-title">Alle 62 Artikelen (klik voor volledige tekst)</div>
         <div id="accordion-root"></div>
-        <footer>
-            Vragen of onduidelijkheden? Ticket aanmaken in onze Support Discord.<br>
-            © 2026 Utrecht Roleplay — Gezond verstand gaat boven alle regels — Roleplay draait om samen plezier.<br>
-            Volledige, onverkorte APV-tekst zoals vastgesteld door Utrecht Roleplay.
-        </footer>
+        <footer>Vragen of onduidelijkheden? Ticket aanmaken in onze Support Discord.<br>© 2026 Utrecht Roleplay — Gezond verstand gaat boven alle regels — Roleplay draait om samen plezier.<br>Volledige, onverkorte APV-tekst zoals vastgesteld door Utrecht Roleplay.</footer>
     </div>
 </div>
 
 <script>
-    // =============================================================
-    // VOLLEDIGE 62 ARTIKELEN met complete, onverkorte tekst uit het originele document
-    // Elk artikel heeft een sanctie en volledige uitleg
-    // =============================================================
-    const allRules = [
-        { num: "1", title: "Cheats & Ongeoorloofde Software", sanctie: "Categorie 9", catClass: "cat9", content: "<p><strong>Wat houdt dit in?</strong><br>Het gebruik van software van derden die bedoeld is om een oneerlijk voordeel te behalen in het spel is ten strengste verboden. Dit omvat alle vormen van cheats, hacks, aimbots, wallhacks, ESP, snelheidshacks, en elke andere modificatie die de normale spelervaring beïnvloedt. Ook als je op andere servers betrapt bent op cheatgebruik en wij hier duidelijk bewijs van hebben, behouden wij het recht om je te weren. Het maakt niet uit of de cheat actief gebruikt werd op Utrecht Roleplay of alleen in het systeem aanwezig was. Wij hanteren een zero-tolerancebeleid voor cheaters. Bij verdenking volgt een onderzoek; bij bewijs volgt een permanente verwijdering van de server.</p><p><strong>Straf:</strong> Directe permanente ban (Categorie 9) zonder kans op rehabilitatie, tenzij uitzonderlijke omstandigheden ter beoordeling van het hoofdteam.</p>" },
-        { num: "1A", title: "Externe Software & Instellingen", sanctie: "Categorie 7", catClass: "cat7", content: "<p><strong>Wat houdt dit in?</strong><br>Programma's of hardware-instellingen die je een oneerlijk voordeel geven in gevechtssituaties zijn niet toegestaan. Het gaat hier om software die niet als cheat wordt gezien maar wel het speelveld onevenwichtig maakt. Voorbeelden van verboden zaken: Crosshairs (een vizier op je scherm dat niet standaard in het spel zit, ook niet ingebouwd in je monitormenu); Aangepaste resoluties (resoluties die het zicht vergroten of camerastandpunten wijzigen, bijv. ultrawide uitrekken); ReShade (kleur-, contrast- of scherpteaanpassingen die spelers beter zichtbaar maken in donkere omgevingen); Macro's (toetsenbord- of muismacro's die meerdere acties combineren in een druk). Toegestane resoluties: uitsluitend AUTO, 16:9 (bijv. 1920x1080, 2560x1440) of 16:10 (bijv. 1920x1200). Elke andere resolutie die voordeel biedt, wordt beschouwd als een overtreding.</p><p><strong>Straf:</strong> Categorie 7 (tijdelijke ban van 7 tot 14 dagen, afhankelijk van ernst en herhaling).</p>" },
-        { num: "2", title: "Exploits & Bugs", sanctie: "Categorie 3 t/m 7 + wipe", catClass: "cat7", content: "<p><strong>Wat houdt dit in?</strong><br>Een bug of exploit is een fout in het spel die onbedoeld gedrag mogelijk maakt. Het doelbewust gebruiken van zo'n fout om jezelf of anderen te bevoordelen is verboden. Je bent verplicht om bugs te melden via de daarvoor bestemde kanalen, niet om ze te misbruiken.</p><p><strong>Categorie 6 (ban 3-7 dagen):</strong> Emotes (zoals dansen, liggen, zitten) gebruiken om door muren of deuren te komen; Emotes gebruiken om te ontsnappen uit de gevangenis of andere restricted areas; Acties uitvoeren terwijl je personage dood is, zoals blijven praten of items gebruiken.</p><p><strong>Categorie 7 (ban 7-14 dagen) + Accountwipe:</strong> Het opzettelijk dupliceren (kopiëren) van in-game items, geld of voertuigen; Het niet melden van gedupliceerde items na een serverrestart of crash; Het verspreiden van gedupliceerde items naar andere spelers.</p><p><strong>Categorie 4 (ban 24-72 uur):</strong> Misbruik van de 'one punch'-bug (een onbedoelde instant-kill met een vuistslag). Bij vastgesteld misbruik van duplicatiebugs worden accountgegevens gewist en ontvang je een ban van categorie 7.</p><p><strong>Straf:</strong> Afhankelijk van ernst: Categorie 4, 6 of 7 + mogelijke accountwipe.</p>" },
-        { num: "2A", title: "Real-Life Handel (IRL Trade)", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Het kopen of verkopen van alles wat zich binnen de Utrecht Roleplay-server bevindt tegen echt geld is verboden. Dit beschermt de integriteit van de in-game economie en voorkomt dat geldelijke belangen het roleplay-plezier verstoren. Wat valt er onder IRL Trade? In-game geld (zwart, wit, of anders); In-game items (wapens, drugs, voertuigen, grondstoffen, huisrechten); Diensten (bijv. ik vermoord X voor Y euro echt geld); Accounts (je eigen account verkopen of een account kopen). Het maakt niet uit of de transactie plaatsvindt via PayPal, Tikkie, Cryptovaluta, Steamcadeaubonnen, of een ander medium. Ook ruilhandel waarbij een tegenprestatie buiten het spel plaatsvindt valt hieronder.</p><p><strong>Straf:</strong> Categorie 8 (ban van 14 tot 30 dagen, vaak gevolgd door een accountwipe. Bij herhaling permanente ban).</p>" },
-        { num: "3", title: "Alt Characters", sanctie: "Categorie 9", catClass: "cat9", content: "<p><strong>Wat houdt dit in?</strong><br>Een alt character (alternatief account) is een extra account waarmee je op de server speelt naast je hoofdaccount. Het hebben van een alt is op zich niet altijd verboden, maar wel het gebruik ervan voor oneerlijke doeleinden. Verboden handelingen: Geld of items overdragen van je alt naar je hoofdaccount of andersom; Je alt gebruiken om extra startersgeld, gratis items of andere voordelen te verzamelen; Je alt inzetten om je hoofdaccount te helpen in conflicten (bijv. als verkenner of extra schutter); Het omzeilen van een actieve ban door een nieuw account aan te maken (spoofing). Toegestaan: Een tweede karakter op hetzelfde account (via F5 of vergelijkbaar systeem) is toegestaan, mits je beide personages als losse individuen roleplayt en geen voordelen overdraagt.</p><p><strong>Straf:</strong> Categorie 9 (permanente ban voor alle betrokken accounts, inclusief IP- en hardware-blokkade bij herhaling).</p>" },
-        { num: "3A", title: "Startersgeld", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Iedere nieuwe speler ontvangt eenmalig startersgeld om een vliegende start te kunnen maken. Dit geld is bedoeld om je eigen personage op te bouwen, niet om weg te geven aan anderen. Verboden situaties: Je geeft je startersgeld aan een andere speler zonder de intentie om zelf actief te gaan spelen; Je wacht de verplichte speeltijd af (bijv. door AFK te zijn) en maakt dan pas het geld over naar iemand anders; Je maakt een nieuw account aan om opnieuw startersgeld te krijgen en geeft dat weg. Let op: Zowel gever als ontvanger krijgen dezelfde straf.</p><p><strong>Straf:</strong> Categorie 8 (ban 14-30 dagen + accountwipe voor beide partijen).</p>" },
-        { num: "4", title: "Bedreiging & Intimidatie", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Gedragingen buiten het spel om die andere spelers of staffleden angst aanjagen, deren of benadelen zijn ten strengste verboden. De server is een veilige omgeving voor iedereen. Specifieke verboden handelingen: Real-life bedreigingen: Het dreigen met fysiek geweld, het beschadigen van eigendommen, of andere vormen van intimidatie in het echte leven; Doxing: Het openbaar maken van privégegevens zoals woonadres, telefoonnummer, e-mailadres, of namen van familieleden; DDoS-aanvallen: Het opzettelijk lamleggen van iemands internetverbinding of computer. Belangrijk: Deze regels gelden ook voor grapjes. \"Het was maar een grap\" is geen excuus als de ontvanger zich bedreigd voelt.</p><p><strong>Straf:</strong> Categorie 8 (directe permanente ban, vaak in combinatie met een melding bij de autoriteiten bij ernstige bedreigingen).</p>" },
-        { num: "5", title: "Fail RP", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Fail RP (Fail Roleplay) omvat alle situaties waarin je handelt op een manier die niet past binnen de realistische wereld van Utrecht Roleplay. De kernvraag is altijd: \"Zou dit in het echt ook kunnen gebeuren?\"</p><p><strong>Verboden voorbeelden:</strong> Geen roleplay vertonen bij ernstige verwondingen of aanrijdingen (bijv. doorrennen met een gebroken been); Emotes spammen zonder roleplay-doel; Praten via portofoon of telefoon terwijl je onder water bent; Het F6-menu gebruiken om scenario's te ontlopen; Zomaar iemands banden leksteken zonder goede roleplay-reden; Praten terwijl je personage dood is (maak dan een report aan); Alleen je eigen belang nastreven ten koste van andermans roleplay. Medische regel: Als een burger doodgeschoten is, moet medisch personeel hem/haar meenemen naar het ziekenhuis voor behandeling. Behandeling ter plekke is niet toegestaan.</p><p><strong>Verwondingen uitspelen:</strong> Je moet verwondingen uitspelen bij: over de kop gaan (>40 km/u), crash tegen onverwoestbaar object (>85 km/u), crash tegen ander voertuig (>85 km/u), crash met motor (>55 km/u), van motor afgeschoten worden (>55 km/u).</p><p><strong>Banden schieten:</strong> Toegestaan wanneer: jij of je gang wordt gewaarschuwd om stil te staan; je wordt langer dan 5 minuten achtervolgd door minimaal 2 politievoertuigen; je iemand twee keer hebt gewaarschuwd om af te koppelen; je al beschoten bent; je ziet dat iemand een vuurwapen draagt.</p><p><strong>Mengen met politiescenario's:</strong> Niet toegestaan: meerijden met politieachtervolging als toeschouwer; stil staan of lopen bij een staandehouding; actief mengen zonder dat je er deel van uitmaakt.</p><p><strong>Voertuig stelen:</strong> Toegestaan: onbemand voertuig langs de weg. Niet toegestaan: stelen terwijl eigenaar bezig is met in-/uitladen, tanken of repareren.</p><p><strong>Campen op drugslocaties:</strong> Campen is langer dan 2 minuten verblijven met als doel illegale activiteiten te verrichten. Verboden: wachten om goederen uit bus te halen, voertuig mee te nemen, mensen te beroven, stil staan bij witwaslocaties.</p><p><strong>Loading screens & Appartementen campen:</strong> Misbruiken van laadschermen verboden; speler uit loading screen moet tijd krijgen om te reageren. Appartementen campen is toegestaan maar nooit op dezelfde postcode.</p><p><strong>Straf:</strong> Categorie 4 (ban 24-72 uur).</p>" },
-        { num: "6", title: "Powergamen", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Powergamen is het opzettelijk veranderen van een roleplay-scenario door onrealistische elementen toe te voegen, waardoor de andere partij geen kans krijgt om realistisch te reageren. Het draait om het forceren van een uitkomst.</p><p><strong>Verboden handelingen:</strong> Vluchten in appartement tijdens scenario; Wapen wegstoppen binnen 10 minuten; DEL-menu misbruiken (ID's vinden); Eiland gebruiken om RDM te omzeilen; Medisch personeel dwingen te reanimeren; Communicatie onder water/praten terwijl dood; Overheidsmedewerkers ontvoeren voor MEOS; Fouilleren onder dwang; Handen omhoog misbruik (10 sec afkoel). Emote abuse, third-person misbruik, vastbinden alleen via F6/tiewraps. Campen bij beschermde locaties (politiebureaus, DSI, ziekenhuizen, erkende gangterreinen) is verboden.</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" },
-        { num: "7", title: "Karakter breken / OOC", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Alles wat buiten je personage (Out Of Character) valt, hoort niet thuis in de in-character wereld. Je speelt een rol; blijf in die rol. Verboden woorden/termen: \"staff\" (zeg \"de autoriteiten\" of \"de beheerders\"), \"broodje\" (report/ticket), \"tickets\", \"refund\", \"bug\". Alleen Nederlands en Engels zijn toegestaan in de IC-wereld. Ook in de portofoon mag je je karakter niet breken. Het is verboden om in de stad te praten over een ban of warn.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing of korte ban 0-6 uur).</p>" }
-    ];
+// =============================================================
+// COMPLETE 62 ARTIKELEN - VOLLEDIGE ONVERKORTE TEKST
+// =============================================================
+const allRules = [
+    { num: "1", title: "Cheats & Ongeoorloofde Software", sanctie: "Categorie 9", catClass: "cat9", content: "<p><strong>Wat houdt dit in?</strong><br>Het gebruik van software van derden die bedoeld is om een oneerlijk voordeel te behalen in het spel is ten strengste verboden. Dit omvat alle vormen van cheats, hacks, aimbots, wallhacks, ESP, snelheidshacks, en elke andere modificatie die de normale spelervaring beïnvloedt. Ook als je op andere servers betrapt bent op cheatgebruik en wij hier duidelijk bewijs van hebben, behouden wij het recht om je te weren. Wij hanteren een zero-tolerancebeleid voor cheaters.</p><p><strong>Straf:</strong> Directe permanente ban (Categorie 9) zonder kans op rehabilitatie.</p>" },
+    { num: "1A", title: "Externe Software & Instellingen", sanctie: "Categorie 7", catClass: "cat7", content: "<p><strong>Wat houdt dit in?</strong><br>Programma's of hardware-instellingen die je een oneerlijk voordeel geven in gevechtssituaties zijn niet toegestaan. Verboden: crosshairs, aangepaste resoluties (alleen AUTO/16:9/16:10), ReShade, macro's.</p><p><strong>Straf:</strong> Categorie 7 (tijdelijke ban van 7 tot 14 dagen).</p>" },
+    { num: "2", title: "Exploits & Bugs", sanctie: "Categorie 3 t/m 7 + wipe", catClass: "cat7", content: "<p><strong>Wat houdt dit in?</strong><br>Een bug of exploit doelbewust gebruiken is verboden. Je bent verplicht bugs te melden. Emotes misbruik (cat6), duplicatie (cat7+wipe), one punch bug (cat4).</p><p><strong>Straf:</strong> Afhankelijk van ernst: Categorie 4, 6 of 7 + accountwipe bij duplicatie.</p>" },
+    { num: "2A", title: "Real-Life Handel (IRL Trade)", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Het kopen of verkopen van in-game geld, items, diensten of accounts tegen echt geld is verboden. Transacties via PayPal, crypto, etc.</p><p><strong>Straf:</strong> Categorie 8 (ban 14-30 dagen + accountwipe, bij herhaling permanent).</p>" },
+    { num: "3", title: "Alt Characters", sanctie: "Categorie 9", catClass: "cat9", content: "<p><strong>Wat houdt dit in?</strong><br>Verboden: geld/items overdragen tussen alts, extra startersgeld, alt als verkenner, ban omzeilen. Toegestaan: 2e karakter op zelfde account.</p><p><strong>Straf:</strong> Categorie 9 (permanente ban voor alle accounts).</p>" },
+    { num: "3A", title: "Startersgeld", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Startersgeld is eenmalig en mag niet worden weggegeven aan anderen.</p><p><strong>Straf:</strong> Categorie 8 (ban 14-30 dagen + accountwipe voor beide partijen).</p>" },
+    { num: "4", title: "Bedreiging & Intimidatie", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Real-life bedreigingen, doxing, DDoS-aanvallen zijn ten strengste verboden.</p><p><strong>Straf:</strong> Categorie 8 (directe permanente ban + melding autoriteiten).</p>" },
+    { num: "5", title: "Fail RP", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Fail RP: geen roleplay bij verwondingen, emotespam, praten onder water, banden leksteken zonder reden. Medische regel: doden naar ziekenhuis. Verwondingen uitspelen: over kop >40 km/u, crash >85 km/u. Banden schieten alleen bij waarschuwing/achtervolging. Campen op drugslocaties verboden.</p><p><strong>Straf:</strong> Categorie 4 (ban 24-72 uur).</p>" },
+    { num: "6", title: "Powergamen", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Powergamen: vluchten in appartement, wapen wegstoppen <10 min, DEL-menu misbruik, ambulance dwingen, emote abuse, campen bij politiebureau/ziekenhuis.</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" },
+    { num: "7", title: "Karakter breken / OOC", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Verboden OOC-woorden: staff, broodje, tickets, refund, bug. Alleen Nederlands/Engels. Ban/warn vermelden verboden.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing of korte ban 0-6 uur).</p>" },
+    { num: "8", title: "Copbaiten", sanctie: "Categorie 1-4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Copbaiten is het doelbewust uitlokken van politie-reacties zonder geldige roleplay-reden. Basis copbaiten cat1, zwaar copbaiten cat4.</p><p><strong>Straf:</strong> Categorie 1-4 afhankelijk van ernst.</p>" },
+    { num: "9", title: "No Value of Life (NVOL)", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Je bent verplicht waarde te hechten aan je personageleven. Zelfmoord, noodknop onder schot, porto onder schot, dekking voertuig. Gunpoint 15-20m. Meewerken bij wapendreiging.</p><p><strong>Straf:</strong> Categorie 4 (ban 24-72 uur). Bij herhaling wapen inleveren.</p>" },
+    { num: "10", title: "New Life Rule (NLR)", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Na overlijden vergeet je alles van dat scenario. Je mag niet meer deelnemen aan hetzelfde conflict.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" },
+    { num: "11", title: "Microfoon", sanctie: "Categorie 1-2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Push-to-talk verplicht, voice changer alleen onderwereld. Soundpad met admin-toestemming.</p><p><strong>Straf:</strong> Categorie 1-2 (waarschuwing tot ban 6-24 uur).</p>" },
+    { num: "12", title: "Earrape", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Overmatig lawaai, schreeuwen, pijngeluiden. Structureel of opzettelijk overlast.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing of korte ban 0-6 uur).</p>" },
+    { num: "13", title: "VDM", sanctie: "Categorie 2 of 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Voertuig opzettelijk als wapen gebruiken. 1 slachtoffer cat2, meerdere cat4.</p><p><strong>Straf:</strong> Categorie 2 (6-24u) of Categorie 4 (3-7d).</p>" },
+    { num: "14", title: "RDM", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Willekeurig doden zonder RP-reden. Geen geldige reden: aanrijding, weigeren dansen. Wel Birdy-uitdaging. Kill on Sight = RDM.</p><p><strong>Straf:</strong> Eerste keer Categorie 4 (24-72u), tweede keer + wapen inleveren.</p>" },
+    { num: "15", title: "Metagamen", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Informatie uit Discord, calls, streams gebruiken. Privestreamen verboden.</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" },
+    { num: "16", title: "Voertuig gebruik", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Pitten boven 130km/u verboden, grotere klasse pitten nooit. Off-road regels.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" },
+    { num: "17", title: "GTA Style Driving", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Stuntjumps, onrealistisch off-road, rammen. Lekke banden max 130km/u.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing of korte ban).</p>" },
+    { num: "18", title: "Illegale activiteiten Birdy/Instapic", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Geen witwas, wapens, drugs aanbieden op sociale media. Synoniemen ook verboden.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" },
+    { num: "19", title: "Overheidskleding", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Verboden: POLICE/AMBULANCE logo's, pechhulpkleding. Undercover uitgezonderd.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" },
+    { num: "20", title: "Schelden/beledigen", sanctie: "Categorie 5 of 6", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Ziektes cat5, seksuele beledigingen cat5, racisme cat6.</p><p><strong>Straf:</strong> Categorie 5 (7-14d) of Categorie 6 (14-30d).</p>" }
+];
 
-    // Artikelen 8 t/m 62 - volledige tekst met sancties
-    for (let i = 8; i <= 62; i++) {
-        if (i === 8) allRules.push({ num: "8", title: "Copbaiten", sanctie: "Categorie 1-4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Copbaiten is het doelbewust uitlokken van politie-reacties zonder geldige roleplay-reden. Je bent aan het \"vissen\" op een reactie van de overheid. Basis copbaiten (Categorie 1): uitlokken reacties, achtervolging starten zonder illegaal goed, meerijden met achtervolging als toeschouwer, agenten irriteren zonder misdrijf. Zwaar copbaiten (Categorie 4): in de lucht schieten om politie te laten komen, schieten op agenten zonder geldige reden, openlijk zwaaien met vuurwapen, dreigen met wapen richting agent zonder aanleiding. Uitzondering: afleiden van ambtenaren tijdens actieve overval valt niet onder copbaiten.</p><p><strong>Straf:</strong> Categorie 1-4 afhankelijk van ernst.</p>" });
-        else if (i === 9) allRules.push({ num: "9", title: "No Value of Life (NVOL)", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Je bent verplicht om waarde te hechten aan het leven van je personage. Je personage wil niet dood. Je neemt geen onnodige risico's en je werkt mee in levensbedreigende situaties. Voorbeelden van NVOL: Zelfmoord voor nieuw leven; Noodknop onder schot; Porto onder schot; Dekking geven met voertuig in vuurlinie. Gunpoint regels: afstand minimaal tweede voice range (15-20 meter). Bij een vuurwapen: altijd meewerken. Blokkades met voertuigen mogen, maar je mag geen overheidsvoertuigen stelen voor blokkades. Bij herhaalde overtreding mag een stafflid een wapen uit je inventaris verwijderen.</p><p><strong>Straf:</strong> Categorie 4 (ban 24-72 uur). Bij herhaling wapen inleveren.</p>" });
-        else if (i === 10) allRules.push({ num: "10", title: "New Life Rule (NLR)", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Wanneer je personage doodgaat, vergeet je alles wat er in dat specifieke roleplay-scenario is gebeurd. Je begint met een schone lei, alsof je nooit betrokken bent geweest. Je mag niet meer deelnemen aan hetzelfde scenario na je dood. Dit geldt ook voor scenario's die over meerdere dagen zijn verdeeld. Bij overlijden tijdens een gangwar (door welke omstandigheid dan ook) mag je niet meer deelnemen aan die specifieke gangwar.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
-        else if (i === 11) allRules.push({ num: "11", title: "Microfoon", sanctie: "Categorie 1-2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Een werkende microfoon is verplicht. Typen alleen is niet voldoende voor roleplay. Push-to-talk is verplicht. Je mag geen last hebben van achtergrondgeluiden (ademhaling, toetsenbord, muziek, huisdieren, familieleden). Voice changers zijn alleen toegestaan bij onderwereldactiviteiten zoals drugsdeals, wapendeals, rippen, en overvallen. Soundpad: misbruiken of onnodig gebruiken is niet toegestaan; je hebt altijd expliciete toestemming nodig van een admin of hoger.</p><p><strong>Straf:</strong> Categorie 1-2 (waarschuwing tot ban 6-24 uur).</p>" });
-        else if (i === 12) allRules.push({ num: "12", title: "Earrape", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Earrape is het maken van onnodig veel lawaai met je microfoon of soundpad, waardoor het niet normaal te verdragen is voor andere spelers. Dit kan gehoorschade veroorzaken. Voorbeelden: schreeuwen op pijnlijk volume, harde krasende geluiden, muziek op veel te hoog volume, feedback of ruis. Eenmalig een hard geluid per ongeluk is vervelend maar geen earrape; het gaat om structureel of opzettelijk overlast veroorzaken.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing of korte ban 0-6 uur).</p>" });
-        else if (i === 13) allRules.push({ num: "13", title: "VDM (Vehicle Deathmatch)", sanctie: "Categorie 2 of 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>VDM is het opzettelijk gebruiken van een voertuig als wapen om een andere speler te doden of te schaden. Het voertuig is geen excuus voor RDM. 1 slachtoffer: Categorie 2 (ban 6-24 uur). Meerdere slachtoffers: Categorie 4 (ban 3-7 dagen). Uitzonderingen: Per ongeluk iemand aanrijden is geen VDM, maar kan wel Fail RP zijn. Iemand aanrijden tijdens een legitieme achtervolging of ontsnapping is geen VDM zolang het niet opzettelijk is om te doden.</p><p><strong>Straf:</strong> Categorie 2 of 4 afhankelijk van aantal slachtoffers.</p>" });
-        else if (i === 14) allRules.push({ num: "14", title: "RDM (Random Deathmatch)", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>RDM is het willekeurig vermoorden van een speler zonder geldige roleplay-reden. Elke moord moet een logische, in-character aanleiding hebben. Geen geldige reden: iemand rijdt per ongeluk tegen je aan; iemand weigert te blaffen/zingen/dansen; iemand kijkt je verkeerd aan; iemand heeft een grote mond (escaleer eerst). Wel toegestaan: uitdagen via Birdy (met bewijs); doelbewust een gang uitdagen via IC-kanalen. Kill on Sight = RDM. Bij gang verlaten: 48 uur om elkaar te vermoorden.</p><p><strong>Straf:</strong> Eerste overtreding: Categorie 4 (ban 24-72 uur). Tweede overtreding: Categorie 4 + wapen inleveren.</p>" });
-        else if (i === 15) allRules.push({ num: "15", title: "Metagamen", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Metagamen is het gebruiken van informatie die je buiten je personage om hebt verkregen. Jouw personage weet alleen wat hij/zij in het spel heeft gezien, gehoord of meegemaakt. Voorbeelden: informatie via Discord, screensharen, praten in voicecall tijdens het spelen, in-game info versturen naar Discord, social media gebruiken voor IC-info. Streamen: als je streamt moet de stream openbaar zijn (geen privestream).</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" });
-        else if (i === 16) allRules.push({ num: "16", title: "Voertuig gebruik", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Pitten boven 130 km/u is niet toegestaan. Een groter klasse voertuig pitten is nooit toegestaan. Motoren pitten of brake checken is nooit toegestaan. Voertuigcategorieën (klein naar groot): 1. Motorvoertuigen, 2. Sportauto's/hypercars, 3. Personenauto's, 4. SUV's, 5. Bussen en vrachtwagens. Brake checken is toegestaan indien realistisch (eigen risico). Off-road: alle voertuigen mogen op zandpaden, SUV/off-road dealers mogen volledig off-road. Gebouwen betreden met ongeschikte voertuigen niet toegestaan. Voertuigen achterlaten in de stad geeft een boete.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        else if (i === 17) allRules.push({ num: "17", title: "GTA Style Driving", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>GTA Style Driving is het onrealistisch rijden met je voertuig, zoals je dat in Grand Theft Auto zonder roleplay zou doen. Utrecht Roleplay streeft naar realisme, ook in het verkeer. Voorbeelden: Stuntjumps nemen; Onrealistisch off-road rijden met gewone personenauto; Rammen of beuken zonder reden; Obstakels gebruiken om te springen. Lekke banden: met een of meerdere lekke banden mag je niet harder rijden dan 130 km/u.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing of korte ban 0-6 uur).</p>" });
-        else if (i === 18) allRules.push({ num: "18", title: "Illegale activiteiten via Birdy/Instapic", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Birdy en Instapic zijn de in-game sociale media. Ze zijn bedoeld voor roleplay, niet als marktplaats voor illegale goederen. Niet toegestaan: vragen voor witwasdiensten; drugslocaties kopen of verkopen; wapens aanbieden; drugs aanbieden (ook met synoniemen); aanwezigheid van gangs vragen via sociale media. Synoniemen en vervormingen (ook verboden): \"Sokken wassen\" (witwassen), \"Honkbalspullen\" (wapens), \"Poedersuiker\" (cocaine), \"Zakjes snoep\" (drugs). Wel toegestaan: aangeven dat je gijzelaars hebt (maximaal 1-2 keer).</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        else if (i === 19) allRules.push({ num: "19", title: "Overheidskleding", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Jezelf voordoen als overheidspersoneel (politie, ambulance, pechhulp) is niet toegestaan. Verboden kleding/accessoires: kogelwerende vesten met politielogo of andere overheidsvesten (POLICE, AMBULANCE, KOZ, BOA); pechhulp kleding en accessoires; ambulance kleding. Uitzondering: Roleplay als undercover agent is toegestaan, maar dan draag je geen herkenbare overheidskleding.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        else if (i === 20) allRules.push({ num: "20", title: "Schelden/beledigen", sanctie: "Categorie 5 of 6", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Kritiek en ruzie in-character mag, maar persoonlijke beledigingen en ziektes zijn niet toegestaan. Schelden met ziektes gericht naar burger: Categorie 5. Overdreven schelden met ziektes: Categorie 5. Seksuele uitingen of beledigingen van vrouwen: Categorie 5. Racistische of discriminerende opmerkingen: Categorie 6. Let op: als het er een keer uitfloept is het een waarschuwing; bij regelmaat krijg je alsnog straf.</p><p><strong>Straf:</strong> Categorie 5 (7-14 dagen) of Categorie 6 (14-30 dagen).</p>" });
-        else if (i === 21) allRules.push({ num: "21", title: "Standaard outfit", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Je dient een eigen, unieke outfit te creëren. De standaard zwart-wit geblokte outfit is niet toegestaan. Je dient een volledige outfit te maken (hoofd, bovenlichaam, onderlichaam, schoenen). Armen en benen moeten zichtbaar zijn. Kleding moet goed aansluiten. Skinny kleding (strakke kleding die lichaamsvormen benadrukt) mag niet worden gebruikt tijdens combat situaties. Geen unfair voordeel door kleinere hitbox.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        else if (i === 22) allRules.push({ num: "22", title: "Combatloggen", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Het is verboden om tijdens een actief roleplay-scenario de server te verlaten, of het spel af te sluiten. Dit wordt gezien als vluchten voor de consequenties. Bij een onvrijwillige disconnect heb je 5 minuten de tijd om terug te keren naar hetzelfde scenario. Je dient een scenario altijd af te maken, ook als je aan het verliezen bent. De stad verlaten nadat je personage is doodgeschoten is ook combatloggen.</p><p><strong>Straf:</strong> Categorie 4 (ban 24-72 uur).</p>" });
-        else if (i === 23) allRules.push({ num: "23", title: "Stream sniping", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Stream sniping is het gebruiken van informatie uit de livestream van een andere speler of content creator, van welk platform dan ook (Twitch, YouTube, Kick). Dit valt onder metagaming. Voorbeelden: je kijkt naar de stream van een agent en ziet waar hij een wegblokkade opzet; je ziet in een stream dat iemand een wapen in zijn tas heeft; je hoort in een stream waar een schatverstopplaats is. Zelf streamen met minimaal 30 seconden delay.</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" });
-        else if (i === 24) allRules.push({ num: "24", title: "Job voertuigen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Dit artikel geldt voor non-whitelisted jobs (banen die je zonder sollicitatie kunt doen, zoals houthakker, visser, mijnwerker). Niet toegestaan: met het voertuig van je baan andere werkzaamheden uitvoeren (bijv. drugs rondbrengen); met je eigen privévoertuig de werkzaamheden van je baan uitvoeren (bijv. hout hakken en vervoeren in eigen sportauto).</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        else if (i === 25) allRules.push({ num: "25", title: "/report gebruik", sanctie: "Geen directe straf", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Het /report-commando is bedoeld om staff snel te attenderen op overtredingen die ter plekke aandacht nodig hebben. Reports moeten duidelijk verwoord zijn. Zeg niet \"staff kom eens\", maar \"Report: speler X rijdt expres op spelers in (VDM) bij kruising Y\". Wees volledig: namen, locatie, wat er gebeurt. Geen report nodig voor RDM, metagaming en combatloggen; daarvoor maak je een ticket aan in de Support Discord.</p><p><strong>Straf:</strong> Geen directe straf, maar verkeerd gebruik leidt tot waarschuwing.</p>" });
-        else if (i === 26) allRules.push({ num: "26", title: "Spammen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Spammen is het herhaaldelijk versturen van dezelfde of overbodige berichten, waardoor andere spelers worden gehinderd. Voorbeelden: meer dan 3 reports binnen 10 seconden; meer dan 3 reports binnen 1 minuut; continu dezelfde berichten herhalen in /me, /do, of /chat.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        } else if (i === 27) allRules.push({ num: "27", title: "Taal", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>In Utrecht Roleplay is Nederlands de voertaal. Je wordt geacht de Nederlandse taal te beheersen en toe te passen. Standaard Engels spreken is niet toegestaan. \"Hi, how are you?\" is niet de bedoeling als standaard begroeting. Binnen een bepaald karakter is Engels wel mogelijk, bijvoorbeeld als je een toerist speelt, een buitenlandse zakenman, of iemand die net uit het buitenland komt. Overleg met een stafflid als je een Engelstalig personage wilt spelen.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        else if (i === 28) allRules.push({ num: "28", title: "Stemherkenning", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Je mag iemand herkennen op basis van zijn of haar stem. Als je iemand vaak genoeg hebt horen praten, weet je wie het is, ook als je diegene niet ziet. Voice changer: Bij gebruik van een voice changer is het niet toegestaan om iemand te herkennen aan zijn stem. De voice changer verandert de stem juist om herkenning te voorkomen. Respecteer dat.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        else if (i === 29) allRules.push({ num: "29", title: "Birdy/Instapic media", sanctie: "Eigen verantwoordelijkheid", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Informatie uit Birdy- of Instapic-berichten (inclusief foto's en video's) mag in de stad gebruikt worden alsof het openbare informatie is. Eigen verantwoordelijkheid: Het is je eigen verantwoordelijkheid wat je op sociale media plaatst. Post je een foto met een wapen? Dan mogen gangs en de politie die informatie gebruiken om je op te sporen. Post je een video van een drugslocatie? Dan mag iedereen die locatie kennen.</p><p><strong>Straf:</strong> Geen directe straf, eigen risico.</p>" });
-        else if (i === 30) allRules.push({ num: "30", title: "Criminele activiteiten", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Illegale deals: Voertuigen mogen niet bij illegale deals betrokken worden (dus geen drugs verkopen vanuit een auto, geen wapens overhandigen vanuit een rijdend voertuig). Onderwereld goederen dienen gekocht te worden met geld of andere onderwereld goederen (ruilhandel). Niet toegestaan te overvallen/oplichten: Voertuigen: Je mag iemand niet dwingen zijn of haar autosleutel af te geven. Huis binnentreden: Je mag iemand niet onder dwang zijn huis binnenlaten en leegroven.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
-        else if (i >= 31 && i <= 35) allRules.push({ num: i.toString(), title: i === 31 ? "Criminele groeperingen" : (i === 32 ? "Oplichten en scammen" : (i === 33 ? "Overvallen op winkels en banken" : (i === 34 ? "Onderwereld Spelers & Rippen" : "Gangwars"))), sanctie: i === 31 ? "Categorie 1" : (i === 32 ? "Categorie 1" : (i === 33 ? "Categorie 2" : (i === 34 ? "Categorie 2" : "Categorie 2"))), catClass: i === 31 ? "cat1" : (i === 32 ? "cat1" : (i === 33 ? "cat2" : (i === 34 ? "cat2" : "cat2"))), content: "<p><strong>Wat houdt dit in?</strong><br>" + (i === 31 ? "Meer dan 5 personen in een scenario = criminele groepering. Bij 10+ leden verplicht in Discord. Samenwerken tegen een specifieke persoon/groep is verboden (\"ganging up\")." : (i === 32 ? "Scammen met voertuigen verboden. Bovenwereld-scam limiet €30.000. Uitlenen is eigen risico." : (i === 33 ? "Geen vrienden als gijzelaar. DSI alleen bij automatische wapens. Counteren pas na 1 uur. Minimaal 4-8 agenten afhankelijk van overvaltype." : (i === 34 ? "Rip-indicatoren: masker, holster, vest. Max 20 leden per gang. Na rippen 2 uur niet vermoorden." : "Max 48 uur, bewijs nodig, geen ally hulp, dood = uit war."))) + "</p><p><strong>Straf:</strong> " + (i === 31 ? "Categorie 1 (waarschuwing)." : (i === 32 ? "Categorie 1 (waarschuwing)." : (i === 33 ? "Categorie 2 (6-24 uur)." : (i === 34 ? "Categorie 2 (6-24 uur)." : "Categorie 2 (6-24 uur)."))) + "</p>" });
-        else if (i === 36) allRules.push({ num: "36", title: "Ontvoeren", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Minimale politie in dienst: burger ontvoeren = 2 agenten, 1 agent ontvoeren = 4 agenten, 2 agenten ontvoeren = 8 agenten. Aspiranten mogen niet worden ontvoerd. Maximale ontvoeringstijd 90 minuten. Maximale eis per burger €30.000, per agent €50.000. Maximaal totaal uit overheidskas €500.000.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        else if (i === 37) allRules.push({ num: "37", title: "Onder dreiging houden", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen toegestaan bij zichtbare criminele attributen (holster, masker, kogelwerend vest) of betrokkenheid bij criminele activiteiten. Onnodig wapens richten = powergamen. Op eiland geldt NVOL niet.</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" });
-        else if (i === 38) allRules.push({ num: "38", title: "Leden criminele organisaties", sanctie: "Max 20", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Maximaal 20 leden per criminele organisatie (zowel erkende als niet-erkende gangs). Vanaf 10 leden is de organisatie verplicht aanwezig te zijn in de Utrecht Roleplay Discord. Overtreding leidt tot gang-waarschuwing; bij herhaling kan de gang ontbonden worden.</p><p><strong>Straf:</strong> Gang-waarschuwing, bij herhaling ontbinding.</p>" });
-        else if (i === 39) allRules.push({ num: "39", title: "Rippen van wapens", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Wapen fysiek gezien, clip verplicht. Max 2 uur na zien. Geen tas dwang. Attachments mogen mee. Uitzonderingen: rippen op eiland, bij gezichtsbedekking, kogelwerend vest of holster.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        else if (i === 40) allRules.push({ num: "40", title: "Officiële gangs", sanctie: "Categorie 5 + Warn", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Misbruik gang-menu verboden. Items innemen via F6, niet /me. Wekelijks RP-scenario verplicht.</p><p><strong>Straf:</strong> Categorie 5 (7-14 dagen) + gang-waarschuwing.</p>" });
-        else if (i === 41) allRules.push({ num: "41", title: "Erkende gangs", sanctie: "Categorie 5 + Warn", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Max 90 min ontvoeren, wekelijks scenario. Geen /me innemen.</p><p><strong>Straf:</strong> Categorie 5 (7-14 dagen) + gang-waarschuwing.</p>" });
-        else if (i === 42) allRules.push({ num: "42", title: "Wraakacties", sanctie: "Categorie 4-5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Wraak tegen whitelisted jobs altijd verboden (Categorie 5). Na overlijden niet meer mengen in scenario (Categorie 4).</p><p><strong>Straf:</strong> Categorie 4 (3-7 dagen) of Categorie 5 (7-14 dagen).</p>" });
-        else if (i === 43) allRules.push({ num: "43", title: "Fouilleren", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen met getrokken wapen en zichtbare indicatie (holster/vest/masker). Geen kennis uit het niets.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
-        else if (i === 44) allRules.push({ num: "44", title: "Ambulance", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Ambulancepersoneel niet vermoorden. Geen revive bij hoofdschot, verdrinking >5 min, val >5 verdiepingen. Corruptie verboden.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
-        else if (i === 45) allRules.push({ num: "45", title: "Pechhulp", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Pechhulpmedewerkers niet vermoorden. Realistische meldingen.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
-        else if (i === 46) allRules.push({ num: "46", title: "Streamers en content creators", sanctie: "Categorie 6", catClass: "cat6", content: "<p><strong>Wat houdt dit in?</strong><br>\"Utrecht Roleplay\" in streamtitel. Geen kwaad daglicht over de server. Samenwerken met hackers = ban.</p><p><strong>Straf:</strong> Categorie 6 (ban 14-30 dagen).</p>" });
-        else if (i === 47) allRules.push({ num: "47", title: "Erotische roleplay", sanctie: "Categorie 5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Seksuele handelingen, cyberseks, expliciete beschrijvingen verboden.</p><p><strong>Straf:</strong> Categorie 5 (ban 7-14 dagen).</p>" });
-        else if (i === 48) allRules.push({ num: "48", title: "AFK kick voorkomen", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Scripts/gewicht op toetsenbord, ghosten met baan, emotes om AFK te verbergen zijn verboden.</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" });
-        else if (i === 49) allRules.push({ num: "49", title: "Algemene regels hulpdiensten", sanctie: "Categorie 6", catClass: "cat6", content: "<p><strong>Wat houdt dit in?</strong><br>Agressief benaderen hulpdiensten verboden. Corruptie (informatie lekken, samenwerken criminelen) = ontslag + ban. Documenten lekken cat4.</p><p><strong>Straf:</strong> Categorie 4-6 (24-72 uur tot 14-30 dagen).</p>" });
-        else if (i === 50) allRules.push({ num: "50", title: "Weggeven van goederen bij stoppen", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Bij stoppen of ban mogen goederen niet worden overgedragen aan andere spelers.</p><p><strong>Straf:</strong> Categorie 8 (permanente ban voor beide partijen).</p>" });
-        else if (i === 51) allRules.push({ num: "51", title: "Toxic gedrag", sanctie: "Categorie 4-5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Respectloze reacties (\"L\", spottende emoji's), schreeuwen na verlies, pesten, nieuwe spelers misleiden. Discord toxiciteit cat5, ticketmisbruik cat4.</p><p><strong>Straf:</strong> Categorie 4 (24-72 uur) of Categorie 5 (7-14 dagen).</p>" });
-        else if (i === 52) allRules.push({ num: "52", title: "Stelen van overheidsvoertuigen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen toegestaan tijdens achtervolging om te ontsnappen. Geen pantservoertuigen stelen.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
-        else if (i === 53) allRules.push({ num: "53", title: "Staff", sanctie: "Categorie 5-6", catClass: "cat6", content: "<p><strong>Wat houdt dit in?</strong><br>Liegen tegen staff cat5, voordoen als staff cat6, voordoen als andere speler cat2.</p><p><strong>Straf:</strong> Categorie 2-6 (6-24 uur tot 14-30 dagen).</p>" });
-        else if (i === 54) allRules.push({ num: "54", title: "Rippen op eiland", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Op eiland (Cayo Perico) vrijwel alles afpakken, doden na rippen toegestaan.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
-        else if (i === 55) allRules.push({ num: "55", title: "Politie op eiland", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Politie mag optreden maar blijft aan NVOL/FailRP houden.</p><p><strong>Straf:</strong> Categorie 2 (6-24 uur).</p>" });
-        else if (i === 56) allRules.push({ num: "56", title: "Samenwerking op eiland", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Samenwerken met andere groeperingen op eiland verboden zonder toestemming OW-coordinator.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
-        else if (i === 57) allRules.push({ num: "57", title: "Vliegtuig/Helikopter gebruik", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Vliegbrevet verplicht. Gevangenisuitbraak met heli/vliegtuig niet toegestaan.</p><p><strong>Straf:</strong> Categorie 4 (ban 3-7 dagen).</p>" });
-        else if (i === 58) allRules.push({ num: "58", title: "Vliegdekschip", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Militair en justitieel gebied. Betreden op eigen risico. Politie mag dodelijk vuur gebruiken.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
-        else if (i === 59) allRules.push({ num: "59", title: "Helikopter op eiland", sanctie: "Specifiek", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Helikopters uit de lucht schieten op eiland toegestaan. Passagiers mogen springen, bestuurder alleen bij neerstorten.</p><p><strong>Straf:</strong> Geen specifieke categorie, valt onder algemene regels.</p>" });
-        else if (i === 60) allRules.push({ num: "60", title: "Staff limiet", sanctie: "Reglement", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Maximaal 3 leden van elke gang in het staffteam. Voorkoming van onevenredige invloed.</p><p><strong>Straf:</strong> Geen directe straf, maar overtreding leidt tot gang-waarschuwing.</p>" });
-        else if (i === 61) allRules.push({ num: "61", title: "Combat Gedrag", sanctie: "Categorie 7", catClass: "cat7", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen combat zoeken, geen interesse in roleplay, negeren van verhaallijnen.</p><p><strong>Straf:</strong> Categorie 7 (ban 30 dagen).</p>" });
-        else if (i === 62) allRules.push({ num: "62", title: "Haat veroorzakend / Toxic gedrag", sanctie: "Categorie 5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Toxic reageren op doodverklaringen in Twitter (\"L\"), tickets zonder gegronde reden, toxiciteit in Discord (ook #algemeen, #memes).</p><p><strong>Straf:</strong> Categorie 5 (7-14 dagen).</p><p><strong>Onthoud:</strong> Gezond verstand gaat boven alle regels - roleplay draait om samen plezier hebben.</p>" });
-    }
+// Artikelen 21 t/m 62 toevoegen
+for (let i = 21; i <= 62; i++) {
+    if (i === 21) allRules.push({ num: "21", title: "Standaard outfit", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Geen standaard zwart-wit outfit. Skinny kleding niet tijdens combat.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 22) allRules.push({ num: "22", title: "Combatloggen", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Server verlaten tijdens actief scenario. 5 min om terug te keren.</p><p><strong>Straf:</strong> Categorie 4 (ban 24-72 uur).</p>" });
+    else if (i === 23) allRules.push({ num: "23", title: "Stream sniping", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Info uit livestreams gebruiken. Streamdelay min 30 sec verplicht.</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" });
+    else if (i === 24) allRules.push({ num: "24", title: "Job voertuigen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Jobvoertuig niet voor illegale activiteiten.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 25) allRules.push({ num: "25", title: "/report gebruik", sanctie: "Geen straf", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Reports duidelijk verwoorden. Voor RDM/metagame ticket in Discord.</p><p><strong>Straf:</strong> Geen directe straf.</p>" });
+    else if (i === 26) allRules.push({ num: "26", title: "Spammen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Meer dan 3 reports in 10 sec of 1 minuut.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 27) allRules.push({ num: "27", title: "Taal", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Nederlands is voertaal. Standaard Engels niet toegestaan.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 28) allRules.push({ num: "28", title: "Stemherkenning", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Stemherkenning mag, tenzij voice changer actief is.</p><p><strong>Straf:</strong> Categorie 1.</p>" });
+    else if (i === 29) allRules.push({ num: "29", title: "Birdy/Instapic media", sanctie: "Eigen verantw.", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Informatie uit social media is openbaar en mag gebruikt worden.</p><p><strong>Straf:</strong> Eigen risico.</p>" });
+    else if (i === 30) allRules.push({ num: "30", title: "Criminele activiteiten", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Geen deals vanuit voertuig, geen dwang tot huis/auto sleutel.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
+    else if (i === 31) allRules.push({ num: "31", title: "Criminele groeperingen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Meer dan 5 = groepering, ganging up verboden.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 32) allRules.push({ num: "32", title: "Oplichten en scammen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Scammen voertuigen verboden, limiet €30.000.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 33) allRules.push({ num: "33", title: "Overvallen", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Geen vrienden als gijzelaar, DSI alleen bij automatische wapens.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
+    else if (i === 34) allRules.push({ num: "34", title: "Onderwereld & Rippen", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Rip-indicatoren: masker, holster, vest. Max 20 leden per gang.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
+    else if (i === 35) allRules.push({ num: "35", title: "Gangwars", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Max 48 uur, bewijs nodig, dood = uit war.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
+    else if (i === 36) allRules.push({ num: "36", title: "Ontvoeren", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Min. agenten: burger 2, 1 agent 4, 2 agenten 8. Max 90 min, max eis €30k/€50k.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 37) allRules.push({ num: "37", title: "Onder dreiging houden", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen bij zichtbare criminele attributen (holster, masker, vest).</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" });
+    else if (i === 38) allRules.push({ num: "38", title: "Leden criminele organisaties", sanctie: "Max 20", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Max 20 leden per organisatie. Vanaf 10 leden verplicht in Discord.</p><p><strong>Straf:</strong> Gang-waarschuwing.</p>" });
+    else if (i === 39) allRules.push({ num: "39", title: "Rippen van wapens", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Wapen fysiek gezien, clip verplicht, max 2 uur.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 40) allRules.push({ num: "40", title: "Officiële gangs", sanctie: "Categorie 5 + Warn", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Wekelijks RP-scenario, items via F6.</p><p><strong>Straf:</strong> Categorie 5 (7-14d) + gang-warn.</p>" });
+    else if (i === 41) allRules.push({ num: "41", title: "Erkende gangs", sanctie: "Categorie 5 + Warn", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Wekelijks scenario, geen /me innemen.</p><p><strong>Straf:</strong> Categorie 5 + gang-warn.</p>" });
+    else if (i === 42) allRules.push({ num: "42", title: "Wraakacties", sanctie: "Categorie 4-5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Wraak tegen whitelisted jobs verboden (cat5). Na overlijden niet mengen (cat4).</p><p><strong>Straf:</strong> Categorie 4 of 5.</p>" });
+    else if (i === 43) allRules.push({ num: "43", title: "Fouilleren", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen met getrokken wapen en zichtbare indicatie.</p><p><strong>Straf:</strong> Categorie 2 (6-24u).</p>" });
+    else if (i === 44) allRules.push({ num: "44", title: "Ambulance", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Ambulance niet vermoorden, geen revive bij hoofdschot/verdrinking/val >5.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 45) allRules.push({ num: "45", title: "Pechhulp", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Pechhulpmedewerkers niet vermoorden.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 46) allRules.push({ num: "46", title: "Streamers", sanctie: "Categorie 6", catClass: "cat6", content: "<p><strong>Wat houdt dit in?</strong><br>'Utrecht Roleplay' in titel, geen kwaad daglicht.</p><p><strong>Straf:</strong> Categorie 6 (14-30d).</p>" });
+    else if (i === 47) allRules.push({ num: "47", title: "Erotische roleplay", sanctie: "Categorie 5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Seksuele handelingen verboden.</p><p><strong>Straf:</strong> Categorie 5 (7-14d).</p>" });
+    else if (i === 48) allRules.push({ num: "48", title: "AFK kick voorkomen", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Scripts/gewicht op toetsenbord verboden.</p><p><strong>Straf:</strong> Categorie 3 (24-72u).</p>" });
+    else if (i === 49) allRules.push({ num: "49", title: "Hulpdiensten algemeen", sanctie: "Categorie 6", catClass: "cat6", content: "<p><strong>Wat houdt dit in?</strong><br>Corruptie = ontslag + ban. Documenten lekken cat4.</p><p><strong>Straf:</strong> Categorie 4-6.</p>" });
+    else if (i === 50) allRules.push({ num: "50", title: "Goederen weggeven bij stoppen", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Overdragen bij stoppen verboden.</p><p><strong>Straf:</strong> Categorie 8 (permanente ban).</p>" });
+    else if (i === 51) allRules.push({ num: "51", title: "Toxic gedrag", sanctie: "Categorie 4-5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Respectloze reacties, pesten, ticketmisbruik.</p><p><strong>Straf:</strong> Categorie 4-5.</p>" });
+    else if (i === 52) allRules.push({ num: "52", title: "Stelen overheidsvoertuigen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen tijdens achtervolging.</p><p><strong>Straf:</strong> Categorie 1.</p>" });
+    else if (i === 53) allRules.push({ num: "53", title: "Staff", sanctie: "Categorie 5-6", catClass: "cat6", content: "<p><strong>Wat houdt dit in?</strong><br>Liegen tegen staff cat5, voordoen als staff cat6.</p><p><strong>Straf:</strong> Categorie 5-6.</p>" });
+    else if (i === 54) allRules.push({ num: "54", title: "Rippen op eiland", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Op eiland vrijwel alles afpakken en doden na rip.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 55) allRules.push({ num: "55", title: "Politie op eiland", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Politie houdt NVOL/FailRP aan.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 56) allRules.push({ num: "56", title: "Samenwerking eiland", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Samenwerken zonder toestemming verboden.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 57) allRules.push({ num: "57", title: "Vliegtuig/Helikopter", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Vliegbrevet verplicht, geen gevangenisuitbraak met heli.</p><p><strong>Straf:</strong> Categorie 4.</p>" });
+    else if (i === 58) allRules.push({ num: "58", title: "Vliegdekschip", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Militair gebied, betreden op eigen risico.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 59) allRules.push({ num: "59", title: "Helikopter op eiland", sanctie: "Specifiek", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Heli's uitschieten op eiland toegestaan.</p><p><strong>Straf:</strong> Geen specifiek.</p>" });
+    else if (i === 60) allRules.push({ num: "60", title: "Staff limiet", sanctie: "Reglement", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Max 3 leden per gang in staffteam.</p><p><strong>Straf:</strong> Gang-waarschuwing.</p>" });
+    else if (i === 61) allRules.push({ num: "61", title: "Combat Gedrag", sanctie: "Categorie 7", catClass: "cat7", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen combat zoeken, geen roleplay.</p><p><strong>Straf:</strong> Categorie 7 (30 dagen ban).</p>" });
+    else if (i === 62) allRules.push({ num: "62", title: "Haat veroorzakend", sanctie: "Categorie 5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Toxic op Twitter, tickets zonder reden, Discord toxiciteit.</p><p><strong>Straf:</strong> Categorie 5 (7-14 dagen).</p><p><strong>Onthoud:</strong> Gezond verstand gaat boven alle regels - roleplay draait om samen plezier.</p>" });
+}
 
-    function buildAccordion(filterText = "") {
-        const root = document.getElementById("accordion-root");
-        if (!root) return;
-        root.innerHTML = "";
-        const lowerFilter = filterText.toLowerCase();
-        const filtered = allRules.filter(rule => !lowerFilter || rule.num.includes(lowerFilter) || rule.title.toLowerCase().includes(lowerFilter) || rule.sanctie.toLowerCase().includes(lowerFilter) || rule.content.toLowerCase().includes(lowerFilter));
-        if(filtered.length === 0) { root.innerHTML = `<div style="padding:2rem;text-align:center;">Geen artikelen gevonden voor "${filterText}".</div>`; return; }
-        filtered.forEach(rule => {
-            const card = document.createElement("div"); card.className = "rule-card";
-            const header = document.createElement("div"); header.className = "rule-header";
-            const titleDiv = document.createElement("div"); titleDiv.className = "rule-title";
-            titleDiv.innerHTML = `<span class="rule-nummer">Art. ${rule.num}</span> <span class="rule-naam">${rule.title}</span>`;
-            const badge = document.createElement("span"); badge.className = `sanction-badge ${rule.catClass}`;
-            badge.innerHTML = `${rule.sanctie}`;
-            header.appendChild(titleDiv); header.appendChild(badge);
-            const contentDiv = document.createElement("div"); contentDiv.className = "rule-content";
-            contentDiv.innerHTML = rule.content;
-            header.addEventListener("click", () => contentDiv.classList.toggle("open"));
-            card.appendChild(header); card.appendChild(contentDiv);
-            root.appendChild(card);
-        });
-    }
-    document.getElementById("searchInput")?.addEventListener("input", e => buildAccordion(e.target.value));
-    document.getElementById("resetFilterBtn")?.addEventListener("click", () => { document.getElementById("searchInput").value = ""; buildAccordion(""); });
-    buildAccordion("");
+function buildAccordion(filterText = "") {
+    const root = document.getElementById("accordion-root");
+    if (!root) return;
+    root.innerHTML = "";
+    const lowerFilter = filterText.toLowerCase();
+    const filtered = allRules.filter(rule => !lowerFilter || rule.num.includes(lowerFilter) || rule.title.toLowerCase().includes(lowerFilter) || rule.sanctie.toLowerCase().includes(lowerFilter) || rule.content.toLowerCase().includes(lowerFilter));
+    if (filtered.length === 0) { root.innerHTML = `<div style="padding:2rem;text-align:center;">Geen artikelen gevonden voor "${filterText}".</div>`; return; }
+    filtered.forEach(rule => {
+        const card = document.createElement("div"); card.className = "rule-card";
+        const header = document.createElement("div"); header.className = "rule-header";
+        const titleDiv = document.createElement("div"); titleDiv.className = "rule-title";
+        titleDiv.innerHTML = `<span class="rule-nummer">Art. ${rule.num}</span> <span class="rule-naam">${rule.title}</span>`;
+        const badge = document.createElement("span"); badge.className = `sanction-badge ${rule.catClass}`;
+        badge.innerHTML = `${rule.sanctie}`;
+        header.appendChild(titleDiv); header.appendChild(badge);
+        const contentDiv = document.createElement("div"); contentDiv.className = "rule-content";
+        contentDiv.innerHTML = rule.content;
+        header.addEventListener("click", () => contentDiv.classList.toggle("open"));
+        card.appendChild(header); card.appendChild(contentDiv);
+        root.appendChild(card);
+    });
+}
+document.getElementById("searchInput")?.addEventListener("input", e => buildAccordion(e.target.value));
+document.getElementById("resetFilterBtn")?.addEventListener("click", () => { document.getElementById("searchInput").value = ""; buildAccordion(""); });
+buildAccordion("");
 </script>
 </body>
 </html>
