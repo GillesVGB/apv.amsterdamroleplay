@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amsterdam Roleplay | Home</title>
+    <title>Amsterdam Roleplay | Bot Status</title>
     <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', 'Arial', sans-serif;
             background: linear-gradient(135deg, #0a0a0a 0%, #0f0f1a 50%, #1a1a2e 100%);
             color: #fff;
             min-height: 100vh;
         }
+
+        /* Animated Background */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -22,6 +29,7 @@
             z-index: -1;
             overflow: hidden;
         }
+
         .bg-animation::before {
             content: '';
             position: absolute;
@@ -30,66 +38,626 @@
             background: radial-gradient(circle, rgba(135,206,235,0.08) 0%, transparent 70%);
             animation: rotate 40s linear infinite;
         }
+
         @keyframes rotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .navbar {
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(135,206,235,0.4);
+            margin-bottom: 20px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #87CEEB, #4FC3F7, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #87CEEB;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        /* Last Update */
+        .last-update {
+            text-align: center;
+            font-size: 0.75em;
+            opacity: 0.5;
+            margin-bottom: 30px;
+        }
+
+        /* Bots Grid */
+        .bots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .bot-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 25px;
+            border: 1px solid rgba(135,206,235,0.2);
+            transition: all 0.3s;
+        }
+
+        .bot-card:hover {
+            transform: translateY(-5px);
+            border-color: #87CEEB;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .bot-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(135,206,235,0.2);
+        }
+
+        .bot-icon {
+            font-size: 3em;
+        }
+
+        .bot-title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            margin-left: auto;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+
+        .status-online {
+            background: rgba(0,255,0,0.2);
+            color: #00ff00;
+            border: 1px solid #00ff00;
+        }
+
+        .status-offline {
+            background: rgba(255,0,0,0.2);
+            color: #ff4444;
+            border: 1px solid #ff4444;
+        }
+
+        .status-checking {
+            background: rgba(255,165,0,0.2);
+            color: #ffa500;
+            border: 1px solid #ffa500;
+        }
+
+        /* Stats inside card */
+        .bot-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 0.7em;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .bot-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .feature-tag {
+            background: rgba(135,206,235,0.15);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.65em;
+        }
+
+        /* Logs Section */
+        .logs-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .logs-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 50px;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(135,206,235,0.2);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        .logo { display: flex; align-items: center; gap: 15px; }
-        .logo-img { width: 45px; height: 45px; border-radius: 50%; animation: float 3s ease-in-out infinite; }
-        @keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
-        .logo-text { font-size: 1.4em; font-weight: bold; background: linear-gradient(135deg, #87CEEB, #4FC3F7, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-link { color: #fff; text-decoration: none; padding: 8px 20px; border-radius: 25px; transition: all 0.3s; position: relative; }
-        .nav-link::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: linear-gradient(135deg, #87CEEB, #4FC3F7); transition: width 0.3s; }
-        .nav-link:hover::before, .nav-link.active::before { width: 70%; }
-        .nav-link:hover, .nav-link.active { background: rgba(135,206,235,0.1); }
-        .hero { text-align: center; padding: 80px 20px; }
-        .hero-logo { width: 160px; height: 160px; border-radius: 50%; margin-bottom: 30px; animation: float 3s ease-in-out infinite; box-shadow: 0 0 50px rgba(135,206,235,0.4); }
-        .hero h1 { font-size: 3.5em; margin-bottom: 20px; background: linear-gradient(135deg, #87CEEB, #4FC3F7, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.1em; color: #ccc; max-width: 600px; margin: 0 auto 30px; }
-        .btn { background: linear-gradient(135deg, #87CEEB, #4FC3F7); border: none; color: #1a1a2e; padding: 12px 30px; border-radius: 40px; font-size: 1em; font-weight: bold; cursor: pointer; transition: all 0.3s; display: inline-block; text-decoration: none; }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(135,206,235,0.3); }
-        .footer { text-align: center; padding: 25px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; font-size: 0.75em; opacity: 0.5; }
+
+        .logs-title {
+            font-size: 1.3em;
+            color: #87CEEB;
+        }
+
+        .log-filter {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            padding: 6px 15px;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(135deg, #87CEEB, #4FC3F7);
+            color: #1a1a2e;
+        }
+
+        .logs-container {
+            background: rgba(0,0,0,0.4);
+            border-radius: 20px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: monospace;
+            font-size: 0.8em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .log-time {
+            color: #87CEEB;
+            min-width: 85px;
+        }
+
+        .log-bot {
+            background: rgba(135,206,235,0.2);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+        }
+
+        .log-online { color: #00ff00; }
+        .log-offline { color: #ff4444; }
+        .log-message { flex: 1; }
+
+        .no-logs {
+            text-align: center;
+            padding: 30px;
+            opacity: 0.5;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+            font-size: 0.7em;
+            opacity: 0.5;
+        }
+
         @media (max-width: 768px) {
-            .navbar { flex-direction: column; gap: 15px; padding: 15px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; }
-            .hero h1 { font-size: 2em; }
-            .hero-logo { width: 120px; height: 120px; }
+            .bots-grid { grid-template-columns: 1fr; }
+            .logs-header { flex-direction: column; align-items: flex-start; }
+            .log-entry { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .log-time { min-width: auto; }
         }
     </style>
 </head>
 <body>
     <div class="bg-animation"></div>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="https://cdn.discordapp.com/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png" alt="Logo" class="logo-img">
-            <span class="logo-text">Amsterdam Roleplay</span>
-        </div>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="dashboard.html" class="nav-link">Dashboard</a>
-        </div>
-    </nav>
-    <section class="hero">
-        <img src="https://cdn.discordapp.com/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png" alt="Amsterdam Roleplay" class="hero-logo">
+
+    <div class="header">
+        <img src="https://cdn.discordapp.com/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png" alt="Logo" class="logo">
         <h1>Amsterdam Roleplay</h1>
-        <p>Het centrale platform voor het beheer van alle overheids-, onderwereld- en invite-systemen van Amsterdam Roleplay.</p>
-        <a href="dashboard.html" class="btn">📊 Ga naar Dashboard</a>
-    </section>
+        <div class="subtitle">Bot Status Dashboard</div>
+    </div>
+
+    <div class="last-update" id="last-update">
+        Laatste update: <span id="update-time">--:--:--</span>
+    </div>
+
+    <div class="bots-grid" id="bots-grid">
+        <!-- Overheid Bot -->
+        <div class="bot-card" id="overheid-card">
+            <div class="bot-header">
+                <div class="bot-icon">🏛️</div>
+                <div class="bot-title">Overheid Bot</div>
+                <div class="status-badge status-checking" id="overheid-status">⏳ Controleren...</div>
+            </div>
+            <div class="bot-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="overheid-ping">--</div>
+                    <div class="stat-label">Ping</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="overheid-uptime">--</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="overheid-vog">--</div>
+                    <div class="stat-label">VOG's</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="overheid-sollicitaties">--</div>
+                    <div class="stat-label">Sollicitaties</div>
+                </div>
+            </div>
+            <div class="bot-features">
+                <span class="feature-tag">📋 VOG</span>
+                <span class="feature-tag">📞 Roepnummers</span>
+                <span class="feature-tag">📚 Trainingen</span>
+                <span class="feature-tag">📝 Sollicitaties</span>
+            </div>
+        </div>
+
+        <!-- Onderwereld Bot -->
+        <div class="bot-card" id="onderwereld-card">
+            <div class="bot-header">
+                <div class="bot-icon">🔫</div>
+                <div class="bot-title">Onderwereld Bot</div>
+                <div class="status-badge status-checking" id="onderwereld-status">⏳ Controleren...</div>
+            </div>
+            <div class="bot-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="onderwereld-ping">--</div>
+                    <div class="stat-label">Ping</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="onderwereld-uptime">--</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="onderwereld-guilds">--</div>
+                    <div class="stat-label">Servers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="onderwereld-tickets">--</div>
+                    <div class="stat-label">Tickets</div>
+                </div>
+            </div>
+            <div class="bot-features">
+                <span class="feature-tag">💥 Gang Strikes</span>
+                <span class="feature-tag">🎫 Tickets</span>
+                <span class="feature-tag">💡 Suggesties</span>
+                <span class="feature-tag">📝 Staff Replies</span>
+            </div>
+        </div>
+
+        <!-- Invite Bot -->
+        <div class="bot-card" id="invite-card">
+            <div class="bot-header">
+                <div class="bot-icon">🎉</div>
+                <div class="bot-title">Invite Bot</div>
+                <div class="status-badge status-checking" id="invite-status">⏳ Controleren...</div>
+            </div>
+            <div class="bot-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="invite-ping">--</div>
+                    <div class="stat-label">Ping</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="invite-uptime">--</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="invite-guilds">--</div>
+                    <div class="stat-label">Servers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="invite-total">--</div>
+                    <div class="stat-label">Totaal Invites</div>
+                </div>
+            </div>
+            <div class="bot-features">
+                <span class="feature-tag">📊 Leaderboard</span>
+                <span class="feature-tag">🎁 Beloningen</span>
+                <span class="feature-tag">📈 Statistieken</span>
+                <span class="feature-tag">👑 Medailles</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logs Sectie -->
+    <div class="logs-section">
+        <div class="logs-header">
+            <div class="logs-title">📝 Incident Logs</div>
+            <div class="log-filter">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="overheid">🏛️ Overheid</button>
+                <button class="filter-btn" data-filter="onderwereld">🔫 Onderwereld</button>
+                <button class="filter-btn" data-filter="invite">🎉 Invite</button>
+                <button class="filter-btn" onclick="clearLogs()" style="background:rgba(255,0,0,0.2);">🗑️ Wis</button>
+            </div>
+        </div>
+        <div class="logs-container" id="logs-container">
+            <div class="no-logs">📭 Geen logs geladen...</div>
+        </div>
+    </div>
+
     <footer class="footer">
-        <p>🏛️ Gemeente Amsterdam - Bot Status Dashboard | © 2026 Amsterdam Roleplay</p>
+        <p>🏛️ Gemeente Amsterdam - Bot Status Dashboard | Real-time data elke 30 seconden</p>
+        <p>© 2026 Amsterdam Roleplay | Alle rechten voorbehouden</p>
     </footer>
+
+    <script>
+        // ============ CONFIGURATIE ============
+        const BOT_ENDPOINTS = {
+            overheid: 'https://overheid-bot.onrender.com/health',
+            onderwereld: 'https://onderwereld-bot.onrender.com/health',
+            invite: 'https://invite-bot-te4o.onrender.com/health'
+        };
+
+        let logs = [];
+        let currentFilter = 'all';
+
+        // ============ LOGS FUNCTIES ============
+        function addLog(botName, status, message) {
+            const log = {
+                id: Date.now(),
+                time: new Date().toLocaleTimeString('nl-NL'),
+                datetime: new Date().toISOString(),
+                bot: botName,
+                status: status,
+                message: message
+            };
+            logs.unshift(log);
+            if (logs.length > 100) logs.pop();
+            renderLogs();
+        }
+
+        function renderLogs() {
+            const container = document.getElementById('logs-container');
+            if (!container) return;
+
+            let filteredLogs = logs;
+            if (currentFilter !== 'all') {
+                filteredLogs = logs.filter(log => log.bot === currentFilter);
+            }
+
+            if (filteredLogs.length === 0) {
+                container.innerHTML = '<div class="no-logs">📭 Geen logs gevonden</div>';
+                return;
+            }
+
+            container.innerHTML = filteredLogs.map(log => `
+                <div class="log-entry">
+                    <span class="log-time">[${log.time}]</span>
+                    <span class="log-bot">${log.bot === 'overheid' ? '🏛️ Overheid' : log.bot === 'onderwereld' ? '🔫 Onderwereld' : '🎉 Invite'}</span>
+                    <span class="${log.status === 'online' ? 'log-online' : 'log-offline'}">${log.status === 'online' ? '🟢 ONLINE' : '🔴 OFFLINE'}</span>
+                    <span class="log-message">${log.message}</span>
+                </div>
+            `).join('');
+        }
+
+        function clearLogs() {
+            logs = [];
+            renderLogs();
+        }
+
+        // ============ BOT STATUS FUNCTIES ============
+        async function checkBot(botName, url) {
+            const startTime = Date.now();
+            
+            // Elementen ophalen
+            const statusEl = document.getElementById(`${botName}-status`);
+            const pingEl = document.getElementById(`${botName}-ping`);
+            const uptimeEl = document.getElementById(`${botName}-uptime`);
+            
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 5000);
+                const response = await fetch(url, { signal: controller.signal });
+                const endTime = Date.now();
+                clearTimeout(timeoutId);
+                
+                const ping = endTime - startTime;
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Update status badge
+                    statusEl.className = 'status-badge status-online';
+                    statusEl.innerHTML = '🟢 Online';
+                    
+                    // Update ping en uptime
+                    if (pingEl) pingEl.innerHTML = data.ping || `${ping}ms`;
+                    if (uptimeEl) uptimeEl.innerHTML = data.uptime || 'N/A';
+                    
+                    // Bot specifieke data
+                    if (botName === 'overheid') {
+                        const vogEl = document.getElementById('overheid-vog');
+                        const solEl = document.getElementById('overheid-sollicitaties');
+                        if (vogEl) vogEl.innerHTML = data.vogCount || '0';
+                        if (solEl) solEl.innerHTML = data.solicitatieCount || '0';
+                    } else if (botName === 'onderwereld') {
+                        const guildsEl = document.getElementById('onderwereld-guilds');
+                        const ticketsEl = document.getElementById('onderwereld-tickets');
+                        if (guildsEl) guildsEl.innerHTML = data.guilds || '1';
+                        if (ticketsEl) ticketsEl.innerHTML = data.tickets || '0';
+                    } else if (botName === 'invite') {
+                        const guildsEl = document.getElementById('invite-guilds');
+                        const totalEl = document.getElementById('invite-total');
+                        if (guildsEl) guildsEl.innerHTML = data.guilds || '1';
+                        if (totalEl) totalEl.innerHTML = data.totalInvites || '0';
+                    }
+                    
+                    return { online: true, ping, data };
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                // Update status badge naar offline
+                statusEl.className = 'status-badge status-offline';
+                statusEl.innerHTML = '🔴 Offline';
+                if (pingEl) pingEl.innerHTML = '--';
+                if (uptimeEl) uptimeEl.innerHTML = '--';
+                
+                // Reset specifieke data
+                if (botName === 'overheid') {
+                    const vogEl = document.getElementById('overheid-vog');
+                    const solEl = document.getElementById('overheid-sollicitaties');
+                    if (vogEl) vogEl.innerHTML = '--';
+                    if (solEl) solEl.innerHTML = '--';
+                } else if (botName === 'onderwereld') {
+                    const guildsEl = document.getElementById('onderwereld-guilds');
+                    const ticketsEl = document.getElementById('onderwereld-tickets');
+                    if (guildsEl) guildsEl.innerHTML = '--';
+                    if (ticketsEl) ticketsEl.innerHTML = '--';
+                } else if (botName === 'invite') {
+                    const guildsEl = document.getElementById('invite-guilds');
+                    const totalEl = document.getElementById('invite-total');
+                    if (guildsEl) guildsEl.innerHTML = '--';
+                    if (totalEl) totalEl.innerHTML = '--';
+                }
+                
+                return { online: false, error: error.message };
+            }
+        }
+
+        async function checkAllBots() {
+            const promises = [];
+            
+            for (const [botName, url] of Object.entries(BOT_ENDPOINTS)) {
+                promises.push(checkBot(botName, url));
+            }
+            
+            const results = await Promise.all(promises);
+            
+            // Update last update time
+            const now = new Date();
+            document.getElementById('update-time').innerHTML = now.toLocaleTimeString('nl-NL');
+            
+            // Log status changes (alleen als er een verandering is)
+            // Dit gebeurt in de volgende stap met een aparte status check
+        }
+
+        // Status verandering logger (wordt elke minuut uitgevoerd)
+        let lastStatus = {
+            overheid: null,
+            onderwereld: null,
+            invite: null
+        };
+
+        async function checkAndLogStatusChanges() {
+            const now = new Date();
+            
+            for (const [botName, url] of Object.entries(BOT_ENDPOINTS)) {
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 5000);
+                    const response = await fetch(url, { signal: controller.signal });
+                    clearTimeout(timeoutId);
+                    
+                    const isOnline = response.ok;
+                    const currentStatus = isOnline ? 'online' : 'offline';
+                    
+                    if (lastStatus[botName] !== currentStatus) {
+                        // Status is veranderd!
+                        lastStatus[botName] = currentStatus;
+                        
+                        if (currentStatus === 'online') {
+                            const data = await response.json();
+                            addLog(botName, 'online', `Bot is online - Ping: ${data.ping || 'N/A'}, Uptime: ${data.uptime || 'N/A'}`);
+                        } else {
+                            addLog(botName, 'offline', `Bot is offline - Geen verbinding mogelijk`);
+                        }
+                    }
+                } catch (error) {
+                    if (lastStatus[botName] !== 'offline') {
+                        lastStatus[botName] = 'offline';
+                        addLog(botName, 'offline', `Bot is offline - ${error.message}`);
+                    }
+                }
+            }
+        }
+
+        // ============ FILTER FUNCTIES ============
+        function setupFilters() {
+            const filters = document.querySelectorAll('.filter-btn');
+            filters.forEach(btn => {
+                const filter = btn.getAttribute('data-filter');
+                if (filter && filter !== 'Wis') {
+                    btn.addEventListener('click', () => {
+                        filters.forEach(f => f.classList.remove('active'));
+                        btn.classList.add('active');
+                        currentFilter = filter;
+                        renderLogs();
+                    });
+                }
+            });
+        }
+
+        // ============ INITIALISATIE ============
+        async function init() {
+            setupFilters();
+            
+            // Eerste check
+            await checkAllBots();
+            await checkAndLogStatusChanges();
+            
+            // Zet interval voor data refresh (elke 30 seconden)
+            setInterval(checkAllBots, 30000);
+            
+            // Zet interval voor status logging (elke 60 seconden)
+            setInterval(checkAndLogStatusChanges, 60000);
+        }
+
+        init();
+    </script>
 </body>
 </html>
