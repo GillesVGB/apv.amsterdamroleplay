@@ -1009,6 +1009,15 @@ document.getElementById('darkModeToggle')?.addEventListener('click', function() 
     document.body.classList.toggle('dark-mode');
     this.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
+    // Scroll naar boven knop - tonen/verbergen
+window.addEventListener('scroll', function() {
+    const btn = document.getElementById('scrollTopBtn');
+    if (window.scrollY > 300) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
+    }
+});
     </script>
 </body>
 </html>
