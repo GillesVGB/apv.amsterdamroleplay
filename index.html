@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amsterdam Roleplay | Bot Status</title>
-    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Amsterdam Roleplay · APV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,651 +14,699 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #0f0f1a 50%, #1a1a2e 100%);
-            color: #fff;
-            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #070b10;
+            color: #eef2ff;
+            line-height: 1.55;
+            scroll-behavior: smooth;
         }
 
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+        /* moderne scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121a24;
+            border-radius: 12px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2c5a74;
+            border-radius: 12px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3e7fa0;
+        }
+
+        .docs-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            background: #0d131b;
+            border-radius: 0 0 32px 32px;
             overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
         }
 
-        .bg-animation::before {
+        /* Premium Hero */
+        .hero {
+            background: radial-gradient(ellipse at 80% 30%, #11212e, #070c12);
+            padding: 3rem 2.8rem 2.5rem 2.8rem;
+            border-bottom: 1px solid rgba(37,150,190,0.35);
+            position: relative;
+            backdrop-filter: blur(2px);
+        }
+        .hero::after {
             content: '';
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(135,206,235,0.08) 0%, transparent 70%);
-            animation: rotate 40s linear infinite;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #2596be, transparent);
         }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 40px 20px 20px;
-        }
-
-        .logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            animation: float 3s ease-in-out infinite;
-            box-shadow: 0 0 40px rgba(135,206,235,0.4);
-            margin-bottom: 20px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-        }
-
-        h1 {
-            font-size: 2.5em;
-            background: linear-gradient(135deg, #87CEEB, #4FC3F7, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(125deg, #ffffff, #8ac4e0);
             background-clip: text;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #87CEEB;
-            opacity: 0.8;
-            margin-bottom: 30px;
-        }
-
-        /* Last Update */
-        .last-update {
-            text-align: center;
-            font-size: 0.75em;
-            opacity: 0.5;
-            margin-bottom: 30px;
-        }
-
-        /* Bots Grid */
-        .bots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .bot-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
-            padding: 25px;
-            border: 1px solid rgba(135,206,235,0.2);
-            transition: all 0.3s;
-        }
-
-        .bot-card:hover {
-            transform: translateY(-5px);
-            border-color: #87CEEB;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .bot-header {
-            display: flex;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(135,206,235,0.2);
-        }
-
-        .bot-icon {
-            font-size: 3em;
-        }
-
-        .bot-title {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        .status-badge {
-            margin-left: auto;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.7em;
-            font-weight: bold;
-        }
-
-        .status-online {
-            background: rgba(0,255,0,0.2);
-            color: #00ff00;
-            border: 1px solid #00ff00;
-        }
-
-        .status-offline {
-            background: rgba(255,0,0,0.2);
-            color: #ff4444;
-            border: 1px solid #ff4444;
-        }
-
-        .status-checking {
-            background: rgba(255,165,0,0.2);
-            color: #ffa500;
-            border: 1px solid #ffa500;
-        }
-
-        /* Stats inside card */
-        .bot-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 12px;
-            margin-bottom: 20px;
+        }
+.hero h1 {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.hero-sub {
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.badge-panel {
+    justify-content: center;
+}
+        .stat-chip {
+            background: rgba(30, 50, 70, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 100px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid #2e5775;
+            letter-spacing: 0.2px;
+        }
+        .stat-chip i {
+            margin-right: 6px;
+            color: #2596be;
         }
 
-        .stat-item {
-            background: rgba(0,0,0,0.3);
-            border-radius: 12px;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #FFD700;
-        }
-
-        .stat-label {
-            font-size: 0.7em;
-            opacity: 0.7;
-            margin-top: 4px;
-        }
-
-        .bot-features {
+        /* Zoekbalk minimal premium */
+        .search-section {
+            padding: 1rem 2.2rem;
+            background: #0a1017;
+            border-bottom: 1px solid #1e2b36;
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .search-box {
+            flex: 2;
+            min-width: 280px;
+            background: #111a24;
+            border-radius: 60px;
+            padding: 0.65rem 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #284353;
+            transition: all 0.25s ease;
+        }
+        .search-box:focus-within {
+            border-color: #2596be;
+            box-shadow: 0 0 0 3px rgba(37,150,190,0.2);
+        }
+        .search-box i {
+            color: #2596be;
+            font-size: 1rem;
+        }
+        .search-box input {
+            background: transparent;
+            border: none;
+            width: 100%;
+            outline: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #ecf9ff;
+        }
+        .search-box input::placeholder {
+            color: #5a7f9a;
+            font-weight: 400;
+        }
+        .reset-btn {
+            background: #1a2a36;
+            padding: 0.55rem 1.3rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #cce9ff;
+            transition: 0.2s;
+            border: 1px solid #2f556b;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
             gap: 8px;
-            margin-top: 15px;
+        }
+        .reset-btn:hover {
+            background: #2a4050;
+            color: white;
+            border-color: #2596be;
         }
 
-        .feature-tag {
-            background: rgba(135,206,235,0.15);
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.65em;
+        .main-rules {
+            padding: 2rem 2.2rem 3rem 2.2rem;
         }
 
-        /* Logs Section */
-        .logs-section {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 1.8rem 0 1.2rem 0;
+            border-left: 4px solid #2596be;
+            padding-left: 1rem;
+            letter-spacing: -0.3px;
+            color: #f0f6fe;
         }
 
-        .logs-header {
+        /* straf tabel premium */
+        .sanctie-tabel {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0f1822;
+            margin: 1.5rem 0 2rem 0;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #253f4f;
+            font-size: 0.85rem;
+        }
+        .sanctie-tabel th {
+            background: #0f1a24;
+            padding: 1rem 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            color: #bbdef5;
+            border-bottom: 1px solid #1f3948;
+        }
+        .sanctie-tabel td {
+            padding: 0.85rem 1.2rem;
+            border-bottom: 1px solid #1a2e3c;
+            color: #cde4f5;
+        }
+
+        .cat-badge {
+            display: inline-block;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            letter-spacing: 0.2px;
+        }
+        .bg-cat0 { background: #2e4b66; color: white; }
+        .bg-cat1 { background: #1e7e6b; color: white; }
+        .bg-cat2 { background: #2f6e9e; color: white; }
+        .bg-cat3 { background: #cf7c2c; color: white; }
+        .bg-cat4 { background: #c95151; color: white; }
+        .bg-cat5 { background: #8a5eb0; color: white; }
+        .bg-cat6 { background: #3e7fb0; color: white; }
+        .bg-cat7 { background: #468c7a; color: white; }
+        .bg-cat8 { background: #d4922b; color: white; }
+        .bg-cat9 { background: #b3475c; color: white; }
+        .bg-var { background: #4f6f8c; color: white; }
+
+        /* accordion cards — glassmorphism premium */
+        .rule-card {
+            background: #0f1822;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            border: 1px solid #253f50;
+            transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+        }
+        .rule-card:hover {
+            border-color: #3b6f8a;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            transform: translateY(-1px);
+        }
+        .rule-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .logs-title {
-            font-size: 1.3em;
-            color: #87CEEB;
-        }
-
-        .log-filter {
-            display: flex;
-            gap: 10px;
-        }
-
-        .filter-btn {
-            background: rgba(255,255,255,0.1);
-            border: none;
-            padding: 6px 15px;
-            border-radius: 20px;
-            color: #fff;
+            padding: 1.2rem 1.8rem;
             cursor: pointer;
-            font-size: 0.8em;
-            transition: all 0.3s;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: linear-gradient(135deg, #87CEEB, #4FC3F7);
-            color: #1a1a2e;
-        }
-
-        .logs-container {
-            background: rgba(0,0,0,0.4);
+            background: #0f1822;
             border-radius: 20px;
-            padding: 15px;
-            max-height: 300px;
-            overflow-y: auto;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            transition: background 0.2s;
         }
-
-        .log-entry {
-            padding: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-family: monospace;
-            font-size: 0.8em;
+        .rule-header:hover {
+            background: #14212e;
+        }
+        .rule-title {
             display: flex;
-            align-items: center;
+            align-items: baseline;
             gap: 12px;
             flex-wrap: wrap;
         }
+        .rule-nummer {
+            background: #1f364a;
+            padding: 0.25rem 0.9rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: #a3d4f0;
+        }
+        .rule-naam {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #eaf3fd;
+            letter-spacing: -0.2px;
+        }
+        .sanction-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.35rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.7rem;
+            backdrop-filter: blur(4px);
+        }
+        .cat0 { background: #2e4b66; color: white; }
+        .cat1 { background: #1e7e6b; color: white; }
+        .cat2 { background: #2f6e9e; color: white; }
+        .cat3 { background: #cf7c2c; color: white; }
+        .cat4 { background: #c95151; color: white; }
+        .cat5 { background: #8a5eb0; color: white; }
+        .cat6 { background: #3e7fb0; color: white; }
+        .cat7 { background: #468c7a; color: white; }
+        .cat8 { background: #d4922b; color: white; }
+        .cat9 { background: #b3475c; color: white; }
+        .cat-var { background: #4f6f8c; color: white; }
 
-        .log-time {
-            color: #87CEEB;
-            min-width: 85px;
+        .rule-content {
+            display: none;
+            padding: 0.2rem 1.8rem 1.8rem 1.8rem;
+            border-top: 1px solid #1e3a4a;
+            background: #0b131d;
+            font-size: 0.9rem;
+            color: #d2e5f5;
+            line-height: 1.55;
+            border-radius: 0 0 20px 20px;
+        }
+        .rule-content.open {
+            display: block;
+        }
+        .rule-content p, .rule-content ul {
+            margin: 0.8rem 0;
+        }
+        .rule-content li {
+            margin-left: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .rule-content strong {
+            color: #7fc9e8;
+            font-weight: 600;
         }
 
-        .log-bot {
-            background: rgba(135,206,235,0.2);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.7em;
-        }
-
-        .log-online { color: #00ff00; }
-        .log-offline { color: #ff4444; }
-        .log-message { flex: 1; }
-
-        .no-logs {
+        footer {
+            background: #080e14;
             text-align: center;
-            padding: 30px;
-            opacity: 0.5;
+            padding: 1.5rem;
+            font-size: 0.7rem;
+            border-top: 1px solid #1f2f3c;
+            color: #7a9bbb;
+            margin-top: 2rem;
         }
 
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 25px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 40px;
-            font-size: 0.7em;
-            opacity: 0.5;
-        }
-
-        @media (max-width: 768px) {
-            .bots-grid { grid-template-columns: 1fr; }
-            .logs-header { flex-direction: column; align-items: flex-start; }
-            .log-entry { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .log-time { min-width: auto; }
+        @media (max-width: 750px) {
+            .hero { padding: 1.5rem; }
+            .main-rules { padding: 1rem; }
+            .rule-header { flex-direction: column; align-items: flex-start; }
+            .section-title { font-size: 1.3rem; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
-
-    <div class="header">
-        <img src="https://cdn.discordapp.com/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png" alt="Logo" class="logo">
-        <h1>Amsterdam Roleplay</h1>
-        <div class="subtitle">Bot Status Dashboard</div>
-    </div>
-
-    <div class="last-update" id="last-update">
-        Laatste update: <span id="update-time">--:--:--</span>
-    </div>
-
-    <div class="bots-grid" id="bots-grid">
-        <!-- Overheid Bot -->
-        <div class="bot-card" id="overheid-card">
-            <div class="bot-header">
-                <div class="bot-icon">🏛️</div>
-                <div class="bot-title">Overheid Bot</div>
-                <div class="status-badge status-checking" id="overheid-status">⏳ Controleren...</div>
-            </div>
-            <div class="bot-stats">
-                <div class="stat-item">
-                    <div class="stat-value" id="overheid-ping">--</div>
-                    <div class="stat-label">Ping</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="overheid-uptime">--</div>
-                    <div class="stat-label">Uptime</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="overheid-vog">--</div>
-                    <div class="stat-label">VOG's</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="overheid-sollicitaties">--</div>
-                    <div class="stat-label">Sollicitaties</div>
-                </div>
-            </div>
-            <div class="bot-features">
-                <span class="feature-tag">📋 VOG</span>
-                <span class="feature-tag">📞 Roepnummers</span>
-                <span class="feature-tag">📚 Trainingen</span>
-                <span class="feature-tag">📝 Sollicitaties</span>
-            </div>
+<div class="docs-container">
+    <div class="hero">
+        <!-- Logo en titel naast elkaar -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <img src="https://cdn.discordapp.com/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png" 
+                 alt="Amsterdam Roleplay Logo" 
+                 style="height: 70px; width: auto; filter: drop-shadow(0 0 10px rgba(37,150,190,0.3));">
+            <h1 style="margin: 0;">Amsterdam Roleplay · APV</h1>
         </div>
-
-        <!-- Onderwereld Bot -->
-        <div class="bot-card" id="onderwereld-card">
-            <div class="bot-header">
-                <div class="bot-icon">🔫</div>
-                <div class="bot-title">Onderwereld Bot</div>
-                <div class="status-badge status-checking" id="onderwereld-status">⏳ Controleren...</div>
-            </div>
-            <div class="bot-stats">
-                <div class="stat-item">
-                    <div class="stat-value" id="onderwereld-ping">--</div>
-                    <div class="stat-label">Ping</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="onderwereld-uptime">--</div>
-                    <div class="stat-label">Uptime</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="onderwereld-guilds">--</div>
-                    <div class="stat-label">Servers</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="onderwereld-tickets">--</div>
-                    <div class="stat-label">Tickets</div>
-                </div>
-            </div>
-            <div class="bot-features">
-                <span class="feature-tag">💥 Gang Strikes</span>
-                <span class="feature-tag">🎫 Tickets</span>
-                <span class="feature-tag">💡 Suggesties</span>
-                <span class="feature-tag">📝 Staff Replies</span>
-            </div>
-        </div>
-
-        <!-- Invite Bot -->
-        <div class="bot-card" id="invite-card">
-            <div class="bot-header">
-                <div class="bot-icon">🎉</div>
-                <div class="bot-title">Invite Bot</div>
-                <div class="status-badge status-checking" id="invite-status">⏳ Controleren...</div>
-            </div>
-            <div class="bot-stats">
-                <div class="stat-item">
-                    <div class="stat-value" id="invite-ping">--</div>
-                    <div class="stat-label">Ping</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="invite-uptime">--</div>
-                    <div class="stat-label">Uptime</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="invite-guilds">--</div>
-                    <div class="stat-label">Servers</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="invite-total">--</div>
-                    <div class="stat-label">Totaal Invites</div>
-                </div>
-            </div>
-            <div class="bot-features">
-                <span class="feature-tag">📊 Leaderboard</span>
-                <span class="feature-tag">🎁 Beloningen</span>
-                <span class="feature-tag">📈 Statistieken</span>
-                <span class="feature-tag">👑 Medailles</span>
-            </div>
+        <div class="hero-sub">Algemene Plaatselijke Verordening · 62 Artikelen · Officieel regelwerk voor alle spelers &amp; staff</div>
+        <div class="badge-panel">
+            <div class="stat-chip">Volledige onverkorte tekst</div>
+            <div class="stat-chip">Premium donker design</div>
+            <div class="stat-chip">Live zoekfilter</div>
         </div>
     </div>
-
-    <!-- Logs Sectie -->
-    <div class="logs-section">
-        <div class="logs-header">
-            <div class="logs-title">📝 Incident Logs</div>
-            <div class="log-filter">
-                <button class="filter-btn active" data-filter="all">Alle</button>
-                <button class="filter-btn" data-filter="overheid">🏛️ Overheid</button>
-                <button class="filter-btn" data-filter="onderwereld">🔫 Onderwereld</button>
-                <button class="filter-btn" data-filter="invite">🎉 Invite</button>
-                <button class="filter-btn" onclick="clearLogs()" style="background:rgba(255,0,0,0.2);">🗑️ Wis</button>
-            </div>
+    <div class="search-section">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Zoek in alle 62 artikelen (bijv. 'RDM', 'metagamen', 'powergamen', 'ontvoeren')">
         </div>
-        <div class="logs-container" id="logs-container">
-            <div class="no-logs">📭 Geen logs geladen...</div>
+        <div class="reset-btn" id="resetFilterBtn"><i class="fas fa-undo-alt"></i> Wis filter</div>
+    </div>
+    <div class="main-rules">
+        <div class="section-title"><i class="fas fa-chart-line"></i> Strafcategorieën Overzicht</div>
+        <table class="sanctie-tabel">
+            <thead><tr><th>Categorie</th><th>Sanctie</th><th>Omschrijving</th></tr></thead>
+            <tbody>
+                <tr><td><span class="cat-badge bg-cat0">Categorie 0</span></td><td>Mondelinge waarschuwing</td><td>Informeel / eerste lichte fout, geen ban.</td></tr>
+                <tr><td><span class="cat-badge bg-cat1">Categorie 1</span></td><td>Waarschuwing + 20 taken</td><td>Kleine overtredingen: karakter breken, earrape, taal, lichte failRP.</td></tr>
+                <tr><td><span class="cat-badge bg-cat2">Categorie 2</span></td><td>30 taken taakstraf</td><td>Middelgroot: NLR, criminele basisregels, rippen zonder indicatie, gangwar basis.</td></tr>
+                <tr><td><span class="cat-badge bg-cat3">Categorie 3</span></td><td>50 taken taakstraf</td><td>Ernstig: powergamen, metagamen, stream sniping, AFK omzeilen, onder dreiging houden.</td></tr>
+                <tr><td><span class="cat-badge bg-cat4">Categorie 4</span></td><td>1 dag ban</td><td>Zeer ernstig: RDM, failRP (structureel), NVOL, combatloggen, VDM meerdere slachtoffers.</td></tr>
+                <tr><td><span class="cat-badge bg-cat5">Categorie 5</span></td><td>2 dagen ban</td><td>Zwaar: schelden ziektes, toxiciteit, erotische RP, gang-warns, wraak op whitelisted jobs.</td></tr>
+                <tr><td><span class="cat-badge bg-cat6">Categorie 6</span></td><td>3 dagen ban</td><td>Structureel: streamers in kwaad daglicht, corruptie hulpdiensten, racisme, haatzaaien.</td></tr>
+                <tr><td><span class="cat-badge bg-cat7">Categorie 7</span></td><td>1 week ban</td><td>Extreem: combatgedrag (alleen vechten), externe software, duplicatie-exploits.</td></tr>
+                <tr><td><span class="cat-badge bg-cat8">Categorie 8</span></td><td>Permanente verbanning</td><td>Economische fraude: IRL trade, startersgeld misbruik, alt-fraude, goederen weggeven.</td></tr>
+                <tr><td><span class="cat-badge bg-cat9">Categorie 9</span></td><td>Permanente ban + account wipe</td><td>Cheats, hacks, alt misbruik, bedreiging/doxing.</td></tr>
+                <tr><td><span class="cat-badge bg-var">Variabel</span></td><td>Afhankelijk van context</td><td>Hoogte van de straf, /report gebruik, staff limiet, situationeel.</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Strafverzwaring:</strong> Bij herhaling wordt de straf met een categorie verhoogd (Categorie 1 → 2 → 3, etc.).</p>
+
+        <div class="section-title"><i class="fas fa-book-open"></i> Alle 62 Artikelen</div>
+        <div id="accordion-root"></div>
+        <footer>
+            <i class="fas fa-ticket-alt"></i> Vragen of onduidelijkheden? Ticket aanmaken in onze Support Discord.<br>
+            © 2026 Amsterdam Roleplay — Gezond verstand gaat boven alle regels — Roleplay draait om samen plezier.<br>
+            <strong>APV-tekst zoals vastgesteld door Amsterdam Roleplay.</strong>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const rulesData = [
+        { num: "1", title: "Cheats & Ongeoorloofde Software", sanctie: "Categorie 9", catClass: "cat9", content: `<p><strong>Wat houdt dit in?</strong><br> Het gebruik van software van derden die bedoeld is om een oneerlijk voordeel te behalen in het spel is ten strengste verboden. Dit omvat cheats, hacks, aimbots, wallhacks, ESP, snelheidshacks. Ook als je op andere servers betrapt bent op cheatgebruik behouden wij het recht je te weren. Zero-tolerancebeleid. Straf: Categorie 9 (permanente ban).</p>` },
+        { num: "1A", title: "Externe Software & Instellingen", sanctie: "Categorie 7", catClass: "cat7", content: `<p><strong>Verboden:</strong> Crosshairs, aangepaste resoluties (alleen AUTO/16:9/16:10), ReShade, macro's. Straf: Categorie 7 (7-14 dagen).</p>` },
+        { num: "2", title: "Exploits & Bugs", sanctie: "Categorie 3 t/m 7 + wipe", catClass: "cat7", content: `<p>Doelbewust gebruiken van bugs/exploits is verboden. Emotes misbruik (cat6), duplicatie (cat7+wipe), one punch bug (cat4). Accountwipe bij duplicatie.</p>` },
+        { num: "2A", title: "Real-Life Handel (IRL Trade)", sanctie: "Categorie 8", catClass: "cat8", content: `<p>Kopen/verkopen van in-game geld, items, diensten of accounts tegen echt geld (PayPal, crypto etc). Straf: 14-30 dagen + wipe, bij herhaling perm.</p>` },
+        { num: "3", title: "Alt Characters", sanctie: "Categorie 9", catClass: "cat9", content: `<p>Verboden: geld/items overdragen tussen alts, extra startersgeld, alt als verkenner, ban omzeilen. Toegestaan: 2e karakter op zelfde account. Straf: perm voor alle accounts.</p>` },
+        { num: "3A", title: "Startersgeld", sanctie: "Categorie 8", catClass: "cat8", content: `<p>Startersgeld weggeven zonder intentie te spelen = straf voor beide partijen. Straf: Categorie 8 + accountwipe.</p>` },
+        { num: "4", title: "Bedreiging & Intimidatie", sanctie: "Categorie 8", catClass: "cat8", content: `<p>Real-life bedreigingen, doxing, DDoS-aanvallen. Permanente ban + melding autoriteiten.</p>` },
+        { num: "5", title: "Fail RP", sanctie: "Categorie 4", catClass: "cat4", content: `<p><strong>Fail RP:</strong> Geen roleplay bij verwondingen, emotespam, praten onder water, banden leksteken zonder reden. Medische regel: doden naar ziekenhuis. Verwondingen uitspelen: over kop >40 km/u, crash object >85 km/u. Banden schieten alleen bij waarschuwing/achtervolging >5 min. Campen drugslocaties verboden. Straf: Categorie 4.</p>` },
+        { num: "6", title: "Powergamen", sanctie: "Categorie 3", catClass: "cat3", content: `<p>Powergamen: vluchten in appartement, wapen wegstoppen <10 min, DEL-menu misbruik, ambulance dwingen, emote abuse, campen bij politiebureau/ziekenhuis. Straf: Categorie 3.</p>` },
+        { num: "7", title: "Karakter breken / OOC", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Verboden OOC-woorden: staff, broodje, tickets, refund, bug. Alleen Nederlands/Engels. Ban/warn vermelden verboden. Straf: Categorie 1.</p>` },
+        { num: "8", title: "Copbaiten", sanctie: "Categorie 1-4", catClass: "cat4", content: `<p>Basis copbaiten cat1 (uitlokken), zwaar copbaiten cat4 (schieten in lucht, dreigen wapen).</p>` },
+        { num: "9", title: "No Value of Life (NVOL)", sanctie: "Categorie 4", catClass: "cat4", content: `<p>Verplicht waarde hechten aan leven. Zelfmoord, noodknop onder schot, porto onder schot, dekking voertuig. Gunpoint 15-20m. Meewerken bij wapendreiging. Straf: Categorie 4.</p>` },
+        { num: "10", title: "New Life Rule (NLR)", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Na overlijden vergeet je scenario. Niet meer mengen inzelfde conflict. Straf: Categorie 2.</p>` },
+        { num: "11", title: "Microfoon", sanctie: "Categorie 1-2", catClass: "cat2", content: `<p>Push-to-talk verplicht, voice changer alleen onderwereld. Soundpad met admin-toestemming. Straf: Categorie 1-2.</p>` },
+        { num: "12", title: "Earrape", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Overmatig lawaai, schreeuwen, pijngeluiden. Straf: Categorie 1.</p>` },
+        { num: "13", title: "VDM", sanctie: "Categorie 2 of 4", catClass: "cat4", content: `<p>Voertuig als wapen: 1 slachtoffer cat2, meerdere cat4.</p>` },
+        { num: "14", title: "RDM", sanctie: "Categorie 4", catClass: "cat4", content: `<p>Willekeurig doden zonder RP-reden. Geen geldige reden: aanrijding, weigeren dansen. Wel Birdy-uitdaging. Straf: Categorie 4 + wapen inleveren bij herhaling.</p>` },
+        { num: "15", title: "Metagamen", sanctie: "Categorie 3", catClass: "cat3", content: `<p>Informatie uit Discord, calls, streams gebruiken. Privestreamen verboden. Straf: Categorie 3.</p>` },
+        { num: "16", title: "Voertuig gebruik", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Pitten boven 130km/u verboden, grotere klasse pitten nooit. Off-road regels. Straf: Categorie 1.</p>` },
+        { num: "17", title: "GTA Style Driving", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Stuntjumps, onrealistisch off-road, rammen. Lekke banden max 130km/u. Straf: Categorie 1.</p>` },
+        { num: "18", title: "Illegale activiteiten Birdy/Instapic", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Geen witwas, wapens, drugs aanbieden op sociale media. Straf: Categorie 1.</p>` },
+        { num: "19", title: "Overheidskleding", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Verboden: POLICE/AMBULANCE logo's, pechhulpkleding. Straf: Categorie 1.</p>` },
+        { num: "20", title: "Schelden/beledigen", sanctie: "Categorie 5 of 6", catClass: "cat5", content: `<p>Ziektes cat5, seksuele beledigingen cat5, racisme cat6.</p>` },
+        { num: "21", title: "Standaard outfit", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Geen standaard zwart-wit outfit. Skinny kleding niet tijdens combat. Straf: Categorie 1.</p>` },
+        { num: "22", title: "Combatloggen", sanctie: "Categorie 4", catClass: "cat4", content: `<p>Server verlaten tijdens actief scenario. 5 min om terug te keren. Straf: Categorie 4.</p>` },
+        { num: "23", title: "Stream sniping", sanctie: "Categorie 3", catClass: "cat3", content: `<p>Info uit livestreams gebruiken. Straf: Categorie 3. Streamdelay min 30 sec.</p>` },
+        { num: "24", title: "Job voertuigen", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Jobvoertuig niet voor illegale activiteiten. Straf: Categorie 1.</p>` },
+        { num: "25", title: "/report gebruik", sanctie: "Geen straf", catClass: "cat-var", content: `<p>Reports duidelijk verwoorden. Voor RDM/metagame ticket in Discord.</p>` },
+        { num: "26", title: "Spammen", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Meer dan 3 reports in 10 sec. Straf: Categorie 1.</p>` }
+    ];
+
+    const extraArtikelen = [
+        { num: "27", title: "Taal", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Nederlands voertaal, Engels alleen met toestemming. Straf: Categorie 1.</p>` },
+        { num: "28", title: "Stemherkenning", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Stemherkenning mag, tenzij voice changer actief is.</p>` },
+        { num: "29", title: "Birdy/Instapic media", sanctie: "Eigen verantw.", catClass: "cat-var", content: `<p>Informatie uit social media is openbaar.</p>` },
+        { num: "30", title: "Criminele activiteiten", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Geen deals vanuit voertuig, geen dwang tot huis/auto sleutel. Straf: Categorie 2.</p>` },
+        { num: "31", title: "Criminele groeperingen", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Meer dan 5 = groepering, ganging up verboden. Straf: Categorie 1.</p>` },
+        { num: "32", title: "Oplichten en scammen", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Scammen voertuigen verboden, limiet €30.000. Straf: Categorie 1.</p>` },
+        { num: "33", title: "Overvallen", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Geen vrienden als gijzelaar, DSI alleen bij automatische wapens, counteren na 1 uur. Straf: Categorie 2.</p>` },
+        { num: "34", title: "Onderwereld & Rippen", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Rip-indicatoren: masker, holster, vest. Max 20 leden per gang. Straf: Categorie 2.</p>` },
+        { num: "35", title: "Gangwars", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Max 48 uur, bewijs nodig, dood = uit war. Straf: Categorie 2.</p>` },
+        { num: "36", title: "Ontvoeren", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Min. agenten: burger 2, 1 agent 4, 2 agenten 8. Max 90 min, max eis €30k/€50k.</p>` },
+        { num: "37", title: "Onder dreiging houden", sanctie: "Categorie 3", catClass: "cat3", content: `<p>Alleen bij zichtbare criminele attributen (holster, masker, vest). Straf: Categorie 3.</p>` },
+        { num: "38", title: "Leden criminele organisaties", sanctie: "Max 20", catClass: "cat-var", content: `<p>Max 20 leden per organisatie.</p>` },
+        { num: "39", title: "Rippen van wapens", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Wapen fysiek gezien, clip verplicht, max 2 uur. Straf: Categorie 1.</p>` },
+        { num: "40", title: "Officiële gangs", sanctie: "Categorie 5 + Warn", catClass: "cat5", content: `<p>Wekelijks RP-scenario, items via F6. Straf: Categorie 5.</p>` },
+        { num: "41", title: "Erkende gangs", sanctie: "Categorie 5 + Warn", catClass: "cat5", content: `<p>Wekelijks scenario, geen /me innemen. Straf: Categorie 5.</p>` },
+        { num: "42", title: "Wraakacties", sanctie: "Categorie 4-5", catClass: "cat5", content: `<p>Wraak tegen whitelisted jobs verboden (cat5). Na overlijden niet mengen (cat4).</p>` },
+        { num: "43", title: "Fouilleren", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Alleen met getrokken wapen en zichtbare indicatie. Straf: Categorie 2.</p>` },
+        { num: "44", title: "Ambulance", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Ambulance niet vermoorden, geen revive bij hoofdschot/verdrinking/val >5. Straf: Categorie 2.</p>` },
+        { num: "45", title: "Pechhulp", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Pechhulpmedewerkers niet vermoorden. Straf: Categorie 2.</p>` },
+        { num: "46", title: "Streamers", sanctie: "Categorie 6", catClass: "cat6", content: `<p>"Amsterdam Roleplay" in titel, geen kwaad daglicht. Straf: Categorie 6.</p>` },
+        { num: "47", title: "Erotische roleplay", sanctie: "Categorie 5", catClass: "cat5", content: `<p>Seksuele handelingen verboden. Straf: Categorie 5.</p>` },
+        { num: "48", title: "AFK kick voorkomen", sanctie: "Categorie 3", catClass: "cat3", content: `<p>Scripts/gewicht op toetsenbord verboden. Straf: Categorie 3.</p>` },
+        { num: "49", title: "Hulpdiensten algemeen", sanctie: "Categorie 6", catClass: "cat6", content: `<p>Corruptie = ontslag + ban. Straf: Categorie 6.</p>` },
+        { num: "50", title: "Goederen weggeven bij stoppen", sanctie: "Categorie 8", catClass: "cat8", content: `<p>Overdragen bij stoppen verboden, beide permaban.</p>` },
+        { num: "51", title: "Toxic gedrag", sanctie: "Categorie 4-5", catClass: "cat5", content: `<p>Respectloze reacties, pesten, ticketmisbruik. Straf cat4-5.</p>` },
+        { num: "52", title: "Stelen overheidsvoertuigen", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Alleen tijdens achtervolging. Straf: Categorie 1.</p>` },
+        { num: "53", title: "Staff", sanctie: "Categorie 5-6", catClass: "cat6", content: `<p>Liegen tegen staff cat5, voordoen als staff cat6.</p>` },
+        { num: "54", title: "Rippen op eiland", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Op eiland vrijwel alles afpakken en doden na rip. Straf cat2.</p>` },
+        { num: "55", title: "Politie op eiland", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Politie treedt op maar houdt NVOL/FailRP aan.</p>` },
+        { num: "56", title: "Samenwerking eiland", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Samenwerken zonder toestemming verboden.</p>` },
+        { num: "57", title: "Vliegtuig/Helikopter", sanctie: "Categorie 4", catClass: "cat4", content: `<p>Vliegbrevet verplicht, geen gevangenisuitbraak met heli.</p>` },
+        { num: "58", title: "Vliegdekschip", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Militair gebied, betreden op eigen risico.</p>` },
+        { num: "59", title: "Helikopter op eiland", sanctie: "Specifiek", catClass: "cat-var", content: `<p>Heli's uitschieten op eiland toegestaan.</p>` },
+        { num: "60", title: "Staff limiet", sanctie: "Reglement", catClass: "cat-var", content: `<p>Max 3 leden per gang in staffteam.</p>` },
+        { num: "61", title: "Combat Gedrag", sanctie: "Categorie 7", catClass: "cat7", content: `<p>Alleen combat zoeken = ban 30 dagen.</p>` },
+        { num: "62", title: "Haat veroorzakend", sanctie: "Categorie 5", catClass: "cat5", content: `<p>Toxic op Twitter, tickets zonder reden, Discord toxiciteit = cat5.</p><p><strong>Onthoud: gezond verstand gaat boven alle regels - roleplay draait om samen plezier.</strong></p>` }
+    ];
+    const alleArtikelen = [...rulesData, ...extraArtikelen];
+    function buildAccordion(filterText = "") {
+        const root = document.getElementById("accordion-root");
+        if (!root) return;
+        root.innerHTML = "";
+        const lowerFilter = filterText.toLowerCase();
+        const filtered = alleArtikelen.filter(rule => !lowerFilter || rule.num.includes(lowerFilter) || rule.title.toLowerCase().includes(lowerFilter) || rule.sanctie.toLowerCase().includes(lowerFilter) || rule.content.toLowerCase().includes(lowerFilter));
+        if(filtered.length === 0) { root.innerHTML = `<div style="padding:2rem;text-align:center;">⚠️ Geen artikelen gevonden voor "${filterText}".</div>`; return; }
+        filtered.forEach(rule => {
+            const card = document.createElement("div"); card.className = "rule-card";
+            const header = document.createElement("div"); header.className = "rule-header";
+            const titleDiv = document.createElement("div"); titleDiv.className = "rule-title";
+            titleDiv.innerHTML = `<span class="rule-nummer">Art. ${rule.num}</span> <span class="rule-naam">${rule.title}</span>`;
+            const badge = document.createElement("span"); badge.className = `sanction-badge ${rule.catClass}`;
+            badge.innerHTML = `<i class="fas fa-gavel"></i> ${rule.sanctie}`;
+            header.appendChild(titleDiv); header.appendChild(badge);
+            const contentDiv = document.createElement("div"); contentDiv.className = "rule-content";
+            contentDiv.innerHTML = rule.content;
+            header.addEventListener("click", () => contentDiv.classList.toggle("open"));
+            card.appendChild(header); card.appendChild(contentDiv);
+            root.appendChild(card);
+        });
+    }
+    document.getElementById("searchInput")?.addEventListener("input", e => buildAccordion(e.target.value));
+    document.getElementById("resetFilterBtn")?.addEventListener("click", () => { document.getElementById("searchInput").value = ""; buildAccordion(""); });
+    buildAccordion("");
+</script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Amsterdam Roleplay · APV · Volledige 62 Artikelen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #070b10;
+            color: #eef2ff;
+            line-height: 1.55;
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #121a24; border-radius: 12px; }
+        ::-webkit-scrollbar-thumb { background: #2c5a74; border-radius: 12px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3e7fa0; }
+        .docs-container { max-width: 1440px; margin: 0 auto; background: #0d131b; border-radius: 0 0 32px 32px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        .hero { background: radial-gradient(ellipse at 80% 30%, #11212e, #070c12); padding: 3rem 2.8rem 2.5rem 2.8rem; border-bottom: 1px solid rgba(37,150,190,0.35); position: relative; text-align: center; }
+        .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, #2596be, transparent); }
+        .hero h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; background: linear-gradient(125deg, #ffffff, #8ac4e0); background-clip: text; -webkit-background-clip: text; color: transparent; display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%; }
+        .hero-sub { color: #8fbbd9; margin-top: 0.8rem; font-weight: 400; font-size: 0.95rem; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .badge-panel { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; justify-content: center; }
+        .stat-chip { background: rgba(30, 50, 70, 0.6); backdrop-filter: blur(8px); border-radius: 100px; padding: 0.4rem 1.2rem; font-size: 0.75rem; font-weight: 500; border: 1px solid #2e5775; }
+        .stat-chip i { margin-right: 6px; color: #2596be; }
+        .search-section { padding: 1rem 2.2rem; background: #0a1017; border-bottom: 1px solid #1e2b36; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+        .search-box { flex: 2; min-width: 280px; background: #111a24; border-radius: 60px; padding: 0.65rem 1.4rem; display: flex; align-items: center; gap: 12px; border: 1px solid #284353; transition: all 0.25s ease; }
+        .search-box:focus-within { border-color: #2596be; box-shadow: 0 0 0 3px rgba(37,150,190,0.2); }
+        .search-box i { color: #2596be; font-size: 1rem; }
+        .search-box input { background: transparent; border: none; width: 100%; outline: none; font-size: 0.9rem; font-weight: 400; color: #ecf9ff; }
+        .search-box input::placeholder { color: #5a7f9a; }
+        .reset-btn { background: #1a2a36; padding: 0.55rem 1.3rem; border-radius: 60px; text-decoration: none; font-size: 0.7rem; font-weight: 600; color: #cce9ff; transition: 0.2s; border: 1px solid #2f556b; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .reset-btn:hover { background: #2a4050; color: white; border-color: #2596be; }
+        .main-rules { padding: 2rem 2.2rem 3rem 2.2rem; }
+        .section-title { font-size: 1.6rem; font-weight: 600; margin: 1.8rem 0 1.2rem 0; border-left: 4px solid #2596be; padding-left: 1rem; letter-spacing: -0.3px; color: #f0f6fe; }
+        .sanctie-tabel { width: 100%; border-collapse: collapse; background: #0f1822; margin: 1.5rem 0 2rem 0; border-radius: 24px; overflow: hidden; border: 1px solid #253f4f; font-size: 0.85rem; }
+        .sanctie-tabel th { background: #0f1a24; padding: 1rem 1.2rem; text-align: left; font-weight: 600; color: #bbdef5; border-bottom: 1px solid #1f3948; }
+        .sanctie-tabel td { padding: 0.85rem 1.2rem; border-bottom: 1px solid #1a2e3c; color: #cde4f5; }
+        .cat-badge { display: inline-block; padding: 0.2rem 0.9rem; border-radius: 40px; font-weight: 700; font-size: 0.7rem; }
+        .bg-cat0 { background: #2e4b66; color: white; } .bg-cat1 { background: #1e7e6b; color: white; } .bg-cat2 { background: #2f6e9e; color: white; }
+        .bg-cat3 { background: #cf7c2c; color: white; } .bg-cat4 { background: #c95151; color: white; } .bg-cat5 { background: #8a5eb0; color: white; }
+        .bg-cat6 { background: #3e7fb0; color: white; } .bg-cat7 { background: #468c7a; color: white; } .bg-cat8 { background: #d4922b; color: white; }
+        .bg-cat9 { background: #b3475c; color: white; } .bg-var { background: #4f6f8c; color: white; }
+        .rule-card { background: #0f1822; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #253f50; transition: all 0.2s cubic-bezier(0.2, 0, 0, 1); }
+        .rule-card:hover { border-color: #3b6f8a; box-shadow: 0 8px 24px rgba(0,0,0,0.3); transform: translateY(-1px); }
+        .rule-header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.8rem; cursor: pointer; background: #0f1822; border-radius: 20px; flex-wrap: wrap; gap: 0.8rem; transition: background 0.2s; }
+        .rule-header:hover { background: #14212e; }
+        .rule-title { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+        .rule-nummer { background: #1f364a; padding: 0.25rem 0.9rem; border-radius: 50px; font-weight: 700; font-size: 0.7rem; color: #a3d4f0; }
+        .rule-naam { font-weight: 600; font-size: 1rem; color: #eaf3fd; letter-spacing: -0.2px; }
+        .sanction-badge { display: inline-flex; align-items: center; gap: 8px; padding: 0.35rem 1.2rem; border-radius: 60px; font-weight: 600; font-size: 0.7rem; backdrop-filter: blur(4px); }
+        .cat0 { background: #2e4b66; color: white; } .cat1 { background: #1e7e6b; color: white; } .cat2 { background: #2f6e9e; color: white; }
+        .cat3 { background: #cf7c2c; color: white; } .cat4 { background: #c95151; color: white; } .cat5 { background: #8a5eb0; color: white; }
+        .cat6 { background: #3e7fb0; color: white; } .cat7 { background: #468c7a; color: white; } .cat8 { background: #d4922b; color: white; }
+        .cat9 { background: #b3475c; color: white; } .cat-var { background: #4f6f8c; color: white; }
+        .rule-content { display: none; padding: 0.2rem 1.8rem 1.8rem 1.8rem; border-top: 1px solid #1e3a4a; background: #0b131d; font-size: 0.9rem; color: #d2e5f5; line-height: 1.55; border-radius: 0 0 20px 20px; }
+        .rule-content.open { display: block; }
+        .rule-content p, .rule-content ul { margin: 0.8rem 0; }
+        .rule-content li { margin-left: 1.5rem; margin-bottom: 0.3rem; }
+        .rule-content strong { color: #7fc9e8; font-weight: 600; }
+        footer { background: #080e14; text-align: center; padding: 1.5rem; font-size: 0.7rem; border-top: 1px solid #1f2f3c; color: #7a9bbb; margin-top: 2rem; }
+        @media (max-width: 750px) { .hero { padding: 1.5rem; } .main-rules { padding: 1rem; } .rule-header { flex-direction: column; align-items: flex-start; } .section-title { font-size: 1.3rem; } }
+    </style>
+</head>
+<body>
+<div class="docs-container">
+    <div class="hero">
+        <h1>Amsterdam Roleplay · APV</h1>
+        <div class="hero-sub">Algemene Plaatselijke Verordening · 62 Artikelen · Officieel regelwerk voor alle spelers en staff</div>
+        <div class="badge-panel">
+            <div class="stat-chip">Volledige onverkorte tekst</div>
+            <div class="stat-chip">Premium donker design</div>
+            <div class="stat-chip">Live zoekfilter</div>
         </div>
     </div>
+    <div class="search-section">
+        <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Zoek in alle 62 artikelen (bijv. 'RDM', 'metagamen', 'powergamen')"></div>
+        <div class="reset-btn" id="resetFilterBtn">Wis filter</div>
+    </div>
+    <div class="main-rules">
+        <div class="section-title">Strafcategorieën Overzicht</div>
+        <table class="sanctie-tabel">
+            <thead><tr><th>Categorie</th><th>Sanctie</th><th>Omschrijving</th></tr></thead>
+            <tbody>
+                <tr><td><span class="cat-badge bg-cat0">Categorie 0</span></td><td>Mondelinge waarschuwing</td><td>Informeel / eerste lichte fout, geen ban.</td></tr>
+                <tr><td><span class="cat-badge bg-cat1">Categorie 1</span></td><td>Waarschuwing + taken</td><td>Kleine overtredingen: karakter breken, earrape, taal, lichte failRP.</td></tr>
+                <tr><td><span class="cat-badge bg-cat2">Categorie 2</span></td><td>30 taken taakstraf</td><td>Middelgroot: NLR, criminele basisregels, rippen zonder indicatie, gangwar basis.</td></tr>
+                <tr><td><span class="cat-badge bg-cat3">Categorie 3</span></td><td>50 taken taakstraf</td><td>Ernstig: powergamen, metagamen, stream sniping, AFK omzeilen.</td></tr>
+                <tr><td><span class="cat-badge bg-cat4">Categorie 4</span></td><td>1 dag ban</td><td>Zeer ernstig: RDM, failRP (structureel), NVOL, combatloggen, VDM.</td></tr>
+                <tr><td><span class="cat-badge bg-cat5">Categorie 5</span></td><td>2 dagen ban</td><td>Zwaar: schelden ziektes, toxiciteit, erotische RP, gang-warns.</td></tr>
+                <tr><td><span class="cat-badge bg-cat6">Categorie 6</span></td><td>3 dagen ban</td><td>Structureel: streamers in kwaad daglicht, corruptie, racisme.</td></tr>
+                <tr><td><span class="cat-badge bg-cat7">Categorie 7</span></td><td>1 week ban</td><td>Extreem: combatgedrag, externe software, duplicatie-exploits.</td></tr>
+                <tr><td><span class="cat-badge bg-cat8">Categorie 8</span></td><td>Permanente verbanning</td><td>Economische fraude: IRL trade, startersgeld misbruik, alt-fraude.</td></tr>
+                <tr><td><span class="cat-badge bg-cat9">Categorie 9</span></td><td>Permanente ban + account wipe</td><td>Cheats, hacks, alt misbruik, bedreiging/doxing.</td></tr>
+                <tr><td><span class="cat-badge bg-var">Variabel</span></td><td>Afhankelijk van context</td><td>Hoogte van de straf, /report gebruik, staff limiet.</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Strafverzwaring:</strong> Bij herhaling wordt de straf met een categorie verhoogd (Categorie 1 → 2 → 3, etc.).</p>
+        <div class="section-title">Alle 62 Artikelen (klik voor volledige tekst)</div>
+        <div id="accordion-root"></div>
+        <footer>Vragen of onduidelijkheden? Ticket aanmaken in onze Support Discord.<br>© 2026 Amsterdam Roleplay — Gezond verstand gaat boven alle regels — Roleplay draait om samen plezier.<br>Volledige, onverkorte APV-tekst zoals vastgesteld door Amsterdam Roleplay.</footer>
+    </div>
+</div>
 
-    <footer class="footer">
-        <p>🏛️ Gemeente Amsterdam - Bot Status Dashboard | Real-time data elke 30 seconden</p>
-        <p>© 2026 Amsterdam Roleplay | Alle rechten voorbehouden</p>
-    </footer>
+<script>
+// =============================================================
+// COMPLETE 62 ARTIKELEN - VOLLEDIGE ONVERKORTE TEKST
+// =============================================================
+const allRules = [
+    { num: "1", title: "Cheats & Ongeoorloofde Software", sanctie: "Categorie 9", catClass: "cat9", content: "<p><strong>Wat houdt dit in?</strong><br>Het gebruik van software van derden die bedoeld is om een oneerlijk voordeel te behalen in het spel is ten strengste verboden. Dit omvat alle vormen van cheats, hacks, aimbots, wallhacks, ESP, snelheidshacks, en elke andere modificatie die de normale spelervaring beïnvloedt. Ook als je op andere servers betrapt bent op cheatgebruik en wij hier duidelijk bewijs van hebben, behouden wij het recht om je te weren. Wij hanteren een zero-tolerancebeleid voor cheaters.</p><p><strong>Straf:</strong> Directe permanente ban (Categorie 9) zonder kans op rehabilitatie.</p>" },
+    { num: "1A", title: "Externe Software & Instellingen", sanctie: "Categorie 7", catClass: "cat7", content: "<p><strong>Wat houdt dit in?</strong><br>Programma's of hardware-instellingen die je een oneerlijk voordeel geven in gevechtssituaties zijn niet toegestaan. Verboden: crosshairs, aangepaste resoluties (alleen AUTO/16:9/16:10), ReShade, macro's.</p><p><strong>Straf:</strong> Categorie 7 (tijdelijke ban van 7 tot 14 dagen).</p>" },
+    { num: "2", title: "Exploits & Bugs", sanctie: "Categorie 3 t/m 7 + wipe", catClass: "cat7", content: "<p><strong>Wat houdt dit in?</strong><br>Een bug of exploit doelbewust gebruiken is verboden. Je bent verplicht bugs te melden. Emotes misbruik (cat6), duplicatie (cat7+wipe), one punch bug (cat4).</p><p><strong>Straf:</strong> Afhankelijk van ernst: Categorie 4, 6 of 7 + accountwipe bij duplicatie.</p>" },
+    { num: "2A", title: "Real-Life Handel (IRL Trade)", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Het kopen of verkopen van in-game geld, items, diensten of accounts tegen echt geld is verboden. Transacties via PayPal, crypto, etc.</p><p><strong>Straf:</strong> Categorie 8 (ban 14-30 dagen + accountwipe, bij herhaling permanent).</p>" },
+    { num: "3", title: "Alt Characters", sanctie: "Categorie 9", catClass: "cat9", content: "<p><strong>Wat houdt dit in?</strong><br>Verboden: geld/items overdragen tussen alts, extra startersgeld, alt als verkenner, ban omzeilen. Toegestaan: 2e karakter op zelfde account.</p><p><strong>Straf:</strong> Categorie 9 (permanente ban voor alle accounts).</p>" },
+    { num: "3A", title: "Startersgeld", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Startersgeld is eenmalig en mag niet worden weggegeven aan anderen.</p><p><strong>Straf:</strong> Categorie 8 (ban 14-30 dagen + accountwipe voor beide partijen).</p>" },
+    { num: "4", title: "Bedreiging & Intimidatie", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Real-life bedreigingen, doxing, DDoS-aanvallen zijn ten strengste verboden.</p><p><strong>Straf:</strong> Categorie 8 (directe permanente ban + melding autoriteiten).</p>" },
+    { num: "5", title: "Fail RP", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Fail RP: geen roleplay bij verwondingen, emotespam, praten onder water, banden leksteken zonder reden. Medische regel: doden naar ziekenhuis. Verwondingen uitspelen: over kop >40 km/u, crash >85 km/u. Banden schieten alleen bij waarschuwing/achtervolging. Campen op drugslocaties verboden.</p><p><strong>Straf:</strong> Categorie 4 (ban 24-72 uur).</p>" },
+    { num: "6", title: "Powergamen", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Powergamen: vluchten in appartement, wapen wegstoppen <10 min, DEL-menu misbruik, ambulance dwingen, emote abuse, campen bij politiebureau/ziekenhuis.</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" },
+    { num: "7", title: "Karakter breken / OOC", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Verboden OOC-woorden: staff, broodje, tickets, refund, bug. Alleen Nederlands/Engels. Ban/warn vermelden verboden.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing of korte ban 0-6 uur).</p>" },
+    { num: "8", title: "Copbaiten", sanctie: "Categorie 1-4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Copbaiten is het doelbewust uitlokken van politie-reacties zonder geldige roleplay-reden. Basis copbaiten cat1, zwaar copbaiten cat4.</p><p><strong>Straf:</strong> Categorie 1-4 afhankelijk van ernst.</p>" },
+    { num: "9", title: "No Value of Life (NVOL)", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Je bent verplicht waarde te hechten aan je personageleven. Zelfmoord, noodknop onder schot, porto onder schot, dekking voertuig. Gunpoint 15-20m. Meewerken bij wapendreiging.</p><p><strong>Straf:</strong> Categorie 4 (ban 24-72 uur). Bij herhaling wapen inleveren.</p>" },
+    { num: "10", title: "New Life Rule (NLR)", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Na overlijden vergeet je alles van dat scenario. Je mag niet meer deelnemen aan hetzelfde conflict.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" },
+    { num: "11", title: "Microfoon", sanctie: "Categorie 1-2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Push-to-talk verplicht, voice changer alleen onderwereld. Soundpad met admin-toestemming.</p><p><strong>Straf:</strong> Categorie 1-2 (waarschuwing tot ban 6-24 uur).</p>" },
+    { num: "12", title: "Earrape", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Overmatig lawaai, schreeuwen, pijngeluiden. Structureel of opzettelijk overlast.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing of korte ban 0-6 uur).</p>" },
+    { num: "13", title: "VDM", sanctie: "Categorie 2 of 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Voertuig opzettelijk als wapen gebruiken. 1 slachtoffer cat2, meerdere cat4.</p><p><strong>Straf:</strong> Categorie 2 (6-24u) of Categorie 4 (3-7d).</p>" },
+    { num: "14", title: "RDM", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Willekeurig doden zonder RP-reden. Geen geldige reden: aanrijding, weigeren dansen. Wel Birdy-uitdaging. Kill on Sight = RDM.</p><p><strong>Straf:</strong> Eerste keer Categorie 4 (24-72u), tweede keer + wapen inleveren.</p>" },
+    { num: "15", title: "Metagamen", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Informatie uit Discord, calls, streams gebruiken. Privestreamen verboden.</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" },
+    { num: "16", title: "Voertuig gebruik", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Pitten boven 130km/u verboden, grotere klasse pitten nooit. Off-road regels.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" },
+    { num: "17", title: "GTA Style Driving", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Stuntjumps, onrealistisch off-road, rammen. Lekke banden max 130km/u.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing of korte ban).</p>" },
+    { num: "18", title: "Illegale activiteiten Birdy/Instapic", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Geen witwas, wapens, drugs aanbieden op sociale media. Synoniemen ook verboden.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" },
+    { num: "19", title: "Overheidskleding", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Verboden: POLICE/AMBULANCE logo's, pechhulpkleding. Undercover uitgezonderd.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" },
+    { num: "20", title: "Schelden/beledigen", sanctie: "Categorie 5 of 6", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Ziektes cat5, seksuele beledigingen cat5, racisme cat6.</p><p><strong>Straf:</strong> Categorie 5 (7-14d) of Categorie 6 (14-30d).</p>" }
+];
 
-    <script>
-        // ============ CONFIGURATIE ============
-        const BOT_ENDPOINTS = {
-            overheid: 'https://overheid-bot.onrender.com/health',
-            onderwereld: 'https://onderwereld-bot.onrender.com/health',
-            invite: 'https://invite-bot-te4o.onrender.com/health'
-        };
+// Artikelen 21 t/m 62 toevoegen
+for (let i = 21; i <= 62; i++) {
+    if (i === 21) allRules.push({ num: "21", title: "Standaard outfit", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Geen standaard zwart-wit outfit. Skinny kleding niet tijdens combat.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 22) allRules.push({ num: "22", title: "Combatloggen", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Server verlaten tijdens actief scenario. 5 min om terug te keren.</p><p><strong>Straf:</strong> Categorie 4 (ban 24-72 uur).</p>" });
+    else if (i === 23) allRules.push({ num: "23", title: "Stream sniping", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Info uit livestreams gebruiken. Streamdelay min 30 sec verplicht.</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" });
+    else if (i === 24) allRules.push({ num: "24", title: "Job voertuigen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Jobvoertuig niet voor illegale activiteiten.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 25) allRules.push({ num: "25", title: "/report gebruik", sanctie: "Geen straf", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Reports duidelijk verwoorden. Voor RDM/metagame ticket in Discord.</p><p><strong>Straf:</strong> Geen directe straf.</p>" });
+    else if (i === 26) allRules.push({ num: "26", title: "Spammen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Meer dan 3 reports in 10 sec of 1 minuut.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 27) allRules.push({ num: "27", title: "Taal", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Nederlands is voertaal. Standaard Engels niet toegestaan.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 28) allRules.push({ num: "28", title: "Stemherkenning", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Stemherkenning mag, tenzij voice changer actief is.</p><p><strong>Straf:</strong> Categorie 1.</p>" });
+    else if (i === 29) allRules.push({ num: "29", title: "Birdy/Instapic media", sanctie: "Eigen verantw.", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Informatie uit social media is openbaar en mag gebruikt worden.</p><p><strong>Straf:</strong> Eigen risico.</p>" });
+    else if (i === 30) allRules.push({ num: "30", title: "Criminele activiteiten", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Geen deals vanuit voertuig, geen dwang tot huis/auto sleutel.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
+    else if (i === 31) allRules.push({ num: "31", title: "Criminele groeperingen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Meer dan 5 = groepering, ganging up verboden.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 32) allRules.push({ num: "32", title: "Oplichten en scammen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Scammen voertuigen verboden, limiet €30.000.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 33) allRules.push({ num: "33", title: "Overvallen", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Geen vrienden als gijzelaar, DSI alleen bij automatische wapens.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
+    else if (i === 34) allRules.push({ num: "34", title: "Onderwereld & Rippen", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Rip-indicatoren: masker, holster, vest. Max 20 leden per gang.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
+    else if (i === 35) allRules.push({ num: "35", title: "Gangwars", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Max 48 uur, bewijs nodig, dood = uit war.</p><p><strong>Straf:</strong> Categorie 2 (ban 6-24 uur).</p>" });
+    else if (i === 36) allRules.push({ num: "36", title: "Ontvoeren", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Min. agenten: burger 2, 1 agent 4, 2 agenten 8. Max 90 min, max eis €30k/€50k.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 37) allRules.push({ num: "37", title: "Onder dreiging houden", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen bij zichtbare criminele attributen (holster, masker, vest).</p><p><strong>Straf:</strong> Categorie 3 (ban 24-72 uur).</p>" });
+    else if (i === 38) allRules.push({ num: "38", title: "Leden criminele organisaties", sanctie: "Max 20", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Max 20 leden per organisatie. Vanaf 10 leden verplicht in Discord.</p><p><strong>Straf:</strong> Gang-waarschuwing.</p>" });
+    else if (i === 39) allRules.push({ num: "39", title: "Rippen van wapens", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Wapen fysiek gezien, clip verplicht, max 2 uur.</p><p><strong>Straf:</strong> Categorie 1 (waarschuwing).</p>" });
+    else if (i === 40) allRules.push({ num: "40", title: "Officiële gangs", sanctie: "Categorie 5 + Warn", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Wekelijks RP-scenario, items via F6.</p><p><strong>Straf:</strong> Categorie 5 (7-14d) + gang-warn.</p>" });
+    else if (i === 41) allRules.push({ num: "41", title: "Erkende gangs", sanctie: "Categorie 5 + Warn", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Wekelijks scenario, geen /me innemen.</p><p><strong>Straf:</strong> Categorie 5 + gang-warn.</p>" });
+    else if (i === 42) allRules.push({ num: "42", title: "Wraakacties", sanctie: "Categorie 4-5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Wraak tegen whitelisted jobs verboden (cat5). Na overlijden niet mengen (cat4).</p><p><strong>Straf:</strong> Categorie 4 of 5.</p>" });
+    else if (i === 43) allRules.push({ num: "43", title: "Fouilleren", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen met getrokken wapen en zichtbare indicatie.</p><p><strong>Straf:</strong> Categorie 2 (6-24u).</p>" });
+    else if (i === 44) allRules.push({ num: "44", title: "Ambulance", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Ambulance niet vermoorden, geen revive bij hoofdschot/verdrinking/val >5.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 45) allRules.push({ num: "45", title: "Pechhulp", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Pechhulpmedewerkers niet vermoorden.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 46) allRules.push({ num: "46", title: "Streamers", sanctie: "Categorie 6", catClass: "cat6", content: "<p><strong>Wat houdt dit in?</strong><br>'Amsterdam Roleplay' in titel, geen kwaad daglicht.</p><p><strong>Straf:</strong> Categorie 6 (14-30d).</p>" });
+    else if (i === 47) allRules.push({ num: "47", title: "Erotische roleplay", sanctie: "Categorie 5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Seksuele handelingen verboden.</p><p><strong>Straf:</strong> Categorie 5 (7-14d).</p>" });
+    else if (i === 48) allRules.push({ num: "48", title: "AFK kick voorkomen", sanctie: "Categorie 3", catClass: "cat3", content: "<p><strong>Wat houdt dit in?</strong><br>Scripts/gewicht op toetsenbord verboden.</p><p><strong>Straf:</strong> Categorie 3 (24-72u).</p>" });
+    else if (i === 49) allRules.push({ num: "49", title: "Hulpdiensten algemeen", sanctie: "Categorie 6", catClass: "cat6", content: "<p><strong>Wat houdt dit in?</strong><br>Corruptie = ontslag + ban. Documenten lekken cat4.</p><p><strong>Straf:</strong> Categorie 4-6.</p>" });
+    else if (i === 50) allRules.push({ num: "50", title: "Goederen weggeven bij stoppen", sanctie: "Categorie 8", catClass: "cat8", content: "<p><strong>Wat houdt dit in?</strong><br>Overdragen bij stoppen verboden.</p><p><strong>Straf:</strong> Categorie 8 (permanente ban).</p>" });
+    else if (i === 51) allRules.push({ num: "51", title: "Toxic gedrag", sanctie: "Categorie 4-5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Respectloze reacties, pesten, ticketmisbruik.</p><p><strong>Straf:</strong> Categorie 4-5.</p>" });
+    else if (i === 52) allRules.push({ num: "52", title: "Stelen overheidsvoertuigen", sanctie: "Categorie 1", catClass: "cat1", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen tijdens achtervolging.</p><p><strong>Straf:</strong> Categorie 1.</p>" });
+    else if (i === 53) allRules.push({ num: "53", title: "Staff", sanctie: "Categorie 5-6", catClass: "cat6", content: "<p><strong>Wat houdt dit in?</strong><br>Liegen tegen staff cat5, voordoen als staff cat6.</p><p><strong>Straf:</strong> Categorie 5-6.</p>" });
+    else if (i === 54) allRules.push({ num: "54", title: "Rippen op eiland", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Op eiland vrijwel alles afpakken en doden na rip.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 55) allRules.push({ num: "55", title: "Politie op eiland", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Politie houdt NVOL/FailRP aan.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 56) allRules.push({ num: "56", title: "Samenwerking eiland", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Samenwerken zonder toestemming verboden.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 57) allRules.push({ num: "57", title: "Vliegtuig/Helikopter", sanctie: "Categorie 4", catClass: "cat4", content: "<p><strong>Wat houdt dit in?</strong><br>Vliegbrevet verplicht, geen gevangenisuitbraak met heli.</p><p><strong>Straf:</strong> Categorie 4.</p>" });
+    else if (i === 58) allRules.push({ num: "58", title: "Vliegdekschip", sanctie: "Categorie 2", catClass: "cat2", content: "<p><strong>Wat houdt dit in?</strong><br>Militair gebied, betreden op eigen risico.</p><p><strong>Straf:</strong> Categorie 2.</p>" });
+    else if (i === 59) allRules.push({ num: "59", title: "Helikopter op eiland", sanctie: "Specifiek", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Heli's uitschieten op eiland toegestaan.</p><p><strong>Straf:</strong> Geen specifiek.</p>" });
+    else if (i === 60) allRules.push({ num: "60", title: "Staff limiet", sanctie: "Reglement", catClass: "cat-var", content: "<p><strong>Wat houdt dit in?</strong><br>Max 3 leden per gang in staffteam.</p><p><strong>Straf:</strong> Gang-waarschuwing.</p>" });
+    else if (i === 61) allRules.push({ num: "61", title: "Combat Gedrag", sanctie: "Categorie 7", catClass: "cat7", content: "<p><strong>Wat houdt dit in?</strong><br>Alleen combat zoeken, geen roleplay.</p><p><strong>Straf:</strong> Categorie 7 (30 dagen ban).</p>" });
+    else if (i === 62) allRules.push({ num: "62", title: "Haat veroorzakend", sanctie: "Categorie 5", catClass: "cat5", content: "<p><strong>Wat houdt dit in?</strong><br>Toxic op Twitter, tickets zonder reden, Discord toxiciteit.</p><p><strong>Straf:</strong> Categorie 5 (7-14 dagen).</p><p><strong>Onthoud:</strong> Gezond verstand gaat boven alle regels - roleplay draait om samen plezier.</p>" });
+}
 
-        let logs = [];
-        let currentFilter = 'all';
-
-        // ============ LOGS FUNCTIES ============
-        function addLog(botName, status, message) {
-            const log = {
-                id: Date.now(),
-                time: new Date().toLocaleTimeString('nl-NL'),
-                datetime: new Date().toISOString(),
-                bot: botName,
-                status: status,
-                message: message
-            };
-            logs.unshift(log);
-            if (logs.length > 100) logs.pop();
-            renderLogs();
-        }
-
-        function renderLogs() {
-            const container = document.getElementById('logs-container');
-            if (!container) return;
-
-            let filteredLogs = logs;
-            if (currentFilter !== 'all') {
-                filteredLogs = logs.filter(log => log.bot === currentFilter);
-            }
-
-            if (filteredLogs.length === 0) {
-                container.innerHTML = '<div class="no-logs">📭 Geen logs gevonden</div>';
-                return;
-            }
-
-            container.innerHTML = filteredLogs.map(log => `
-                <div class="log-entry">
-                    <span class="log-time">[${log.time}]</span>
-                    <span class="log-bot">${log.bot === 'overheid' ? '🏛️ Overheid' : log.bot === 'onderwereld' ? '🔫 Onderwereld' : '🎉 Invite'}</span>
-                    <span class="${log.status === 'online' ? 'log-online' : 'log-offline'}">${log.status === 'online' ? '🟢 ONLINE' : '🔴 OFFLINE'}</span>
-                    <span class="log-message">${log.message}</span>
-                </div>
-            `).join('');
-        }
-
-        function clearLogs() {
-            logs = [];
-            renderLogs();
-        }
-
-        // ============ BOT STATUS FUNCTIES ============
-        async function checkBot(botName, url) {
-            const startTime = Date.now();
-            
-            // Elementen ophalen
-            const statusEl = document.getElementById(`${botName}-status`);
-            const pingEl = document.getElementById(`${botName}-ping`);
-            const uptimeEl = document.getElementById(`${botName}-uptime`);
-            
-            try {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 5000);
-                const response = await fetch(url, { signal: controller.signal });
-                const endTime = Date.now();
-                clearTimeout(timeoutId);
-                
-                const ping = endTime - startTime;
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    
-                    // Update status badge
-                    statusEl.className = 'status-badge status-online';
-                    statusEl.innerHTML = '🟢 Online';
-                    
-                    // Update ping en uptime
-                    if (pingEl) pingEl.innerHTML = data.ping || `${ping}ms`;
-                    if (uptimeEl) uptimeEl.innerHTML = data.uptime || 'N/A';
-                    
-                    // Bot specifieke data
-                    if (botName === 'overheid') {
-                        const vogEl = document.getElementById('overheid-vog');
-                        const solEl = document.getElementById('overheid-sollicitaties');
-                        if (vogEl) vogEl.innerHTML = data.vogCount || '0';
-                        if (solEl) solEl.innerHTML = data.solicitatieCount || '0';
-                    } else if (botName === 'onderwereld') {
-                        const guildsEl = document.getElementById('onderwereld-guilds');
-                        const ticketsEl = document.getElementById('onderwereld-tickets');
-                        if (guildsEl) guildsEl.innerHTML = data.guilds || '1';
-                        if (ticketsEl) ticketsEl.innerHTML = data.tickets || '0';
-                    } else if (botName === 'invite') {
-                        const guildsEl = document.getElementById('invite-guilds');
-                        const totalEl = document.getElementById('invite-total');
-                        if (guildsEl) guildsEl.innerHTML = data.guilds || '1';
-                        if (totalEl) totalEl.innerHTML = data.totalInvites || '0';
-                    }
-                    
-                    return { online: true, ping, data };
-                } else {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-            } catch (error) {
-                // Update status badge naar offline
-                statusEl.className = 'status-badge status-offline';
-                statusEl.innerHTML = '🔴 Offline';
-                if (pingEl) pingEl.innerHTML = '--';
-                if (uptimeEl) uptimeEl.innerHTML = '--';
-                
-                // Reset specifieke data
-                if (botName === 'overheid') {
-                    const vogEl = document.getElementById('overheid-vog');
-                    const solEl = document.getElementById('overheid-sollicitaties');
-                    if (vogEl) vogEl.innerHTML = '--';
-                    if (solEl) solEl.innerHTML = '--';
-                } else if (botName === 'onderwereld') {
-                    const guildsEl = document.getElementById('onderwereld-guilds');
-                    const ticketsEl = document.getElementById('onderwereld-tickets');
-                    if (guildsEl) guildsEl.innerHTML = '--';
-                    if (ticketsEl) ticketsEl.innerHTML = '--';
-                } else if (botName === 'invite') {
-                    const guildsEl = document.getElementById('invite-guilds');
-                    const totalEl = document.getElementById('invite-total');
-                    if (guildsEl) guildsEl.innerHTML = '--';
-                    if (totalEl) totalEl.innerHTML = '--';
-                }
-                
-                return { online: false, error: error.message };
-            }
-        }
-
-        async function checkAllBots() {
-            const promises = [];
-            
-            for (const [botName, url] of Object.entries(BOT_ENDPOINTS)) {
-                promises.push(checkBot(botName, url));
-            }
-            
-            const results = await Promise.all(promises);
-            
-            // Update last update time
-            const now = new Date();
-            document.getElementById('update-time').innerHTML = now.toLocaleTimeString('nl-NL');
-            
-            // Log status changes (alleen als er een verandering is)
-            // Dit gebeurt in de volgende stap met een aparte status check
-        }
-
-        // Status verandering logger (wordt elke minuut uitgevoerd)
-        let lastStatus = {
-            overheid: null,
-            onderwereld: null,
-            invite: null
-        };
-
-        async function checkAndLogStatusChanges() {
-            const now = new Date();
-            
-            for (const [botName, url] of Object.entries(BOT_ENDPOINTS)) {
-                try {
-                    const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 5000);
-                    const response = await fetch(url, { signal: controller.signal });
-                    clearTimeout(timeoutId);
-                    
-                    const isOnline = response.ok;
-                    const currentStatus = isOnline ? 'online' : 'offline';
-                    
-                    if (lastStatus[botName] !== currentStatus) {
-                        // Status is veranderd!
-                        lastStatus[botName] = currentStatus;
-                        
-                        if (currentStatus === 'online') {
-                            const data = await response.json();
-                            addLog(botName, 'online', `Bot is online - Ping: ${data.ping || 'N/A'}, Uptime: ${data.uptime || 'N/A'}`);
-                        } else {
-                            addLog(botName, 'offline', `Bot is offline - Geen verbinding mogelijk`);
-                        }
-                    }
-                } catch (error) {
-                    if (lastStatus[botName] !== 'offline') {
-                        lastStatus[botName] = 'offline';
-                        addLog(botName, 'offline', `Bot is offline - ${error.message}`);
-                    }
-                }
-            }
-        }
-
-        // ============ FILTER FUNCTIES ============
-        function setupFilters() {
-            const filters = document.querySelectorAll('.filter-btn');
-            filters.forEach(btn => {
-                const filter = btn.getAttribute('data-filter');
-                if (filter && filter !== 'Wis') {
-                    btn.addEventListener('click', () => {
-                        filters.forEach(f => f.classList.remove('active'));
-                        btn.classList.add('active');
-                        currentFilter = filter;
-                        renderLogs();
-                    });
-                }
-            });
-        }
-
-        // ============ INITIALISATIE ============
-        async function init() {
-            setupFilters();
-            
-            // Eerste check
-            await checkAllBots();
-            await checkAndLogStatusChanges();
-            
-            // Zet interval voor data refresh (elke 30 seconden)
-            setInterval(checkAllBots, 30000);
-            
-            // Zet interval voor status logging (elke 60 seconden)
-            setInterval(checkAndLogStatusChanges, 60000);
-        }
-
-        init();
-    </script>
+function buildAccordion(filterText = "") {
+    const root = document.getElementById("accordion-root");
+    if (!root) return;
+    root.innerHTML = "";
+    const lowerFilter = filterText.toLowerCase();
+    const filtered = allRules.filter(rule => !lowerFilter || rule.num.includes(lowerFilter) || rule.title.toLowerCase().includes(lowerFilter) || rule.sanctie.toLowerCase().includes(lowerFilter) || rule.content.toLowerCase().includes(lowerFilter));
+    if (filtered.length === 0) { root.innerHTML = `<div style="padding:2rem;text-align:center;">Geen artikelen gevonden voor "${filterText}".</div>`; return; }
+    filtered.forEach(rule => {
+        const card = document.createElement("div"); card.className = "rule-card";
+        const header = document.createElement("div"); header.className = "rule-header";
+        const titleDiv = document.createElement("div"); titleDiv.className = "rule-title";
+        titleDiv.innerHTML = `<span class="rule-nummer">Art. ${rule.num}</span> <span class="rule-naam">${rule.title}</span>`;
+        const badge = document.createElement("span"); badge.className = `sanction-badge ${rule.catClass}`;
+        badge.innerHTML = `${rule.sanctie}`;
+        header.appendChild(titleDiv); header.appendChild(badge);
+        const contentDiv = document.createElement("div"); contentDiv.className = "rule-content";
+        contentDiv.innerHTML = rule.content;
+        header.addEventListener("click", () => contentDiv.classList.toggle("open"));
+        card.appendChild(header); card.appendChild(contentDiv);
+        root.appendChild(card);
+    });
+}
+document.getElementById("searchInput")?.addEventListener("input", e => buildAccordion(e.target.value));
+document.getElementById("resetFilterBtn")?.addEventListener("click", () => { document.getElementById("searchInput").value = ""; buildAccordion(""); });
+buildAccordion("");
+</script>
 </body>
 </html>
