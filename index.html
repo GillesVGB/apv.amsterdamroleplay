@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -7,111 +7,158 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #070b10;
-            color: #eef2ff;
+            background: #f0f4f8;
+            color: #1a2a3a;
             line-height: 1.55;
             scroll-behavior: smooth;
         }
-
-        /* moderne scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #121a24;
-            border-radius: 12px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2c5a74;
-            border-radius: 12px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3e7fa0;
-        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #e8edf2; border-radius: 12px; }
+        ::-webkit-scrollbar-thumb { background: #1a5276; border-radius: 12px; }
+        ::-webkit-scrollbar-thumb:hover { background: #154360; }
 
         .docs-container {
             max-width: 1440px;
             margin: 0 auto;
-            background: #0d131b;
+            background: #ffffff;
             border-radius: 0 0 32px 32px;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
         }
 
-        /* Premium Hero */
+        /* Navigatie */
+        .top-nav {
+            background: #ffffff;
+            padding: 0.8rem 2.2rem;
+            border-bottom: 2px solid #1a5276;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+            border-radius: 8px;
+        }
+        .nav-logo span {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1a2a3a;
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            border: 2px solid #1a5276;
+            color: #1a5276;
+            background: transparent;
+            cursor: pointer;
+        }
+        .nav-btn:hover {
+            background: #1a5276;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 82, 118, 0.3);
+        }
+        .nav-btn.active {
+            background: #1a5276;
+            color: white;
+        }
+
+        /* Hero */
         .hero {
-            background: radial-gradient(ellipse at 80% 30%, #11212e, #070c12);
-            padding: 3rem 2.8rem 2.5rem 2.8rem;
-            border-bottom: 1px solid rgba(37,150,190,0.35);
-            position: relative;
-            backdrop-filter: blur(2px);
+            background: linear-gradient(135deg, #e8f0f6, #d4e4f0);
+            padding: 2.5rem 2.8rem 2rem 2.8rem;
+            border-bottom: 1px solid rgba(26, 82, 118, 0.2);
+            text-align: center;
         }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #2596be, transparent);
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
         }
-        .hero h1 {
+        .hero-content img {
+            height: 70px;
+            width: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(26, 82, 118, 0.15);
+        }
+        .hero-content h1 {
             font-size: 2.4rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            background: linear-gradient(125deg, #ffffff, #8ac4e0);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
+            color: #1a2a3a;
+            margin: 0;
         }
-.hero h1 {
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.hero-sub {
-    text-align: center;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.badge-panel {
-    justify-content: center;
-}
+        .hero-content h1 i {
+            color: #1a5276;
+        }
+        .hero-sub {
+            color: #2a4a5a;
+            margin-top: 0.6rem;
+            font-weight: 400;
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .badge-panel {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+            justify-content: center;
+        }
         .stat-chip {
-            background: rgba(30, 50, 70, 0.6);
+            background: rgba(255,255,255,0.85);
             backdrop-filter: blur(8px);
             border-radius: 100px;
             padding: 0.4rem 1.2rem;
             font-size: 0.75rem;
             font-weight: 500;
-            border: 1px solid #2e5775;
-            letter-spacing: 0.2px;
+            border: 1px solid #1a5276;
+            color: #1a3a4a;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-        .stat-chip i {
-            margin-right: 6px;
-            color: #2596be;
+        .stat-chip:hover {
+            background: #1a5276;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 82, 118, 0.2);
         }
+        .stat-chip i { margin-right: 6px; }
 
-        /* Zoekbalk minimal premium */
+        /* Zoekbalk */
         .search-section {
             padding: 1rem 2.2rem;
-            background: #0a1017;
-            border-bottom: 1px solid #1e2b36;
+            background: #f8fafc;
+            border-bottom: 1px solid #dce4ec;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -121,95 +168,91 @@
         .search-box {
             flex: 2;
             min-width: 280px;
-            background: #111a24;
+            background: #ffffff;
             border-radius: 60px;
             padding: 0.65rem 1.4rem;
             display: flex;
             align-items: center;
             gap: 12px;
-            border: 1px solid #284353;
+            border: 2px solid #dce4ec;
             transition: all 0.25s ease;
         }
         .search-box:focus-within {
-            border-color: #2596be;
-            box-shadow: 0 0 0 3px rgba(37,150,190,0.2);
+            border-color: #1a5276;
+            box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.15);
         }
-        .search-box i {
-            color: #2596be;
-            font-size: 1rem;
-        }
+        .search-box i { color: #1a5276; font-size: 1rem; }
         .search-box input {
             background: transparent;
             border: none;
             width: 100%;
             outline: none;
             font-size: 0.9rem;
-            font-weight: 400;
-            color: #ecf9ff;
+            color: #1a2a3a;
         }
-        .search-box input::placeholder {
-            color: #5a7f9a;
-            font-weight: 400;
-        }
+        .search-box input::placeholder { color: #7a9aaa; }
         .reset-btn {
-            background: #1a2a36;
+            background: #e8f0f8;
             padding: 0.55rem 1.3rem;
             border-radius: 60px;
-            text-decoration: none;
             font-size: 0.7rem;
             font-weight: 600;
-            color: #cce9ff;
-            transition: 0.2s;
-            border: 1px solid #2f556b;
+            color: #1a3a4a;
+            transition: 0.3s ease;
+            border: 2px solid #dce4ec;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 8px;
         }
         .reset-btn:hover {
-            background: #2a4050;
+            background: #1a5276;
             color: white;
-            border-color: #2596be;
+            border-color: #1a5276;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 82, 118, 0.2);
         }
 
+        /* Main */
         .main-rules {
             padding: 2rem 2.2rem 3rem 2.2rem;
         }
-
         .section-title {
             font-size: 1.6rem;
             font-weight: 600;
             margin: 1.8rem 0 1.2rem 0;
-            border-left: 4px solid #2596be;
+            border-left: 4px solid #1a5276;
             padding-left: 1rem;
-            letter-spacing: -0.3px;
-            color: #f0f6fe;
+            color: #1a2a3a;
+            scroll-margin-top: 80px;
         }
+        .section-title i { color: #1a5276; margin-right: 10px; }
 
-        /* straf tabel premium */
+        /* Tabel */
         .sanctie-tabel {
             width: 100%;
             border-collapse: collapse;
-            background: #0f1822;
+            background: #ffffff;
             margin: 1.5rem 0 2rem 0;
             border-radius: 24px;
             overflow: hidden;
-            border: 1px solid #253f4f;
+            border: 1px solid #dce4ec;
             font-size: 0.85rem;
         }
         .sanctie-tabel th {
-            background: #0f1a24;
+            background: #e8f0f8;
             padding: 1rem 1.2rem;
             text-align: left;
             font-weight: 600;
-            color: #bbdef5;
-            border-bottom: 1px solid #1f3948;
+            color: #1a2a3a;
+            border-bottom: 2px solid #1a5276;
         }
         .sanctie-tabel td {
             padding: 0.85rem 1.2rem;
-            border-bottom: 1px solid #1a2e3c;
-            color: #cde4f5;
+            border-bottom: 1px solid #e8f0f8;
+            color: #1a2a3a;
         }
+        .sanctie-tabel tr:hover td { background: #f0f6fa; }
 
         .cat-badge {
             display: inline-block;
@@ -217,32 +260,31 @@
             border-radius: 40px;
             font-weight: 700;
             font-size: 0.7rem;
-            letter-spacing: 0.2px;
         }
-        .bg-cat0 { background: #2e4b66; color: white; }
-        .bg-cat1 { background: #1e7e6b; color: white; }
-        .bg-cat2 { background: #2f6e9e; color: white; }
-        .bg-cat3 { background: #cf7c2c; color: white; }
-        .bg-cat4 { background: #c95151; color: white; }
-        .bg-cat5 { background: #8a5eb0; color: white; }
-        .bg-cat6 { background: #3e7fb0; color: white; }
-        .bg-cat7 { background: #468c7a; color: white; }
-        .bg-cat8 { background: #d4922b; color: white; }
-        .bg-cat9 { background: #b3475c; color: white; }
-        .bg-var { background: #4f6f8c; color: white; }
+        .bg-cat0 { background: #d4e4ec; color: #1a3a4a; }
+        .bg-cat1 { background: #b8e0d4; color: #1a4a3a; }
+        .bg-cat2 { background: #b8d4ec; color: #1a3a5a; }
+        .bg-cat3 { background: #f0d8b0; color: #5a3a1a; }
+        .bg-cat4 { background: #f0c0c0; color: #5a1a1a; }
+        .bg-cat5 { background: #d4b8e8; color: #3a1a5a; }
+        .bg-cat6 { background: #b8d8e8; color: #1a3a5a; }
+        .bg-cat7 { background: #b8e0d4; color: #1a4a3a; }
+        .bg-cat8 { background: #f0d8b0; color: #5a3a1a; }
+        .bg-cat9 { background: #f0b0b8; color: #5a1a2a; }
+        .bg-var { background: #d4dce4; color: #1a2a3a; }
 
-        /* accordion cards — glassmorphism premium */
+        /* Accordion */
         .rule-card {
-            background: #0f1822;
+            background: #ffffff;
             border-radius: 20px;
             margin-bottom: 1rem;
-            border: 1px solid #253f50;
-            transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid #dce4ec;
+            transition: all 0.3s ease;
         }
         .rule-card:hover {
-            border-color: #3b6f8a;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-            transform: translateY(-1px);
+            border-color: #1a5276;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
         }
         .rule-header {
             display: flex;
@@ -250,15 +292,13 @@
             align-items: center;
             padding: 1.2rem 1.8rem;
             cursor: pointer;
-            background: #0f1822;
+            background: #f8fafc;
             border-radius: 20px;
             flex-wrap: wrap;
             gap: 0.8rem;
-            transition: background 0.2s;
+            transition: background 0.3s ease;
         }
-        .rule-header:hover {
-            background: #14212e;
-        }
+        .rule-header:hover { background: #eef4f8; }
         .rule-title {
             display: flex;
             align-items: baseline;
@@ -266,18 +306,17 @@
             flex-wrap: wrap;
         }
         .rule-nummer {
-            background: #1f364a;
+            background: #e8f0f8;
             padding: 0.25rem 0.9rem;
             border-radius: 50px;
             font-weight: 700;
             font-size: 0.7rem;
-            color: #a3d4f0;
+            color: #1a4a6a;
         }
         .rule-naam {
             font-weight: 600;
             font-size: 1rem;
-            color: #eaf3fd;
-            letter-spacing: -0.2px;
+            color: #1a2a3a;
         }
         .sanction-badge {
             display: inline-flex;
@@ -287,52 +326,41 @@
             border-radius: 60px;
             font-weight: 600;
             font-size: 0.7rem;
-            backdrop-filter: blur(4px);
         }
-        .cat0 { background: #2e4b66; color: white; }
-        .cat1 { background: #1e7e6b; color: white; }
-        .cat2 { background: #2f6e9e; color: white; }
-        .cat3 { background: #cf7c2c; color: white; }
-        .cat4 { background: #c95151; color: white; }
-        .cat5 { background: #8a5eb0; color: white; }
-        .cat6 { background: #3e7fb0; color: white; }
-        .cat7 { background: #468c7a; color: white; }
-        .cat8 { background: #d4922b; color: white; }
-        .cat9 { background: #b3475c; color: white; }
-        .cat-var { background: #4f6f8c; color: white; }
+        .cat0 { background: #d4e4ec; color: #1a3a4a; }
+        .cat1 { background: #b8e0d4; color: #1a4a3a; }
+        .cat2 { background: #b8d4ec; color: #1a3a5a; }
+        .cat3 { background: #f0d8b0; color: #5a3a1a; }
+        .cat4 { background: #f0c0c0; color: #5a1a1a; }
+        .cat5 { background: #d4b8e8; color: #3a1a5a; }
+        .cat6 { background: #b8d8e8; color: #1a3a5a; }
+        .cat7 { background: #b8e0d4; color: #1a4a3a; }
+        .cat8 { background: #f0d8b0; color: #5a3a1a; }
+        .cat9 { background: #f0b0b8; color: #5a1a2a; }
+        .cat-var { background: #d4dce4; color: #1a2a3a; }
 
         .rule-content {
             display: none;
             padding: 0.2rem 1.8rem 1.8rem 1.8rem;
-            border-top: 1px solid #1e3a4a;
-            background: #0b131d;
+            border-top: 1px solid #dce4ec;
+            background: #fafcfe;
             font-size: 0.9rem;
-            color: #d2e5f5;
+            color: #1a2a3a;
             line-height: 1.55;
             border-radius: 0 0 20px 20px;
         }
-        .rule-content.open {
-            display: block;
-        }
-        .rule-content p, .rule-content ul {
-            margin: 0.8rem 0;
-        }
-        .rule-content li {
-            margin-left: 1.5rem;
-            margin-bottom: 0.3rem;
-        }
-        .rule-content strong {
-            color: #7fc9e8;
-            font-weight: 600;
-        }
+        .rule-content.open { display: block; }
+        .rule-content p, .rule-content ul { margin: 0.8rem 0; }
+        .rule-content li { margin-left: 1.5rem; margin-bottom: 0.3rem; }
+        .rule-content strong { color: #1a5276; font-weight: 600; }
 
         footer {
-            background: #080e14;
+            background: #e8f0f8;
             text-align: center;
             padding: 1.5rem;
             font-size: 0.7rem;
-            border-top: 1px solid #1f2f3c;
-            color: #7a9bbb;
+            border-top: 1px solid #dce4ec;
+            color: #4a6a7a;
             margin-top: 2rem;
         }
 
@@ -341,35 +369,57 @@
             .main-rules { padding: 1rem; }
             .rule-header { flex-direction: column; align-items: flex-start; }
             .section-title { font-size: 1.3rem; }
+            .top-nav { padding: 0.8rem 1rem; flex-direction: column; align-items: stretch; }
+            .nav-links { justify-content: center; }
+            .hero-content img { height: 50px; }
+            .hero-content h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 <div class="docs-container">
+
+    <!-- Navigatie -->
+    <nav class="top-nav">
+        <a href="#" class="nav-logo">
+            <img src="https://media.discordapp.net/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png?ex=6a3222b8&is=6a30d138&hm=d0d7f20844853317fb2cce30dac366f61e54194867d3fb0b54e02087479b4b71&=&format=webp&quality=lossless&width=525&height=525" alt="Amsterdam Roleplay">
+            <span>Amsterdam RP</span>
+        </a>
+        <div class="nav-links">
+            <a href="#strafcategorieen" class="nav-btn">Strafcategorieën</a>
+            <a href="#apv" class="nav-btn active">APV</a>
+            <a href="#regels" class="nav-btn">Regels</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
     <div class="hero">
-        <!-- Logo en titel naast elkaar -->
-        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <img src="https://cdn.discordapp.com/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png" 
-                 alt="Amsterdam Roleplay Logo" 
-                 style="height: 70px; width: auto; filter: drop-shadow(0 0 10px rgba(37,150,190,0.3));">
-            <h1 style="margin: 0;">Amsterdam Roleplay · APV</h1>
+        <div class="hero-content">
+            <img src="https://media.discordapp.net/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png?ex=6a3222b8&is=6a30d138&hm=d0d7f20844853317fb2cce30dac366f61e54194867d3fb0b54e02087479b4b71&=&format=webp&quality=lossless&width=525&height=525" alt="Amsterdam Roleplay Logo">
+            <h1><i class="fas fa-gavel"></i> Amsterdam Roleplay · APV</h1>
         </div>
         <div class="hero-sub">Algemene Plaatselijke Verordening · 62 Artikelen · Officieel regelwerk voor alle spelers &amp; staff</div>
         <div class="badge-panel">
-            <div class="stat-chip">Volledige onverkorte tekst</div>
-            <div class="stat-chip">Premium donker design</div>
-            <div class="stat-chip">Live zoekfilter</div>
+            <a href="#strafcategorieen" class="stat-chip"><i class="fas fa-chart-line"></i> Strafcategorieën</a>
+            <a href="#apv" class="stat-chip"><i class="fas fa-book-open"></i> APV</a>
+            <a href="#regels" class="stat-chip"><i class="fas fa-list-check"></i> Regels</a>
         </div>
     </div>
+
+    <!-- Zoekbalk -->
     <div class="search-section">
         <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Zoek in alle 62 artikelen (bijv. 'RDM', 'metagamen', 'powergamen', 'ontvoeren')">
+            <input type="text" id="searchInput" placeholder="Zoek in alle 62 artikelen (bijv. 'RDM', 'metagamen', 'powergamen')">
         </div>
-        <div class="reset-btn" id="resetFilterBtn"><i class="fas fa-undo-alt"></i> Wis filter</div>
+        <button class="reset-btn" id="resetFilterBtn"><i class="fas fa-undo-alt"></i> Wis filter</button>
     </div>
+
+    <!-- Main Content -->
     <div class="main-rules">
-        <div class="section-title"><i class="fas fa-chart-line"></i> Strafcategorieën Overzicht</div>
+
+        <!-- Strafcategorieën sectie -->
+        <div id="strafcategorieen" class="section-title"><i class="fas fa-chart-line"></i> Strafcategorieën Overzicht</div>
         <table class="sanctie-tabel">
             <thead><tr><th>Categorie</th><th>Sanctie</th><th>Omschrijving</th></tr></thead>
             <tbody>
@@ -388,221 +438,61 @@
         </table>
         <p><strong>Strafverzwaring:</strong> Bij herhaling wordt de straf met een categorie verhoogd (Categorie 1 → 2 → 3, etc.).</p>
 
-        <div class="section-title"><i class="fas fa-book-open"></i> Alle 62 Artikelen</div>
+        <!-- APV Artikelen -->
+        <div id="apv" class="section-title"><i class="fas fa-book-open"></i> Alle 62 Artikelen (APV)</div>
         <div id="accordion-root"></div>
+
+        <!-- Regels -->
+        <div id="regels" class="section-title"><i class="fas fa-list-check"></i> Algemene Regels</div>
+        <div style="background: #f8fafc; padding: 2rem; border-radius: 20px; border: 1px solid #dce4ec;">
+            <h3 style="color: #1a5276; margin-bottom: 1rem;"><i class="fas fa-info-circle"></i> Algemene regels van Amsterdam Roleplay</h3>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">1. Respect en gedrag</h4>
+                <p>Behandel alle spelers en staff met respect. Discriminatie, racisme, seksisme, homofobie en ander haatzaaiend gedrag is ten strengste verboden. We streven naar een veilige en inclusieve omgeving voor iedereen.</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">2. Roleplay kwaliteit</h4>
+                <p>Streef naar realistische en kwalitatieve roleplay. Vermijd powergamen, metagamen en failRP. Je personage moet een realistisch leven leiden binnen de wereld van Amsterdam Roleplay.</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">3. Staff instructies</h4>
+                <p>Volg altijd de instructies van staffleden op. Zij zijn er om de server draaiende te houden en problemen op te lossen. Liegen tegen staff of het negeren van instructies kan leiden tot een ban.</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">4. Bugs en exploits</h4>
+                <p>Meld bugs en exploits direct bij de staff. Het misbruiken van bugs of exploits wordt streng bestraft en kan leiden tot een permanente ban.</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">5. Realisme</h4>
+                <p>Houd je roleplay realistisch. Dit betekent dat je je moet gedragen zoals een normaal persoon zou doen in de situatie die zich voordoet. Denk aan verkeersregels, sociale interacties en emotionele reacties.</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">6. Communicatie</h4>
+                <p>Gebruik alleen Nederlands of Engels in de voice chat. Andere talen zijn niet toegestaan tenzij er toestemming is gegeven door de staff. Zorg dat je een werkende microfoon hebt en gebruik push-to-talk.</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">7. Cheats en mods</h4>
+                <p>Het gebruik van cheats, hacks, mods of externe software die een oneerlijk voordeel geven is ten strengste verboden. Dit wordt bestraft met een permanente ban.</p>
+            </div>
+
+            <div>
+                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">8. Gezond verstand</h4>
+                <p><strong>Gezond verstand gaat boven alle regels.</strong> Roleplay draait om samen plezier hebben. Als je twijfelt over een situatie, gebruik dan je gezonde verstand en overleg met de staff.</p>
+            </div>
+        </div>
+
         <footer>
             <i class="fas fa-ticket-alt"></i> Vragen of onduidelijkheden? Ticket aanmaken in onze Support Discord.<br>
             © 2026 Amsterdam Roleplay — Gezond verstand gaat boven alle regels — Roleplay draait om samen plezier.<br>
-            <strong>APV-tekst zoals vastgesteld door Amsterdam Roleplay.</strong>
+            <strong>Volledige, onverkorte APV-tekst zoals vastgesteld door Amsterdam Roleplay.</strong>
         </footer>
-    </div>
-</div>
-
-<script>
-    const rulesData = [
-        { num: "1", title: "Cheats & Ongeoorloofde Software", sanctie: "Categorie 9", catClass: "cat9", content: `<p><strong>Wat houdt dit in?</strong><br> Het gebruik van software van derden die bedoeld is om een oneerlijk voordeel te behalen in het spel is ten strengste verboden. Dit omvat cheats, hacks, aimbots, wallhacks, ESP, snelheidshacks. Ook als je op andere servers betrapt bent op cheatgebruik behouden wij het recht je te weren. Zero-tolerancebeleid. Straf: Categorie 9 (permanente ban).</p>` },
-        { num: "1A", title: "Externe Software & Instellingen", sanctie: "Categorie 7", catClass: "cat7", content: `<p><strong>Verboden:</strong> Crosshairs, aangepaste resoluties (alleen AUTO/16:9/16:10), ReShade, macro's. Straf: Categorie 7 (7-14 dagen).</p>` },
-        { num: "2", title: "Exploits & Bugs", sanctie: "Categorie 3 t/m 7 + wipe", catClass: "cat7", content: `<p>Doelbewust gebruiken van bugs/exploits is verboden. Emotes misbruik (cat6), duplicatie (cat7+wipe), one punch bug (cat4). Accountwipe bij duplicatie.</p>` },
-        { num: "2A", title: "Real-Life Handel (IRL Trade)", sanctie: "Categorie 8", catClass: "cat8", content: `<p>Kopen/verkopen van in-game geld, items, diensten of accounts tegen echt geld (PayPal, crypto etc). Straf: 14-30 dagen + wipe, bij herhaling perm.</p>` },
-        { num: "3", title: "Alt Characters", sanctie: "Categorie 9", catClass: "cat9", content: `<p>Verboden: geld/items overdragen tussen alts, extra startersgeld, alt als verkenner, ban omzeilen. Toegestaan: 2e karakter op zelfde account. Straf: perm voor alle accounts.</p>` },
-        { num: "3A", title: "Startersgeld", sanctie: "Categorie 8", catClass: "cat8", content: `<p>Startersgeld weggeven zonder intentie te spelen = straf voor beide partijen. Straf: Categorie 8 + accountwipe.</p>` },
-        { num: "4", title: "Bedreiging & Intimidatie", sanctie: "Categorie 8", catClass: "cat8", content: `<p>Real-life bedreigingen, doxing, DDoS-aanvallen. Permanente ban + melding autoriteiten.</p>` },
-        { num: "5", title: "Fail RP", sanctie: "Categorie 4", catClass: "cat4", content: `<p><strong>Fail RP:</strong> Geen roleplay bij verwondingen, emotespam, praten onder water, banden leksteken zonder reden. Medische regel: doden naar ziekenhuis. Verwondingen uitspelen: over kop >40 km/u, crash object >85 km/u. Banden schieten alleen bij waarschuwing/achtervolging >5 min. Campen drugslocaties verboden. Straf: Categorie 4.</p>` },
-        { num: "6", title: "Powergamen", sanctie: "Categorie 3", catClass: "cat3", content: `<p>Powergamen: vluchten in appartement, wapen wegstoppen <10 min, DEL-menu misbruik, ambulance dwingen, emote abuse, campen bij politiebureau/ziekenhuis. Straf: Categorie 3.</p>` },
-        { num: "7", title: "Karakter breken / OOC", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Verboden OOC-woorden: staff, broodje, tickets, refund, bug. Alleen Nederlands/Engels. Ban/warn vermelden verboden. Straf: Categorie 1.</p>` },
-        { num: "8", title: "Copbaiten", sanctie: "Categorie 1-4", catClass: "cat4", content: `<p>Basis copbaiten cat1 (uitlokken), zwaar copbaiten cat4 (schieten in lucht, dreigen wapen).</p>` },
-        { num: "9", title: "No Value of Life (NVOL)", sanctie: "Categorie 4", catClass: "cat4", content: `<p>Verplicht waarde hechten aan leven. Zelfmoord, noodknop onder schot, porto onder schot, dekking voertuig. Gunpoint 15-20m. Meewerken bij wapendreiging. Straf: Categorie 4.</p>` },
-        { num: "10", title: "New Life Rule (NLR)", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Na overlijden vergeet je scenario. Niet meer mengen inzelfde conflict. Straf: Categorie 2.</p>` },
-        { num: "11", title: "Microfoon", sanctie: "Categorie 1-2", catClass: "cat2", content: `<p>Push-to-talk verplicht, voice changer alleen onderwereld. Soundpad met admin-toestemming. Straf: Categorie 1-2.</p>` },
-        { num: "12", title: "Earrape", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Overmatig lawaai, schreeuwen, pijngeluiden. Straf: Categorie 1.</p>` },
-        { num: "13", title: "VDM", sanctie: "Categorie 2 of 4", catClass: "cat4", content: `<p>Voertuig als wapen: 1 slachtoffer cat2, meerdere cat4.</p>` },
-        { num: "14", title: "RDM", sanctie: "Categorie 4", catClass: "cat4", content: `<p>Willekeurig doden zonder RP-reden. Geen geldige reden: aanrijding, weigeren dansen. Wel Birdy-uitdaging. Straf: Categorie 4 + wapen inleveren bij herhaling.</p>` },
-        { num: "15", title: "Metagamen", sanctie: "Categorie 3", catClass: "cat3", content: `<p>Informatie uit Discord, calls, streams gebruiken. Privestreamen verboden. Straf: Categorie 3.</p>` },
-        { num: "16", title: "Voertuig gebruik", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Pitten boven 130km/u verboden, grotere klasse pitten nooit. Off-road regels. Straf: Categorie 1.</p>` },
-        { num: "17", title: "GTA Style Driving", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Stuntjumps, onrealistisch off-road, rammen. Lekke banden max 130km/u. Straf: Categorie 1.</p>` },
-        { num: "18", title: "Illegale activiteiten Birdy/Instapic", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Geen witwas, wapens, drugs aanbieden op sociale media. Straf: Categorie 1.</p>` },
-        { num: "19", title: "Overheidskleding", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Verboden: POLICE/AMBULANCE logo's, pechhulpkleding. Straf: Categorie 1.</p>` },
-        { num: "20", title: "Schelden/beledigen", sanctie: "Categorie 5 of 6", catClass: "cat5", content: `<p>Ziektes cat5, seksuele beledigingen cat5, racisme cat6.</p>` },
-        { num: "21", title: "Standaard outfit", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Geen standaard zwart-wit outfit. Skinny kleding niet tijdens combat. Straf: Categorie 1.</p>` },
-        { num: "22", title: "Combatloggen", sanctie: "Categorie 4", catClass: "cat4", content: `<p>Server verlaten tijdens actief scenario. 5 min om terug te keren. Straf: Categorie 4.</p>` },
-        { num: "23", title: "Stream sniping", sanctie: "Categorie 3", catClass: "cat3", content: `<p>Info uit livestreams gebruiken. Straf: Categorie 3. Streamdelay min 30 sec.</p>` },
-        { num: "24", title: "Job voertuigen", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Jobvoertuig niet voor illegale activiteiten. Straf: Categorie 1.</p>` },
-        { num: "25", title: "/report gebruik", sanctie: "Geen straf", catClass: "cat-var", content: `<p>Reports duidelijk verwoorden. Voor RDM/metagame ticket in Discord.</p>` },
-        { num: "26", title: "Spammen", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Meer dan 3 reports in 10 sec. Straf: Categorie 1.</p>` }
-    ];
-
-    const extraArtikelen = [
-        { num: "27", title: "Taal", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Nederlands voertaal, Engels alleen met toestemming. Straf: Categorie 1.</p>` },
-        { num: "28", title: "Stemherkenning", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Stemherkenning mag, tenzij voice changer actief is.</p>` },
-        { num: "29", title: "Birdy/Instapic media", sanctie: "Eigen verantw.", catClass: "cat-var", content: `<p>Informatie uit social media is openbaar.</p>` },
-        { num: "30", title: "Criminele activiteiten", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Geen deals vanuit voertuig, geen dwang tot huis/auto sleutel. Straf: Categorie 2.</p>` },
-        { num: "31", title: "Criminele groeperingen", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Meer dan 5 = groepering, ganging up verboden. Straf: Categorie 1.</p>` },
-        { num: "32", title: "Oplichten en scammen", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Scammen voertuigen verboden, limiet €30.000. Straf: Categorie 1.</p>` },
-        { num: "33", title: "Overvallen", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Geen vrienden als gijzelaar, DSI alleen bij automatische wapens, counteren na 1 uur. Straf: Categorie 2.</p>` },
-        { num: "34", title: "Onderwereld & Rippen", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Rip-indicatoren: masker, holster, vest. Max 20 leden per gang. Straf: Categorie 2.</p>` },
-        { num: "35", title: "Gangwars", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Max 48 uur, bewijs nodig, dood = uit war. Straf: Categorie 2.</p>` },
-        { num: "36", title: "Ontvoeren", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Min. agenten: burger 2, 1 agent 4, 2 agenten 8. Max 90 min, max eis €30k/€50k.</p>` },
-        { num: "37", title: "Onder dreiging houden", sanctie: "Categorie 3", catClass: "cat3", content: `<p>Alleen bij zichtbare criminele attributen (holster, masker, vest). Straf: Categorie 3.</p>` },
-        { num: "38", title: "Leden criminele organisaties", sanctie: "Max 20", catClass: "cat-var", content: `<p>Max 20 leden per organisatie.</p>` },
-        { num: "39", title: "Rippen van wapens", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Wapen fysiek gezien, clip verplicht, max 2 uur. Straf: Categorie 1.</p>` },
-        { num: "40", title: "Officiële gangs", sanctie: "Categorie 5 + Warn", catClass: "cat5", content: `<p>Wekelijks RP-scenario, items via F6. Straf: Categorie 5.</p>` },
-        { num: "41", title: "Erkende gangs", sanctie: "Categorie 5 + Warn", catClass: "cat5", content: `<p>Wekelijks scenario, geen /me innemen. Straf: Categorie 5.</p>` },
-        { num: "42", title: "Wraakacties", sanctie: "Categorie 4-5", catClass: "cat5", content: `<p>Wraak tegen whitelisted jobs verboden (cat5). Na overlijden niet mengen (cat4).</p>` },
-        { num: "43", title: "Fouilleren", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Alleen met getrokken wapen en zichtbare indicatie. Straf: Categorie 2.</p>` },
-        { num: "44", title: "Ambulance", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Ambulance niet vermoorden, geen revive bij hoofdschot/verdrinking/val >5. Straf: Categorie 2.</p>` },
-        { num: "45", title: "Pechhulp", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Pechhulpmedewerkers niet vermoorden. Straf: Categorie 2.</p>` },
-        { num: "46", title: "Streamers", sanctie: "Categorie 6", catClass: "cat6", content: `<p>"Amsterdam Roleplay" in titel, geen kwaad daglicht. Straf: Categorie 6.</p>` },
-        { num: "47", title: "Erotische roleplay", sanctie: "Categorie 5", catClass: "cat5", content: `<p>Seksuele handelingen verboden. Straf: Categorie 5.</p>` },
-        { num: "48", title: "AFK kick voorkomen", sanctie: "Categorie 3", catClass: "cat3", content: `<p>Scripts/gewicht op toetsenbord verboden. Straf: Categorie 3.</p>` },
-        { num: "49", title: "Hulpdiensten algemeen", sanctie: "Categorie 6", catClass: "cat6", content: `<p>Corruptie = ontslag + ban. Straf: Categorie 6.</p>` },
-        { num: "50", title: "Goederen weggeven bij stoppen", sanctie: "Categorie 8", catClass: "cat8", content: `<p>Overdragen bij stoppen verboden, beide permaban.</p>` },
-        { num: "51", title: "Toxic gedrag", sanctie: "Categorie 4-5", catClass: "cat5", content: `<p>Respectloze reacties, pesten, ticketmisbruik. Straf cat4-5.</p>` },
-        { num: "52", title: "Stelen overheidsvoertuigen", sanctie: "Categorie 1", catClass: "cat1", content: `<p>Alleen tijdens achtervolging. Straf: Categorie 1.</p>` },
-        { num: "53", title: "Staff", sanctie: "Categorie 5-6", catClass: "cat6", content: `<p>Liegen tegen staff cat5, voordoen als staff cat6.</p>` },
-        { num: "54", title: "Rippen op eiland", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Op eiland vrijwel alles afpakken en doden na rip. Straf cat2.</p>` },
-        { num: "55", title: "Politie op eiland", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Politie treedt op maar houdt NVOL/FailRP aan.</p>` },
-        { num: "56", title: "Samenwerking eiland", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Samenwerken zonder toestemming verboden.</p>` },
-        { num: "57", title: "Vliegtuig/Helikopter", sanctie: "Categorie 4", catClass: "cat4", content: `<p>Vliegbrevet verplicht, geen gevangenisuitbraak met heli.</p>` },
-        { num: "58", title: "Vliegdekschip", sanctie: "Categorie 2", catClass: "cat2", content: `<p>Militair gebied, betreden op eigen risico.</p>` },
-        { num: "59", title: "Helikopter op eiland", sanctie: "Specifiek", catClass: "cat-var", content: `<p>Heli's uitschieten op eiland toegestaan.</p>` },
-        { num: "60", title: "Staff limiet", sanctie: "Reglement", catClass: "cat-var", content: `<p>Max 3 leden per gang in staffteam.</p>` },
-        { num: "61", title: "Combat Gedrag", sanctie: "Categorie 7", catClass: "cat7", content: `<p>Alleen combat zoeken = ban 30 dagen.</p>` },
-        { num: "62", title: "Haat veroorzakend", sanctie: "Categorie 5", catClass: "cat5", content: `<p>Toxic op Twitter, tickets zonder reden, Discord toxiciteit = cat5.</p><p><strong>Onthoud: gezond verstand gaat boven alle regels - roleplay draait om samen plezier.</strong></p>` }
-    ];
-    const alleArtikelen = [...rulesData, ...extraArtikelen];
-    function buildAccordion(filterText = "") {
-        const root = document.getElementById("accordion-root");
-        if (!root) return;
-        root.innerHTML = "";
-        const lowerFilter = filterText.toLowerCase();
-        const filtered = alleArtikelen.filter(rule => !lowerFilter || rule.num.includes(lowerFilter) || rule.title.toLowerCase().includes(lowerFilter) || rule.sanctie.toLowerCase().includes(lowerFilter) || rule.content.toLowerCase().includes(lowerFilter));
-        if(filtered.length === 0) { root.innerHTML = `<div style="padding:2rem;text-align:center;">⚠️ Geen artikelen gevonden voor "${filterText}".</div>`; return; }
-        filtered.forEach(rule => {
-            const card = document.createElement("div"); card.className = "rule-card";
-            const header = document.createElement("div"); header.className = "rule-header";
-            const titleDiv = document.createElement("div"); titleDiv.className = "rule-title";
-            titleDiv.innerHTML = `<span class="rule-nummer">Art. ${rule.num}</span> <span class="rule-naam">${rule.title}</span>`;
-            const badge = document.createElement("span"); badge.className = `sanction-badge ${rule.catClass}`;
-            badge.innerHTML = `<i class="fas fa-gavel"></i> ${rule.sanctie}`;
-            header.appendChild(titleDiv); header.appendChild(badge);
-            const contentDiv = document.createElement("div"); contentDiv.className = "rule-content";
-            contentDiv.innerHTML = rule.content;
-            header.addEventListener("click", () => contentDiv.classList.toggle("open"));
-            card.appendChild(header); card.appendChild(contentDiv);
-            root.appendChild(card);
-        });
-    }
-    document.getElementById("searchInput")?.addEventListener("input", e => buildAccordion(e.target.value));
-    document.getElementById("resetFilterBtn")?.addEventListener("click", () => { document.getElementById("searchInput").value = ""; buildAccordion(""); });
-    buildAccordion("");
-</script>
-</body>
-</html> -->
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Amsterdam Roleplay · APV · Volledige 62 Artikelen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #070b10;
-            color: #eef2ff;
-            line-height: 1.55;
-            scroll-behavior: smooth;
-        }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #121a24; border-radius: 12px; }
-        ::-webkit-scrollbar-thumb { background: #2c5a74; border-radius: 12px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3e7fa0; }
-        .docs-container { max-width: 1440px; margin: 0 auto; background: #0d131b; border-radius: 0 0 32px 32px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
-        .hero { background: radial-gradient(ellipse at 80% 30%, #11212e, #070c12); padding: 3rem 2.8rem 2.5rem 2.8rem; border-bottom: 1px solid rgba(37,150,190,0.35); position: relative; text-align: center; }
-        .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, #2596be, transparent); }
-        .hero h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; background: linear-gradient(125deg, #ffffff, #8ac4e0); background-clip: text; -webkit-background-clip: text; color: transparent; display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%; }
-        .hero-sub { color: #8fbbd9; margin-top: 0.8rem; font-weight: 400; font-size: 0.95rem; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .badge-panel { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; justify-content: center; }
-        .stat-chip { background: rgba(30, 50, 70, 0.6); backdrop-filter: blur(8px); border-radius: 100px; padding: 0.4rem 1.2rem; font-size: 0.75rem; font-weight: 500; border: 1px solid #2e5775; }
-        .stat-chip i { margin-right: 6px; color: #2596be; }
-        .search-section { padding: 1rem 2.2rem; background: #0a1017; border-bottom: 1px solid #1e2b36; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
-        .search-box { flex: 2; min-width: 280px; background: #111a24; border-radius: 60px; padding: 0.65rem 1.4rem; display: flex; align-items: center; gap: 12px; border: 1px solid #284353; transition: all 0.25s ease; }
-        .search-box:focus-within { border-color: #2596be; box-shadow: 0 0 0 3px rgba(37,150,190,0.2); }
-        .search-box i { color: #2596be; font-size: 1rem; }
-        .search-box input { background: transparent; border: none; width: 100%; outline: none; font-size: 0.9rem; font-weight: 400; color: #ecf9ff; }
-        .search-box input::placeholder { color: #5a7f9a; }
-        .reset-btn { background: #1a2a36; padding: 0.55rem 1.3rem; border-radius: 60px; text-decoration: none; font-size: 0.7rem; font-weight: 600; color: #cce9ff; transition: 0.2s; border: 1px solid #2f556b; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
-        .reset-btn:hover { background: #2a4050; color: white; border-color: #2596be; }
-        .main-rules { padding: 2rem 2.2rem 3rem 2.2rem; }
-        .section-title { font-size: 1.6rem; font-weight: 600; margin: 1.8rem 0 1.2rem 0; border-left: 4px solid #2596be; padding-left: 1rem; letter-spacing: -0.3px; color: #f0f6fe; }
-        .sanctie-tabel { width: 100%; border-collapse: collapse; background: #0f1822; margin: 1.5rem 0 2rem 0; border-radius: 24px; overflow: hidden; border: 1px solid #253f4f; font-size: 0.85rem; }
-        .sanctie-tabel th { background: #0f1a24; padding: 1rem 1.2rem; text-align: left; font-weight: 600; color: #bbdef5; border-bottom: 1px solid #1f3948; }
-        .sanctie-tabel td { padding: 0.85rem 1.2rem; border-bottom: 1px solid #1a2e3c; color: #cde4f5; }
-        .cat-badge { display: inline-block; padding: 0.2rem 0.9rem; border-radius: 40px; font-weight: 700; font-size: 0.7rem; }
-        .bg-cat0 { background: #2e4b66; color: white; } .bg-cat1 { background: #1e7e6b; color: white; } .bg-cat2 { background: #2f6e9e; color: white; }
-        .bg-cat3 { background: #cf7c2c; color: white; } .bg-cat4 { background: #c95151; color: white; } .bg-cat5 { background: #8a5eb0; color: white; }
-        .bg-cat6 { background: #3e7fb0; color: white; } .bg-cat7 { background: #468c7a; color: white; } .bg-cat8 { background: #d4922b; color: white; }
-        .bg-cat9 { background: #b3475c; color: white; } .bg-var { background: #4f6f8c; color: white; }
-        .rule-card { background: #0f1822; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #253f50; transition: all 0.2s cubic-bezier(0.2, 0, 0, 1); }
-        .rule-card:hover { border-color: #3b6f8a; box-shadow: 0 8px 24px rgba(0,0,0,0.3); transform: translateY(-1px); }
-        .rule-header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.8rem; cursor: pointer; background: #0f1822; border-radius: 20px; flex-wrap: wrap; gap: 0.8rem; transition: background 0.2s; }
-        .rule-header:hover { background: #14212e; }
-        .rule-title { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-        .rule-nummer { background: #1f364a; padding: 0.25rem 0.9rem; border-radius: 50px; font-weight: 700; font-size: 0.7rem; color: #a3d4f0; }
-        .rule-naam { font-weight: 600; font-size: 1rem; color: #eaf3fd; letter-spacing: -0.2px; }
-        .sanction-badge { display: inline-flex; align-items: center; gap: 8px; padding: 0.35rem 1.2rem; border-radius: 60px; font-weight: 600; font-size: 0.7rem; backdrop-filter: blur(4px); }
-        .cat0 { background: #2e4b66; color: white; } .cat1 { background: #1e7e6b; color: white; } .cat2 { background: #2f6e9e; color: white; }
-        .cat3 { background: #cf7c2c; color: white; } .cat4 { background: #c95151; color: white; } .cat5 { background: #8a5eb0; color: white; }
-        .cat6 { background: #3e7fb0; color: white; } .cat7 { background: #468c7a; color: white; } .cat8 { background: #d4922b; color: white; }
-        .cat9 { background: #b3475c; color: white; } .cat-var { background: #4f6f8c; color: white; }
-        .rule-content { display: none; padding: 0.2rem 1.8rem 1.8rem 1.8rem; border-top: 1px solid #1e3a4a; background: #0b131d; font-size: 0.9rem; color: #d2e5f5; line-height: 1.55; border-radius: 0 0 20px 20px; }
-        .rule-content.open { display: block; }
-        .rule-content p, .rule-content ul { margin: 0.8rem 0; }
-        .rule-content li { margin-left: 1.5rem; margin-bottom: 0.3rem; }
-        .rule-content strong { color: #7fc9e8; font-weight: 600; }
-        footer { background: #080e14; text-align: center; padding: 1.5rem; font-size: 0.7rem; border-top: 1px solid #1f2f3c; color: #7a9bbb; margin-top: 2rem; }
-        @media (max-width: 750px) { .hero { padding: 1.5rem; } .main-rules { padding: 1rem; } .rule-header { flex-direction: column; align-items: flex-start; } .section-title { font-size: 1.3rem; } }
-    </style>
-</head>
-<body>
-<div class="docs-container">
-    <div class="hero">
-        <h1>Amsterdam Roleplay · APV</h1>
-        <div class="hero-sub">Algemene Plaatselijke Verordening · 62 Artikelen · Officieel regelwerk voor alle spelers en staff</div>
-        <div class="badge-panel">
-            <div class="stat-chip">Volledige onverkorte tekst</div>
-            <div class="stat-chip">Premium donker design</div>
-            <div class="stat-chip">Live zoekfilter</div>
-        </div>
-    </div>
-    <div class="search-section">
-        <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Zoek in alle 62 artikelen (bijv. 'RDM', 'metagamen', 'powergamen')"></div>
-        <div class="reset-btn" id="resetFilterBtn">Wis filter</div>
-    </div>
-    <div class="main-rules">
-        <div class="section-title">Strafcategorieën Overzicht</div>
-        <table class="sanctie-tabel">
-            <thead><tr><th>Categorie</th><th>Sanctie</th><th>Omschrijving</th></tr></thead>
-            <tbody>
-                <tr><td><span class="cat-badge bg-cat0">Categorie 0</span></td><td>Mondelinge waarschuwing</td><td>Informeel / eerste lichte fout, geen ban.</td></tr>
-                <tr><td><span class="cat-badge bg-cat1">Categorie 1</span></td><td>Waarschuwing + taken</td><td>Kleine overtredingen: karakter breken, earrape, taal, lichte failRP.</td></tr>
-                <tr><td><span class="cat-badge bg-cat2">Categorie 2</span></td><td>30 taken taakstraf</td><td>Middelgroot: NLR, criminele basisregels, rippen zonder indicatie, gangwar basis.</td></tr>
-                <tr><td><span class="cat-badge bg-cat3">Categorie 3</span></td><td>50 taken taakstraf</td><td>Ernstig: powergamen, metagamen, stream sniping, AFK omzeilen.</td></tr>
-                <tr><td><span class="cat-badge bg-cat4">Categorie 4</span></td><td>1 dag ban</td><td>Zeer ernstig: RDM, failRP (structureel), NVOL, combatloggen, VDM.</td></tr>
-                <tr><td><span class="cat-badge bg-cat5">Categorie 5</span></td><td>2 dagen ban</td><td>Zwaar: schelden ziektes, toxiciteit, erotische RP, gang-warns.</td></tr>
-                <tr><td><span class="cat-badge bg-cat6">Categorie 6</span></td><td>3 dagen ban</td><td>Structureel: streamers in kwaad daglicht, corruptie, racisme.</td></tr>
-                <tr><td><span class="cat-badge bg-cat7">Categorie 7</span></td><td>1 week ban</td><td>Extreem: combatgedrag, externe software, duplicatie-exploits.</td></tr>
-                <tr><td><span class="cat-badge bg-cat8">Categorie 8</span></td><td>Permanente verbanning</td><td>Economische fraude: IRL trade, startersgeld misbruik, alt-fraude.</td></tr>
-                <tr><td><span class="cat-badge bg-cat9">Categorie 9</span></td><td>Permanente ban + account wipe</td><td>Cheats, hacks, alt misbruik, bedreiging/doxing.</td></tr>
-                <tr><td><span class="cat-badge bg-var">Variabel</span></td><td>Afhankelijk van context</td><td>Hoogte van de straf, /report gebruik, staff limiet.</td></tr>
-            </tbody>
-        </table>
-        <p><strong>Strafverzwaring:</strong> Bij herhaling wordt de straf met een categorie verhoogd (Categorie 1 → 2 → 3, etc.).</p>
-        <div class="section-title">Alle 62 Artikelen (klik voor volledige tekst)</div>
-        <div id="accordion-root"></div>
-        <footer>Vragen of onduidelijkheden? Ticket aanmaken in onze Support Discord.<br>© 2026 Amsterdam Roleplay — Gezond verstand gaat boven alle regels — Roleplay draait om samen plezier.<br>Volledige, onverkorte APV-tekst zoals vastgesteld door Amsterdam Roleplay.</footer>
     </div>
 </div>
 
@@ -688,7 +578,7 @@ function buildAccordion(filterText = "") {
     root.innerHTML = "";
     const lowerFilter = filterText.toLowerCase();
     const filtered = allRules.filter(rule => !lowerFilter || rule.num.includes(lowerFilter) || rule.title.toLowerCase().includes(lowerFilter) || rule.sanctie.toLowerCase().includes(lowerFilter) || rule.content.toLowerCase().includes(lowerFilter));
-    if (filtered.length === 0) { root.innerHTML = `<div style="padding:2rem;text-align:center;">Geen artikelen gevonden voor "${filterText}".</div>`; return; }
+    if (filtered.length === 0) { root.innerHTML = `<div style="padding:2rem;text-align:center;color:#4a6a7a;">Geen artikelen gevonden voor "${filterText}".</div>`; return; }
     filtered.forEach(rule => {
         const card = document.createElement("div"); card.className = "rule-card";
         const header = document.createElement("div"); header.className = "rule-header";
@@ -704,6 +594,7 @@ function buildAccordion(filterText = "") {
         root.appendChild(card);
     });
 }
+
 document.getElementById("searchInput")?.addEventListener("input", e => buildAccordion(e.target.value));
 document.getElementById("resetFilterBtn")?.addEventListener("click", () => { document.getElementById("searchInput").value = ""; buildAccordion(""); });
 buildAccordion("");
