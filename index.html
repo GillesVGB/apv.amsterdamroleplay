@@ -6,88 +6,149 @@
     <title>Amsterdam Roleplay · APV</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #f0f4f8;
-            color: #1a2a3a;
-            line-height: 1.55;
-            scroll-behavior: smooth;
-        }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #e8edf2; border-radius: 12px; }
-        ::-webkit-scrollbar-thumb { background: #1a5276; border-radius: 12px; }
-        ::-webkit-scrollbar-thumb:hover { background: #154360; }
+<style>
+    /* ============================================================
+   CSS TOT AAN NAVIGATIE
+   ============================================================ */
 
-        .docs-container {
-            max-width: 1440px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 0 0 32px 32px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f0f4f8;
+    color: #1a2a3a;
+    line-height: 1.55;
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #e8edf2; border-radius: 12px; }
+::-webkit-scrollbar-thumb { background: #1a5276; border-radius: 12px; }
+::-webkit-scrollbar-thumb:hover { background: #154360; }
 
-        /* Navigatie */
-        .top-nav {
-            background: #ffffff;
-            padding: 0.8rem 2.2rem;
-            border-bottom: 2px solid #1a5276;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-        .nav-logo img {
-            height: 40px;
-            width: auto;
-            border-radius: 8px;
-        }
-        .nav-logo span {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: #1a2a3a;
-        }
-        .nav-links {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        .nav-btn {
-            padding: 0.5rem 1.2rem;
-            border-radius: 60px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-            border: 2px solid #1a5276;
-            color: #1a5276;
-            background: transparent;
-            cursor: pointer;
-        }
-        .nav-btn:hover {
-            background: #1a5276;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(26, 82, 118, 0.3);
-        }
-        .nav-btn.active {
-            background: #1a5276;
-            color: white;
-        }
+.docs-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 0 0 32px 32px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+}
 
+/* ============================================================
+   NAVIGATIE
+   ============================================================ */
+
+.top-nav {
+    background: #ffffff;
+    padding: 0.8rem 2.2rem;
+    border-bottom: 2px solid #1a5276;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+.nav-logo img {
+    height: 40px;
+    width: auto;
+    border-radius: 8px;
+}
+.nav-logo span {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #1a2a3a;
+}
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.nav-btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 60px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    border: 2px solid #1a5276;
+    color: #1a5276;
+    background: transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.nav-btn:hover {
+    background: #1a5276;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 82, 118, 0.3);
+}
+.nav-btn.active {
+    background: #1a5276;
+    color: white;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: #ffffff;
+    min-width: 180px;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    border: 1px solid #dce4ec;
+    overflow: hidden;
+    z-index: 1000;
+    padding: 0.3rem 0;
+}
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    color: #1a2a3a;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+.dropdown-content a:hover {
+    background: #e8f0f8;
+    color: #1a5276;
+}
+.dropdown-content a i {
+    width: 18px;
+    color: #1a5276;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropdown-btn {
+    background: #1a5276;
+    color: white;
+}
         /* Hero */
         .hero {
             background: linear-gradient(135deg, #e8f0f6, #d4e4f0);
@@ -379,18 +440,35 @@
 <body>
 <div class="docs-container">
 
-    <!-- Navigatie -->
-    <nav class="top-nav">
-        <a href="#" class="nav-logo">
-            <img src="https://media.discordapp.net/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png?ex=6a3222b8&is=6a30d138&hm=d0d7f20844853317fb2cce30dac366f61e54194867d3fb0b54e02087479b4b71&=&format=webp&quality=lossless&width=525&height=525" alt="Amsterdam Roleplay">
-            <span>Amsterdam RP</span>
-        </a>
-        <div class="nav-links">
-            <a href="#strafcategorieen" class="nav-btn">Strafcategorieën</a>
-            <a href="#apv" class="nav-btn active">APV</a>
-            <a href="#regels" class="nav-btn">Regels</a>
+<!-- ============================================================
+     NAVIGATIE (VOLLEDIG)
+     ============================================================ -->
+
+<nav class="top-nav">
+    <a href="#" class="nav-logo">
+        <img src="https://media.discordapp.net/attachments/1507087328752177214/1515755129452757082/amsterdamlogo.png?ex=6a3222b8&is=6a30d138&hm=d0d7f20844853317fb2cce30dac366f61e54194867d3fb0b54e02087479b4b71&=&format=webp&quality=lossless&width=525&height=525" alt="Amsterdam Roleplay">
+        <span>Amsterdam RP</span>
+    </a>
+    <div class="nav-links">
+        <a href="#strafcategorieen" class="nav-btn">Strafcategorieën</a>
+        <a href="#apv" class="nav-btn active">APV</a>
+        <a href="#discord-regels" class="nav-btn"><i class="fab fa-discord"></i> Discord</a>
+        <a href="#regels" class="nav-btn">Regels</a>
+        
+        <!-- Discord Dropdown -->
+        <div class="dropdown">
+            <button class="nav-btn dropdown-btn">
+                <i class="fas fa-chevron-down"></i> Links
+            </button>
+            <div class="dropdown-content">
+                <a href="https://discord.gg/PPcBUGhePj" target="_blank"><i class="fab fa-discord"></i> Amsterdam</a>
+                <a href="https://discord.gg/Ftvxq562bC" target="_blank"><i class="fas fa-headset"></i> Support</a>
+                <a href="https://discord.gg/3T5geFpt" target="_blank"><i class="fas fa-landmark"></i> Overheid</a>
+                <a href="https://discord.gg/bjmDfK6r68" target="_blank"><i class="fas fa-skull"></i> Onderwereld</a>
+            </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Hero -->
     <div class="hero">
@@ -442,52 +520,62 @@
         <div id="apv" class="section-title"><i class="fas fa-book-open"></i> Alle 62 Artikelen (APV)</div>
         <div id="accordion-root"></div>
 
-        <!-- Regels -->
-        <div id="regels" class="section-title"><i class="fas fa-list-check"></i> Algemene Regels</div>
-        <div style="background: #f8fafc; padding: 2rem; border-radius: 20px; border: 1px solid #dce4ec;">
-            <h3 style="color: #1a5276; margin-bottom: 1rem;"><i class="fas fa-info-circle"></i> Algemene regels van Amsterdam Roleplay</h3>
-            
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">1. Respect en gedrag</h4>
-                <p>Behandel alle spelers en staff met respect. Discriminatie, racisme, seksisme, homofobie en ander haatzaaiend gedrag is ten strengste verboden. We streven naar een veilige en inclusieve omgeving voor iedereen.</p>
-            </div>
+<!-- ============================================================
+     REGELS SECTIE (VOLLEDIG)
+     ============================================================ -->
 
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">2. Roleplay kwaliteit</h4>
-                <p>Streef naar realistische en kwalitatieve roleplay. Vermijd powergamen, metagamen en failRP. Je personage moet een realistisch leven leiden binnen de wereld van Amsterdam Roleplay.</p>
-            </div>
+<!-- Algemene Regels -->
+<div id="regels" class="section-title"><i class="fas fa-list-check"></i> Algemene Regels</div>
+<div style="background: #f8fafc; padding: 2rem; border-radius: 20px; border: 1px solid #dce4ec;">
+    <h3 style="color: #1a5276; margin-bottom: 1.5rem; font-size: 1.2rem;">
+        <i class="fas fa-info-circle"></i> Algemene regels van Amsterdam Roleplay
+    </h3>
+    
+    <div style="margin-bottom: 1.5rem; background: white; padding: 1.2rem; border-radius: 12px; border-left: 4px solid #1a5276;">
+        <h4 style="color: #1a5276; margin-bottom: 0.5rem;">1. Respect en gedrag</h4>
+        <p>Behandel alle spelers en staff met respect. Discriminatie, racisme, seksisme, homofobie en ander haatzaaiend gedrag is ten strengste verboden. We streven naar een veilige en inclusieve omgeving voor iedereen.</p>
+    </div>
 
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">3. Staff instructies</h4>
-                <p>Volg altijd de instructies van staffleden op. Zij zijn er om de server draaiende te houden en problemen op te lossen. Liegen tegen staff of het negeren van instructies kan leiden tot een ban.</p>
-            </div>
+    <div style="margin-bottom: 1.5rem; background: white; padding: 1.2rem; border-radius: 12px; border-left: 4px solid #1a5276;">
+        <h4 style="color: #1a5276; margin-bottom: 0.5rem;">2. Roleplay kwaliteit</h4>
+        <p>Streef naar realistische en kwalitatieve roleplay. Vermijd powergamen, metagamen en failRP. Je personage moet een realistisch leven leiden binnen de wereld van Amsterdam Roleplay.</p>
+    </div>
 
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">4. Bugs en exploits</h4>
-                <p>Meld bugs en exploits direct bij de staff. Het misbruiken van bugs of exploits wordt streng bestraft en kan leiden tot een permanente ban.</p>
-            </div>
+    <div style="margin-bottom: 1.5rem; background: white; padding: 1.2rem; border-radius: 12px; border-left: 4px solid #1a5276;">
+        <h4 style="color: #1a5276; margin-bottom: 0.5rem;">3. Staff instructies</h4>
+        <p>Volg altijd de instructies van staffleden op. Zij zijn er om de server draaiende te houden en problemen op te lossen. Liegen tegen staff of het negeren van instructies kan leiden tot een ban. Het bedreigen van staff is ten strengste verboden.</p>
+    </div>
 
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">5. Realisme</h4>
-                <p>Houd je roleplay realistisch. Dit betekent dat je je moet gedragen zoals een normaal persoon zou doen in de situatie die zich voordoet. Denk aan verkeersregels, sociale interacties en emotionele reacties.</p>
-            </div>
+    <div style="margin-bottom: 1.5rem; background: white; padding: 1.2rem; border-radius: 12px; border-left: 4px solid #1a5276;">
+        <h4 style="color: #1a5276; margin-bottom: 0.5rem;">4. Bugs en exploits</h4>
+        <p>Meld bugs en exploits direct bij de staff. Het misbruiken van bugs of exploits wordt streng bestraft en kan leiden tot een permanente ban.</p>
+    </div>
 
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">6. Communicatie</h4>
-                <p>Gebruik alleen Nederlands of Engels in de voice chat. Andere talen zijn niet toegestaan tenzij er toestemming is gegeven door de staff. Zorg dat je een werkende microfoon hebt en gebruik push-to-talk.</p>
-            </div>
+    <div style="margin-bottom: 1.5rem; background: white; padding: 1.2rem; border-radius: 12px; border-left: 4px solid #1a5276;">
+        <h4 style="color: #1a5276; margin-bottom: 0.5rem;">5. Realisme</h4>
+        <p>Houd je roleplay realistisch. Dit betekent dat je je moet gedragen zoals een normaal persoon zou doen in de situatie die zich voordoet. Denk aan verkeersregels, sociale interacties en emotionele reacties.</p>
+    </div>
 
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">7. Cheats en mods</h4>
-                <p>Het gebruik van cheats, hacks, mods of externe software die een oneerlijk voordeel geven is ten strengste verboden. Dit wordt bestraft met een permanente ban.</p>
-            </div>
+    <div style="margin-bottom: 1.5rem; background: white; padding: 1.2rem; border-radius: 12px; border-left: 4px solid #1a5276;">
+        <h4 style="color: #1a5276; margin-bottom: 0.5rem;">6. Communicatie</h4>
+        <p>Gebruik alleen Nederlands of Engels in de voice chat. Andere talen zijn niet toegestaan tenzij er toestemming is gegeven door de staff. Zorg dat je een werkende microfoon hebt en gebruik push-to-talk.</p>
+    </div>
 
-            <div>
-                <h4 style="color: #1a5276; margin-bottom: 0.5rem;">8. Gezond verstand</h4>
-                <p><strong>Gezond verstand gaat boven alle regels.</strong> Roleplay draait om samen plezier hebben. Als je twijfelt over een situatie, gebruik dan je gezonde verstand en overleg met de staff.</p>
-            </div>
-        </div>
+    <div style="margin-bottom: 1.5rem; background: white; padding: 1.2rem; border-radius: 12px; border-left: 4px solid #1a5276;">
+        <h4 style="color: #1a5276; margin-bottom: 0.5rem;">7. Cheats en mods</h4>
+        <p>Het gebruik van cheats, hacks, mods of externe software die een oneerlijk voordeel geven is ten strengste verboden. Dit wordt bestraft met een permanente ban.</p>
+    </div>
 
+    <div style="margin-bottom: 1.5rem; background: white; padding: 1.2rem; border-radius: 12px; border-left: 4px solid #1a5276;">
+        <h4 style="color: #1a5276; margin-bottom: 0.5rem;">8. Gezond verstand</h4>
+        <p><strong>Gezond verstand gaat boven alle regels.</strong> Roleplay draait om samen plezier hebben. Als je twijfelt over een situatie, gebruik dan je gezonde verstand en overleg met de staff.</p>
+    </div>
+
+    <div style="background: white; padding: 1.2rem; border-radius: 12px; border-left: 4px solid #c0392b; margin-top: 0.5rem;">
+        <h4 style="color: #c0392b; margin-bottom: 0.5rem;"><i class="fas fa-exclamation-triangle"></i> Belangrijk</h4>
+        <p>Overtreding van deze regels kan leiden tot waarschuwingen, tijdelijke of permanente verbanningen, afhankelijk van de ernst en frequentie van de overtreding. Staff heeft altijd het laatste woord.</p>
+    </div>
+</div>
         <footer>
             <i class="fas fa-ticket-alt"></i> Vragen of onduidelijkheden? Ticket aanmaken in onze Support Discord.<br>
             © 2026 Amsterdam Roleplay — Gezond verstand gaat boven alle regels — Roleplay draait om samen plezier.<br>
