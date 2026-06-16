@@ -166,7 +166,6 @@ body.dark-mode #discord-regels + div > div:last-child h4 {
 body.dark-mode #discord-regels + div > div:last-child p {
     color: #e8f0f8 !important;
 }
-    /* Scroll naar boven knop - verbeterd */
 #scrollTopBtn {
     position: fixed;
     bottom: 30px;
@@ -179,17 +178,28 @@ body.dark-mode #discord-regels + div > div:last-child p {
     height: 60px;
     font-size: 1.8rem;
     cursor: pointer;
-    display: none;
-    box-shadow: 0 4px 20px rgba(26, 82, 118, 0.4);
-    transition: all 0.3s ease;
     z-index: 999;
-    animation: fadeInUp 0.3s ease;
+    box-shadow: 0 4px 20px rgba(26, 82, 118, 0.4);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* Standaard: verborgen + naar beneden + kleiner */
+    transform: translateY(100px) scale(0.5);
+    opacity: 0;
+    pointer-events: none;
 }
+
+#scrollTopBtn.visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
 #scrollTopBtn:hover {
     transform: translateY(-4px) scale(1.1);
     box-shadow: 0 8px 30px rgba(26, 82, 118, 0.6);
     background: #1a6a8a;
 }
+
 #scrollTopBtn:active {
     transform: scale(0.95);
 }
@@ -202,18 +212,6 @@ body.dark-mode #scrollTopBtn {
 body.dark-mode #scrollTopBtn:hover {
     background: #3a8aaa;
     box-shadow: 0 8px 30px rgba(42, 106, 138, 0.7);
-}
-
-/* Animatie */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Mobiel */
@@ -1009,13 +1007,13 @@ document.getElementById('darkModeToggle')?.addEventListener('click', function() 
     document.body.classList.toggle('dark-mode');
     this.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
-    // Scroll naar boven knop - tonen/verbergen
+// Scroll naar boven knop - slide animatie
 window.addEventListener('scroll', function() {
     const btn = document.getElementById('scrollTopBtn');
     if (window.scrollY > 300) {
-        btn.style.display = 'block';
+        btn.classList.add('visible');
     } else {
-        btn.style.display = 'none';
+        btn.classList.remove('visible');
     }
 });
     </script>
